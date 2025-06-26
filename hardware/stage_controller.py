@@ -99,6 +99,20 @@ class TemikaStageController(Stage):
         print ("new line\n")
         print (self.get_x())
 
+    def move_xy(self, x_position, y_position, speed):#TODO check with Temika if this is correct
+        command = f"<{self.name}>"
+        command += "<stepper axis=\"x\">"
+        command += f"<move_absolute>{x_position} {speed}</move_absolute>"
+        command += f"<move_absolute>{y_position} {speed}</move_absolute>"
+        command += "<wait_moving_end></wait_moving_end>"
+        command += "</stepper>"
+        command += f"</{self.name}>"
+        reply = self.temika_comms.send_command(command, reply=False)
+        print (reply)
+        print ("new line\n")
+        print (self.get_x())
+
+
     def move_y(self, distance):
         pass
 

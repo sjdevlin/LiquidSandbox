@@ -1,6 +1,6 @@
 from models import Experiment, Sample
 from datetime import datetime
-from operators import ExperimentOperator
+from operators import ExperimentOperator, ImageRunOperator
 import copy
 
 
@@ -9,32 +9,28 @@ class ExperimentListPresenter():
         self.view = view
         self.db = db
         self.view.exp_bind_row_selection(self.on_exp_row_selected)
-#        self.view.img_bind_row_selection(self.on_img_row_selected)
+        self.view.img_bind_row_selection(self.on_img_row_selected)
         self.refresh_view()
         self.view.delete_button.configure(command=self.delete_experiment)
         self.view.copy_button.configure(command=self.copy_experiment)
-        self.view.edit_button.configure(command=self.open_experiment)
-        self.view.new_button.configure(command=self.new_experiment)
+        self.selected_exp_row = None
+        self.selected_img_row = None
 
 
     def on_exp_row_selected(self, event):
         """This method handles the row selection logic."""
-        self.selected_row = self.view.get_id_of_selected_row()
-        if self.selected_row:
-            self.view.enable_run_button()
+        self.selected_exp_row = self.view.get_id_of_selected_exp_row()
+        if self.selected_exp_row:
             self.view.enable_copy_button()
-            if self.db.get_experiment_by_id(self.selected_row).anneal_status == "Not Run":
-                self.view.enable_delete_button()
-                self.view.enable_edit_button()
-                self.view.run_button.configure(text="Run")
-                self.view.run_button.configure(command=self.run_experiment)
-                self.view.run_button.configure(fg_color='#992200')
-            elif self.db.get_experiment_by_id(self.selected_row).anneal_status == "Complete" or self.db.get_experiment_by_id(self.selected_row).anneal_status == "Aborted":
-                self.view.disable_delete_button()
-                self.view.disable_edit_button()
-                self.view.run_button.configure(text="Results")
-                self.view.run_button.configure(command=self.open_experiment)
-                self.view.run_button.configure(fg_color='#009922')
+            self.view.enable_delete_button()
+            if self.selected_img_row:
+                self.view.enable_run_button()
+
+    def on_img_row_selected(self, event):
+        """This method handles the row selection logic."""
+        self.selected_img_row = self.view.get_id_of_selected_img_row()
+        if self.selected_exp_row and self.selected_img_row:
+            self.view.enable_run_button()
 
 
     def refresh_view(self):
@@ -63,20 +59,31 @@ class ExperimentListPresenter():
             for ims in image_sets
         ]
         self.view.show_image_sets(data)
+        self.view.disable_run_button()
+        self.view.disable_copy_button()
+        self.view.disable_delete_button()
 
 
     def copy_experiment(self):
-        old_experiment = self.db.get_experiment_by_id(self.selected_row)
+        old_experiment = self.db.get_experiment_by_id(self.selected_exp_row)
         new_experiment = Experiment(plate_id = old_experiment.plate_id)
         new_experiment.description = f"{old_experiment.description} (copy)"
         new_experiment.notes = f"**copied from experiment: {old_experiment.id} ** \n{old_experiment.notes}"
         new_experiment.anneal_status = "Not Run"
         new_experiment.creation_date_time = datetime.now()
-        new_experiment.sample = [Sample(experiment_id=new_experiment.id, plate_well_id=s.plate_well_id, temperature_profile_id=s.temperature_profile_id, well_index=s.well_index ) for s in old_experiment.sample]
+        new_experiment.sample = [Sample(experiment_id=new_experiment.id, 
+                                        well_row = s.well_row, 
+                                        well_column = s.well_column, 
+                                        mix_cycles = s.mix_cycles,
+                                        mix_speed = s.mix_speed,
+                                        mix_volume = s.mix_volume,
+                                        mix_height = s.mix_height,
+                                        pipette = s.pipette  
+                                        ) for s in old_experiment.sample]
+
         self.db.add_experiment(new_experiment)
         self.view.disable_run_button()
         self.view.disable_copy_button()
-        self.view.disable_edit_button()
         self.view.disable_delete_button()
         self.refresh_view()
 
@@ -87,19 +94,11 @@ class ExperimentListPresenter():
         experiment_view = ExperimentDetailView(self.view)  # Create a new view
         experiment_presenter = ExperimentDetailPresenter(experiment_view, self.view, self.db)  # Initialize the new presenter with the root widget
 
-    def open_experiment(self):
-        from views import ExperimentDetailView
-        from presenters import ExperimentDetailPresenter
-        self.view.home_frame.pack_forget()  # Hide the current view
-        experiment_id = self.view.get_id_of_selected_row()
-        experiment_view = ExperimentDetailView(self.view)  # Create a new view
-        experiment_presenter = ExperimentDetailPresenter(experiment_view, self.view, self.db, experiment_id)  # Initialize the new presenter with the root widget
 
     def delete_experiment(self):
-        self.db.delete_experiment(self.selected_row)
+        self.db.delete_experiment(self.selected_exp_row)
         self.view.disable_run_button()
         self.view.disable_copy_button()
-        self.view.disable_edit_button()
         self.view.disable_delete_button()
         self.refresh_view()
 
@@ -107,7 +106,9 @@ class ExperimentListPresenter():
         from views import LogView
         import threading
 
-        new_experiment = ExperimentOperator(self.db.get_experiment_by_id(self.selected_row), self.db)
+        new_image_run = ImageRunOperator(self.db.get_experiment_by_id(self.selected_exp_row),
+                                            self.db.get_image_set_by_id(self.selected_img_row),
+                                            self.db)
         
         # Since Logger is a singleton, simply create it here.
         from services import Logger
@@ -119,7 +120,7 @@ class ExperimentListPresenter():
 
         # Run the annealing process in a separate thread.
         def run_and_refresh():
-            new_experiment.anneal()
+            new_image_run.run()
             # After completion, schedule a refresh of the view in the main thread.
             self.view.after(0, self.refresh_view)
 

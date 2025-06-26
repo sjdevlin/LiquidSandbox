@@ -16,8 +16,9 @@ class ExperimentListView():
         # Configure a 3-row grid in the home frame.
         self.home_frame.grid_rowconfigure(0, weight=0)  # Intro row (fixed height)
         self.home_frame.grid_rowconfigure(1, weight=1)  # Table row (expandable)
-        self.home_frame.grid_rowconfigure(2, weight=1)  # Table row (expandable)
-        self.home_frame.grid_rowconfigure(3, weight=0)  # Button row (fixed height)
+        self.home_frame.grid_rowconfigure(2, weight=0)  # Button row (fixed height)
+        self.home_frame.grid_rowconfigure(3, weight=1)  # Table row (expandable)
+        self.home_frame.grid_rowconfigure(4, weight=0)  # Button row (fixed height)
         self.home_frame.grid_columnconfigure(0, weight=1)
         
         # ----------------------------
@@ -26,7 +27,7 @@ class ExperimentListView():
         self.intro_frame = customtkinter.CTkFrame(
             self.home_frame,
             width=800,
-            height=80,
+            height=50,
             fg_color='transparent'
         )
         self.intro_frame.grid(row=0, column=0, sticky="ew", pady=(30,15))
@@ -35,8 +36,7 @@ class ExperimentListView():
             self.intro_frame,
             text_color='white',
             text=(
-                'Create a new experiment, or select an existing experiment to clone, '
-                'view or edit. Only experiments that have not been run can be edited.'
+                'Clone or delete experiments and launch imaging runs'
             )
         )
         # Using grid inside the intro_frame.
@@ -109,7 +109,38 @@ class ExperimentListView():
         self.exp_table.pack(fill="both", expand=True)
 #        self.table.grid(row=0, column=0, sticky="nsew", padx=15, pady=15)       
 
+       # ----------------------------
+        # Button Row for Experiment Table
+        # ----------------------------
 
+        # ----------------------------
+        # Bottom Row: Button Frame
+        # ----------------------------
+        self.exp_button_frame = customtkinter.CTkFrame(
+            self.home_frame,
+            width=200,
+            height=30,
+            fg_color='transparent'
+        )
+        self.exp_button_frame.grid(row=2, column=0, sticky="ew", pady=(5, 10))
+        
+        # Configure a 3-column grid in the button frame.
+        for col in range(2):
+            self.exp_button_frame.grid_columnconfigure(col, weight=1)
+                
+        self.copy_button = customtkinter.CTkButton(
+            master=self.exp_button_frame,
+            text="Clone",
+            state=customtkinter.DISABLED
+        )
+        self.copy_button.grid(sticky="",row=0, column=0, padx=5, pady=10)
+
+        self.delete_button = customtkinter.CTkButton(
+            master=self.exp_button_frame,
+            text="Delete",
+            state=customtkinter.DISABLED
+        )
+        self.delete_button.grid(sticky="",row=0, column=1, padx=5, pady=10)
 
 
        # ----------------------------
@@ -122,7 +153,7 @@ class ExperimentListView():
             fg_color='transparent',
             border_width=0
         )
-        self.image_set_table_frame.grid(row=2, column=0, sticky="nsew", padx=100, pady=20)
+        self.image_set_table_frame.grid(row=3, column=0, sticky="nsew", padx=100, pady=20)
         
         
         self.img_columns = ('ID', 'Description', 'Lens', 'Z Stack')
@@ -149,50 +180,18 @@ class ExperimentListView():
         self.button_frame = customtkinter.CTkFrame(
             self.home_frame,
             width=500,
-            height=50,
+            height=30,
             fg_color='transparent'
         )
-        self.button_frame.grid(row=4, column=0, sticky="ew", pady=(5, 10))
+        self.button_frame.grid(row=4, column=0, sticky="", pady=(5, 10))
         
-        # Configure a 3-column grid in the button frame.
-        for col in range(5):
-            self.button_frame.grid_columnconfigure(col, weight=1)
-        
-        self.new_button = customtkinter.CTkButton(
-            master=self.button_frame,
-            text="New",
-            state=customtkinter.NORMAL
-        )
-        self.new_button.grid(sticky="", row=0, column=0, padx=5, pady=10)
-        
-        self.edit_button = customtkinter.CTkButton(
-            master=self.button_frame,
-            text="Edit",
-            state=customtkinter.DISABLED
-        )
-        self.edit_button.grid(sticky="",row=0, column=1, padx=5, pady=10)
-        
-        self.copy_button = customtkinter.CTkButton(
-            master=self.button_frame,
-            text="Clone",
-            state=customtkinter.DISABLED
-        )
-        self.copy_button.grid(sticky="",row=0, column=2, padx=5, pady=10)
-
-        self.delete_button = customtkinter.CTkButton(
-            master=self.button_frame,
-            text="Delete",
-            state=customtkinter.DISABLED
-        )
-        self.delete_button.grid(sticky="",row=0, column=3, padx=5, pady=10)
-
         self.run_button = customtkinter.CTkButton(
             master=self.button_frame,
             text="Run",
             state=customtkinter.DISABLED,
             fg_color='#992200'
         )
-        self.run_button.grid(sticky="",row=0, column=4, padx=5, pady=10)
+        self.run_button.grid(sticky="",row=0, column=0, padx=5, pady=10)
 
 
     def show_experiments(self, data):

@@ -12,6 +12,7 @@ class ImageSet(Base):
     notes = Column(String)
     lens = Column(String)
     scale_factor = Column(Float)
+    number_of_sites = Column(Integer)
     stack_size = Column(Integer)
     stack_step_size = Column(Float)
     led_number = Column(Integer)
