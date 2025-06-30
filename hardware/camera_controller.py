@@ -87,6 +87,7 @@ class FlirCameraAdapter(BaseCamera):
         command += "<append>NOTHING</append>"
         command += "</genicam>"
         command += "</camera>"
+        self.temika_comms.send_command(command)
 
 
     def set_shutter_speed(self, speed):
@@ -103,6 +104,7 @@ class FlirCameraAdapter(BaseCamera):
         command += filename
         command += f"</basename>"
         command += "</save>"
+        self.temika_comms.send_command(command)
         return True
 
     def set_iso(self, iso):

@@ -20,11 +20,17 @@ class ImageRunOperator:
         self.illumination_controller = IlluminationControllerFactory.create_illumination_controller()
         self.focus_controller = FocusControllerFactory.create_focus_controller()
 
+        self.illumination_controller.set_intensity(self.app_config.get("illumination_intensity", 100))
+    #   self.focus_controller.set_focus_position(self.app_config.get("focus_position", 0))
+        self.camera_controller.set_shutter_speed(self.app_config.get("shutter_speed", 1000))
+
 
     def run(self):
         from views import LogView
 #        import threading
         from tkinter import messagebox
+
+        log_window = LogView(self.view.root_window, self.logger.log_file)
 
         self.start_date_time = datetime.now()
         self.status = "Not Started"
@@ -32,10 +38,9 @@ class ImageRunOperator:
         # ask user to ensure that image is in focus before starting the run
         self.logger.info("Please ensure that the image is in focus before starting the run.")   
         # create window that pauses the run until the user clicks "Continue"
-        messagebox.showinfo("Focus Check", "Please ensure that the image is in focus before starting the run. Click 'Continue' to proceed.")  
-        
-        log_window = LogView(self.view.root_window, self.logger.log_file)
-        self.focus_controller.autofocus(True)  # Ensure autofocus is off before starting the run
+        messagebox.showinfo("Focus Check", "Please ensure that the image is in focus and enable autofocus before starting the run. Click 'Continue' to proceed.")  
+        # save the z value i focus for future reference       
+        self.focus_position = self.focus_controller.get_z()  # Get the current Z position as a reference for focus
 
        # First create the image run in the database, then retrieve it.  
         # This ensures that the image run is created before we start the imaging process.
@@ -43,7 +48,7 @@ class ImageRunOperator:
             image_set_id=self.image_set.id,
             experiment_id=self.experiment.id,
             description= self.image_set.description,
-            notes=(f"Experiment: {self.experiment.description}\nImage Set: {self.image_set.description}")
+            notes=(f"Experiment: {self.experiment.description}\nImage Set: {self.image_set.description}"),
             image_set_start_date_time=self.start_date_time,
             image_set_status=self.status
         ))
@@ -57,17 +62,14 @@ class ImageRunOperator:
         #home the stage before starting the imaging run
         self.logger.info("Homing the stage before starting the imaging run")
         self.camera_controller.autofocus(False)  # Ensure autofocus is off before homing
+        self.focus_controller.set_focus_position(self.focus_position - 500)  # Drop Z
         self.stage_controller.move_x(0, self.app_config.get("stage_speed", 1000))
         self.stage_controller.move_y(0, self.app_config.get("stage_speed", 1000))
-        sleep(1)  # Allow time for the stage to stabilize
 
         for sample in self.experiment.sample:
 
             self.logger.info(f"Processing sample {sample.id} at well ({sample.well_row}, {sample.well_column})")                
             #Switch off autofocus and drop z position by 1mm before moving stage
-            self.focus_controller.autofocus(False)
-            self.focus_controller.set_focus_position(sample.focus_position - 1000)  # Drop Z
-
 
             for site_number in range(self.image_set.number_of_sites):
 
@@ -76,20 +78,47 @@ class ImageRunOperator:
                 y = self.plate.centre_first_well_offset_y + (sample.well_row - 1) * self.plate.well_spacing_y
                 y = y + (site_number * (self.plate.well_dimension * random.uniform(0.1, 0.4)))
 
-                self.logger.info(f"Moving stage to well ({well.row}, {well.column} at position ({x}, {y})")
                 self.stage_controller.move_x(x, self.app_config.get("stage_speed", 1000))
                 self.stage_controller.move_y(y, self.app_config.get("stage_speed", 1000))
                 sleep(1)  # Allow time for the stage to stabilize
+                self.focus_controller.set_focus_position(sample.focus_position)
+                self.focus_controller.autofocus(True)
+                filename= f"{self.image_set.description}_{sample.well_row}_{sample.well_column}_{site_number}.jpg"
+                self.camera_controller.set_filename(filename)
+                self.camera_controller.capture_image()
+                self.sample.image.append(Image(
+                    sample_id=sample.id,
+                    image_run_id=self.experiment.image_run.id,
+                    image_dimenion_x=self.camera_controller.image_dimension_x,
+                    image_dimenion_y=self.camera_controller.image_dimension_y,
+                    image_file_path=filename,
+                    image_timestamp=datetime.now(),
+                    average_droplet_size=0.0,  # Placeholder, to be calculated later
+                    standard_deviation_droplet_size=0.0  # Placeholder, to be calculated later
+                ))
+                self.focus_controller.autofocus(False)
 
                 # Take the Z Stack
                 self.logger.info(f"Capturing Z Stack for sample {sample.id} at well ({sample.well_row}, {sample.well_column})")
-                self.illumination_controller.set_intensity(self.app_config.get("illumination_intensity", 100))
-    #            self.focus_controller.set_focus_position(self.app_config.get("focus_position", 0))
-                self.camera_controller.set_shutter_speed(self.app_config.get("shutter_speed", 1000))
-                for stack_number in range(self.image_set.stack_size):
+                for stack_number in range(self.image_set.stack_size - 1):
                     self.focus_controller.set_focus_position(sample.focus_position + stack_number * self.image_set.z_step_size)
-                    self.camera_controller.set_filename(f"{self.image_set.description}_{sample.well_row}_{sample.well_column}_{site_number}_{stack_number}.jpg")
+                    filename = f"{self.image_set.description}_{sample.well_row}_{sample.well_column}_{site_number}_{stack_number}.jpg"
+                    self.camera_controller.set_filename(filename)
                     self.camera_controller.capture_image()
+                    self.sample.image.append(Image(
+                        sample_id=sample.id,
+                        image_run_id=self.experiment.image_run.id,
+                        image_dimenion_x=self.camera_controller.image_dimension_x,
+                        image_dimenion_y=self.camera_controller.image_dimension_y,
+                        image_file_path=filename,
+                        image_timestamp=datetime.now(),
+                        average_droplet_size=0.0,  # Placeholder, to be calculated later
+                        standard_deviation_droplet_size=0.0  # Placeholder, to be calculated later
+                ))
+
+                
+            self.focus_controller.set_focus_position(self.focus_position - 500)  # Drop Z for next move
+
 
 
         self.finish_date_time = datetime.now()

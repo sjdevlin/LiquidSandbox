@@ -86,7 +86,13 @@ class TemikaFocusController(Focus):
         pass
 
     def get_z(self):
-        pass
+        command = "<stepper axis=\"z\">"
+        command += "<status></status>"
+        command += "</stepper>"
+        reply = self.temika_comms.send_command(command,True)
+        z_pos = float(reply.split()[3]) if len(reply.split()) > 3 else 0.0
+        return z_pos
+
 
 class FocusControllerFactory:
 
