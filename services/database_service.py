@@ -49,6 +49,9 @@ class DatabaseService:
             session.commit()
 
 #####
+    def get_number_image_runs_by_exp_and_set(experiment_id, image_set_id)
+        with self.Session() as session:
+            return session.query(ImageRun).filter_by(experiment_id=experiment_id, image_set_id=image_set_id).count()
 
     def get_image_set_by_id(self, exp_id):
         with self.Session() as session: 
@@ -57,6 +60,18 @@ class DatabaseService:
     def get_all_image_sets(self):
         with self.Session() as session:
             return session.query(ImageSet).all()
+
+    def add_image_run(self, image_run):
+        with self.Session() as session:
+            session.add(image_run)
+            session.commit()
+            return image_run.id
+        
+    def add_image(self, image):
+        with self.Session() as session:
+            session.add(image)
+            session.commit()
+            return image.id
 
 
 
