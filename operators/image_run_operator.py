@@ -21,8 +21,8 @@ class ImageRunOperator:
         self.focus_controller = FocusControllerFactory.create_focus_controller()
 
         self.illumination_controller.illumination_setup(self.app_config.get("illumination_led_number", 1),
-                                                         self.app_config.get("illumination_intensity", 100))
-        self.camera_controller.set_shutter_speed(self.app_config.get("shutter_speed", 1000))
+                                                         self.app_config.get("illumination_intensity", 0.2))
+        self.camera_controller.set_shutter_speed(self.app_config.get("shutter_speed", 10000))
 
 
 
@@ -37,7 +37,6 @@ class ImageRunOperator:
         messagebox.showinfo("Focus Check", "Please ensure that the image is in focus and enable autofocus before starting the run. Click 'Continue' to proceed.")  
         self.focus_position = self.focus_controller.get_z()  # Get the current Z position as a reference for focus
 
-        log_window = LogView(self.view.root_window, self.logger.log_file)
 
        # First create the image run in the database, then retrieve it.  
         # This ensures that the image run is created before we start the imaging process.
@@ -80,7 +79,7 @@ class ImageRunOperator:
                     self._take_image(sample, site_number, stack_number)
                 self.focus_controller.move_z(self.focus_position)  # Return to original focus position after stack
 
-            self.focus_controller.move_z(self.focus_position - 500)  # Drop Z for next major move
+            self.focus_controller.move_z(self.focus_position - 100)  # Drop Z for next major move
 
 
 
@@ -91,11 +90,11 @@ class ImageRunOperator:
 
     def _home_stage(self):
         self.logger.info("Homing the stage before starting the imaging run")
-        self.camera_controller.autofocus(False)  # Ensure autofocus is off before homing
-        self.focus_controller.set_focus_position(self.focus_position - 500)  # Drop Z
-        self.stage_controller.move_x(0, self.app_config.get("stage_speed", 100))
-        self.stage_controller.move_y(0, self.app_config.get("stage_speed", 100))
-    
+        self.focus_controller.autofocus(False)  # Ensure autofocus is off before homing
+        self.focus_controller.move_z(self.focus_position - 100)  #TODO change to config value
+        self.stage_controller.move(axis="x", position=0, speed=self.app_config.get("stage_speed", 1000))
+        self.stage_controller.move(axis="y", position=0, speed=self.app_config.get("stage_speed", 1000))
+
     def _move_stage_to_site(self, sample, site_number):
 
         x = self.plate.centre_first_well_offset_x + (sample.well_column - 1) * self.plate.well_spacing_x
@@ -103,8 +102,8 @@ class ImageRunOperator:
         y = self.plate.centre_first_well_offset_y + (sample.well_row - 1) * self.plate.well_spacing_y
         y = y + (site_number * (self.plate.well_dimension * random.uniform(0.1, 0.4)))
 
-        self.stage_controller.move(position = x, axis= "x", speed = 100)
-        self.stage_controller.move(position = y, axis="y", speed = 100)
+        self.stage_controller.move(position = x, axis= "x", speed = 1000)
+        self.stage_controller.move(position = y, axis="y", speed = 1000)
         sleep(1)  # Allow time for the stage to stabilize
     
     def _take_image(self, sample, site_number, stack_number):

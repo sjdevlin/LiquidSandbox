@@ -70,22 +70,28 @@ class TemikaFocusController(Focus):
     def __init__(self):
         from hardware import TemikaComms
         self.temika_comms = TemikaComms()
+        self.my_app_config = AppConfig()  # Singleton instance - may be opened multiple times from different classes
+        self.logger = Logger()
+        self.name = self.my_app_config.get("temika_name")
+
 
         
     def autofocus(self, status=False):
         afocus_status = "ON" if status else "OFF"
-        command = "<afocus>\n"
+        command = f"<{self.name}>"
+        command += "<afocus>\n"
         command += f"\t<enable>{afocus_status}</enable>\n"
         command += "\t<wait_lock>0.2 10.3</wait_lock>\n" if status else ""
         command += "</afocus>\n"
-        self.send_command(command)
+        command += f"</{self.name}>"
+        self.temika_comms.send_command(command)
         self.logger.debug(f"Autofocus set to {afocus_status}")
 
 
     def move_z(self, distance="0"):
         command = f"<{self.name}>"
         command += f"<stepper axis=\"z\">"
-        command += f"<move_absolute>{position} 5</move_absolute>"
+        command += f"<move_absolute>{distance} 10</move_absolute>"
         command += "<wait_moving_end></wait_moving_end>"
         command += "</stepper>"
         command += f"</{self.name}>"

@@ -30,5 +30,5 @@ focus_type: Temika
 
 # Stage settings
 stage_type: Temika
-stage_speed: 200 # in microns/s
+stage_speed: 2000 # in microns/s
 

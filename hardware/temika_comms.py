@@ -60,13 +60,7 @@ class TemikaComms(metaclass=Singleton):
                 self.logger.error("Failed to reconnect after 3 attempts.")
                 return None
 
-        # Check if socket is actually writable before sending
-        readable, writable, exceptional = select.select([], [self.socket], [self.socket], 0)
-        if not writable or exceptional:
-            self.logger.warning("Socket is not writable or has an error. Closing and attempting to reconnect.")
-            self.socket.close()
-            self.socket = None
-            return self.send_command(command, reply)  # Retry after reconnection
+
 
         try:
 

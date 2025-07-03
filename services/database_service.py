@@ -50,7 +50,7 @@ class DatabaseService:
 
 
 
-    def get_number_image_runs_by_exp_and_set(experiment_id, image_set_id):
+    def get_number_image_runs_by_exp_and_set(self, experiment_id, image_set_id):
         with self.Session() as session:
             return session.query(ImageRun).filter_by(experiment_id=experiment_id, image_set_id=image_set_id).count()
 
@@ -67,7 +67,12 @@ class DatabaseService:
             session.add(image_run)
             session.commit()
             return image_run.id
-        
+
+    def get_image_run_by_id(self, exp_id):
+        with self.Session() as session: 
+            return session.query(ImageRun).filter_by(id=exp_id).first()
+
+
     def add_image(self, image):
         with self.Session() as session:
             session.add(image)

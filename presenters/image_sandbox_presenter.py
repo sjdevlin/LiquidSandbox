@@ -44,7 +44,7 @@ class ImageSandboxPresenter():
             self.logger.error("Invalid x pos or speed value entered.")
             self.view.display_error("Please enter valid integers")
             return
-        self.stage_controller.move_x(x_pos, speed)
+        self.stage_controller.move(position=x_pos, axis="x", speed=speed)
         self.logger.info(f"Moved stage to position {x_pos} with speed {speed}")
 
 
