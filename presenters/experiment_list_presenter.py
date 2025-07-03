@@ -13,6 +13,7 @@ class ExperimentListPresenter():
         self.refresh_view()
         self.view.delete_button.configure(command=self.delete_experiment)
         self.view.copy_button.configure(command=self.copy_experiment)
+        self.view.run_button.configure(command=self.run_experiment)
         self.selected_exp_row = None
         self.selected_img_row = None
 
@@ -29,7 +30,7 @@ class ExperimentListPresenter():
     def on_img_row_selected(self, event):
         """This method handles the row selection logic."""
         self.selected_img_row = self.view.get_id_of_selected_img_row()
-        if self.selected_exp_row and self.selected_img_row:
+        if self.selected_exp_row:
             self.view.enable_run_button()
 
 
@@ -117,13 +118,15 @@ class ExperimentListPresenter():
         
         # Create a new window to display the log file in real time.
         log_window = LogView(self.view.root_window, log_file_path)
-
+        
         # Run the annealing process in a separate thread.
         def run_and_refresh():
             new_image_run.run()
             # After completion, schedule a refresh of the view in the main thread.
             self.view.after(0, self.refresh_view)
 
-        thread = threading.Thread(target=run_and_refresh, daemon=True)
-        thread.start()
+#        thread = threading.Thread(target=run_and_refresh, daemon=True)
+#        thread.start()
+        run_and_refresh() #TODO replace with threading when the GUI is stable
+
 

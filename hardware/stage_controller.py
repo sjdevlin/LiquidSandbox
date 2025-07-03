@@ -13,11 +13,11 @@ class Stage(ABC):
         self.my_app_config = AppConfig()  # Singleton instance - may be opened multiple times from different classes
 
     @abstractmethod
-    def move_x(self, distance):
+    def move(self, distance):
         pass
 
     @abstractmethod
-    def get_x(self):
+    def get(self):
         pass
 
 
@@ -60,20 +60,12 @@ class OlympusStageController(Stage):
     def read_response(self):
         return self.ser.readline().decode().strip()
 
-    def move_x(self, distance):
+    def move(self, distance):
         pass
 
-    def move_y(self, distance):
+    def get(self):
         pass
 
-    def set_speed(self, speed):
-        pass
-
-    def get_x(self):
-        pass
-
-    def get_y(self):
-        pass
 
 
 
@@ -87,73 +79,36 @@ class TemikaStageController(Stage):
         self.name = self.my_app_config.get("temika_name")
 
 
-    def move_x(self, position, speed):
+    def move(self, axis="x", position="0", speed="100"):
+        position = position * self.my_app_config.get("stage_scale", 1.0)
         command = f"<{self.name}>"
-        command += "<stepper axis=\"x\">"
+        command += f"<stepper axis=\"{axis}\">"
         command += f"<move_absolute>{position} {speed}</move_absolute>"
         command += "<wait_moving_end></wait_moving_end>"
         command += "</stepper>"
         command += f"</{self.name}>"
-        reply = self.temika_comms.send_command(command, wait_for="Done")
-        print (self.get_x())
+        self.temika_comms.send_command(command, wait_for="Done")
 
-    def move_xy(self, x_position, y_position, speed):#TODO check with Temika if this is correct
+    def get(self, axis="x"):
         command = f"<{self.name}>"
-        command += "<stepper axis=\"x\">"
-        command += f"<move_absolute>{x_position} {speed}</move_absolute>"
-        command += f"<move_absolute>{y_position} {speed}</move_absolute>"
-        command += "<wait_moving_end></wait_moving_end>"
-        command += "</stepper>"
-        command += f"</{self.name}>"
-        reply = self.temika_comms.send_command(command, reply=False)
-        print (reply)
-        print ("new line\n")
-        print (self.get_x())
-
-
-    def move_y(self, distance):
-        pass
-
-    def set_speed(self, speed):
-        pass
-
-    def get_x(self):
-        command = f"<{self.name}>"
-        command += "<stepper axis=\"x\">"
+        command += f"<stepper axis=\"{axis}\">"
         command += "<status></status>"
         command += "</stepper>"
         command += f"</{self.name}>"
-        reply = self.temika_comms.send_command('</stepper>',wait_for="status")
+        reply = self.temika_comms.send_command(command,wait_for="status")
 
         if "status" in reply:
             parts = reply.split("status ")
             if len(parts) > 1:
-                x_pos = float(parts[1].split()[0])
+                pos = float(parts[1].split()[0])
+                pos = pos / self.my_app_config.get("stage_scale", 1.0)
             else:
-                x_pos = 0.0
+                pos = 0.0
         else:
-            self.logger.error("No status found in reply, returning 0.0 x position.")
-            x_pos = 0.0
-        return x_pos
+            self.logger.error(f"No status found in reply, returning 0.0 position for {axis}.")
+            pos = 0.0
+        return pos
 
-    def get_y(self):
-        command = f"<{self.name}>"
-        command += "<stepper axis=\"y\">"
-        command += "<status></status>"
-        command += "</stepper>"
-        command += f"</{self.name}>"
-        reply = self.temika_comms.send_command('</stepper>',wait_for="status")
-        
-        if "status" in reply:
-            parts = reply.split("status ")
-            if len(parts) > 1:
-                y_pos = float(parts[1].split()[0])
-            else:
-                y_pos = 0.0
-        else:
-            self.logger.error("No status found in reply, returning 0.0 y position.")
-            y_pos = 0.0
-        return y_pos
 
 class StageControllerFactory:
 

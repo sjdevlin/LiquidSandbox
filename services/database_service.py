@@ -18,7 +18,7 @@ class DatabaseService:
 
     def get_plate_by_id(self, plate_id):
         with self.Session() as session: 
-           return session.query(Plate).options(joinedload(Plate.well)).filter_by(id=plate_id).first()
+           return session.query(Plate).filter_by(id=plate_id).first()
 
 ##Experiments
 
@@ -48,14 +48,15 @@ class DatabaseService:
             session.delete(experiment)
             session.commit()
 
-#####
-    def get_number_image_runs_by_exp_and_set(experiment_id, image_set_id)
+
+
+    def get_number_image_runs_by_exp_and_set(experiment_id, image_set_id):
         with self.Session() as session:
             return session.query(ImageRun).filter_by(experiment_id=experiment_id, image_set_id=image_set_id).count()
 
     def get_image_set_by_id(self, exp_id):
         with self.Session() as session: 
-           return session.query(ImageSet).options.filter_by(id=exp_id).first()
+            return session.query(ImageSet).filter_by(id=exp_id).first()
 
     def get_all_image_sets(self):
         with self.Session() as session:

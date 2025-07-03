@@ -20,7 +20,8 @@ class ImageRunOperator:
         self.illumination_controller = IlluminationControllerFactory.create_illumination_controller()
         self.focus_controller = FocusControllerFactory.create_focus_controller()
 
-        self.illumination_controller.set_intensity(self.app_config.get("illumination_intensity", 100))
+        self.illumination_controller.illumination_setup(self.app_config.get("illumination_led_number", 1),
+                                                         self.app_config.get("illumination_intensity", 100))
         self.camera_controller.set_shutter_speed(self.app_config.get("shutter_speed", 1000))
 
 
@@ -67,16 +68,19 @@ class ImageRunOperator:
             for site_number in range(self.image_set.number_of_sites):
 
                 self._move_stage_to_site(sample, site_number)
+                self.focus_controller.move_z(self.focus_position)  # Return to last focus
 
                 # Take the Z Stack
                 self.logger.info(f"Capturing Z Stack for sample {sample.id} at well ({sample.well_row}, {sample.well_column})")
                 self.focus_controller.autofocus(True)  # Enable autofocus to get in position then disable it
                 self.focus_controller.autofocus(False)  # Disable autofocus after getting in position
+                self.focus_position = self.focus_controller.get_z()  # Get the current Z position as a reference for focus
 
                 for stack_number in range(self.image_set.stack_size):
                     self._take_image(sample, site_number, stack_number)
+                self.focus_controller.move_z(self.focus_position)  # Return to original focus position after stack
 
-            self.focus_controller.set_focus_position(self.focus_position - 500)  # Drop Z for next move
+            self.focus_controller.move_z(self.focus_position - 500)  # Drop Z for next major move
 
 
 
@@ -89,18 +93,18 @@ class ImageRunOperator:
         self.logger.info("Homing the stage before starting the imaging run")
         self.camera_controller.autofocus(False)  # Ensure autofocus is off before homing
         self.focus_controller.set_focus_position(self.focus_position - 500)  # Drop Z
-        self.stage_controller.move_x(0, self.app_config.get("stage_speed", 1000))
-        self.stage_controller.move_y(0, self.app_config.get("stage_speed", 1000))
+        self.stage_controller.move_x(0, self.app_config.get("stage_speed", 100))
+        self.stage_controller.move_y(0, self.app_config.get("stage_speed", 100))
     
     def _move_stage_to_site(self, sample, site_number):
 
         x = self.plate.centre_first_well_offset_x + (sample.well_column - 1) * self.plate.well_spacing_x
-        x = x + (site_number * (self.plate.well_dimension * random.uniform(0.1, 0.4)))
+        x = x + (site_number * (self.plate.well_dimension * random.uniform(0.1, 0.4))) 
         y = self.plate.centre_first_well_offset_y + (sample.well_row - 1) * self.plate.well_spacing_y
         y = y + (site_number * (self.plate.well_dimension * random.uniform(0.1, 0.4)))
 
-        self.stage_controller.move_x(x, self.app_config.get("stage_speed", 1000))
-        self.stage_controller.move_y(y, self.app_config.get("stage_speed", 1000))
+        self.stage_controller.move(position = x, axis= "x", speed = 100)
+        self.stage_controller.move(position = y, axis="y", speed = 100)
         sleep(1)  # Allow time for the stage to stabilize
     
     def _take_image(self, sample, site_number, stack_number):

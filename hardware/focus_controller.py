@@ -82,16 +82,34 @@ class TemikaFocusController(Focus):
         self.logger.debug(f"Autofocus set to {afocus_status}")
 
 
-    def move_z(self, distance):
-        pass
+    def move_z(self, distance="0"):
+        command = f"<{self.name}>"
+        command += f"<stepper axis=\"z\">"
+        command += f"<move_absolute>{position} 5</move_absolute>"
+        command += "<wait_moving_end></wait_moving_end>"
+        command += "</stepper>"
+        command += f"</{self.name}>"
+        self.temika_comms.send_command(command, wait_for="Done")
 
     def get_z(self):
-        command = "<stepper axis=\"z\">"
+        command = f"<{self.name}>"
+        command += f"<stepper axis=\"z\">"
         command += "<status></status>"
         command += "</stepper>"
-        reply = self.temika_comms.send_command(command,True)
-        z_pos = float(reply.split()[3]) if len(reply.split()) > 3 else 0.0
-        return z_pos
+        command += f"</{self.name}>"
+        reply = self.temika_comms.send_command(command,wait_for="status")
+
+        if "status" in reply:
+            parts = reply.split("status ")
+            if len(parts) > 1:
+                pos = float(parts[1].split()[0])
+            else:
+                pos = 0.0
+        else:
+            self.logger.error(f"No status found in reply, returning 0.0 position for focus.")
+            pos = 0.0
+        return pos
+
 
 
 class FocusControllerFactory:

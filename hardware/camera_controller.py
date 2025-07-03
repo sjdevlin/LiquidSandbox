@@ -78,6 +78,8 @@ class FlirCameraAdapter(BaseCamera):
         self.temika_comms = TemikaComms()
         self.logger.info("TemikaCameraAdapter initialized.")
         self.camera_name = self.app_config.get("camera_name")
+        self.image_dimension_x = self.app_config.get("image_dimension_x", 1920)  # Default to 1920 if not set
+        self.image_dimension_y = self.app_config.get("image_dimension_y", 1080)
         # permanent camera settings
         command = f"<camera name=\"{self.camera_name}\">"
         command += "<genicam>"

@@ -11,6 +11,8 @@ robot_ip:
 camera_type: FLIR
 camera_name: "Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"
 exposure_time: 50000 # in microseconds
+image_dimension_x: 1920 # in pixels
+image_dimension_y: 1080 # in pixels
 
 # Temika settings
 temika_host: 127.0.0.1
@@ -28,4 +30,5 @@ focus_type: Temika
 
 # Stage settings
 stage_type: Temika
+stage_speed: 200 # in microns/s
 
