@@ -94,9 +94,7 @@ class TemikaStageController(Stage):
         command += "<wait_moving_end></wait_moving_end>"
         command += "</stepper>"
         command += f"</{self.name}>"
-        reply = self.temika_comms.send_command(command, reply=False)
-        print (reply)
-        print ("new line\n")
+        reply = self.temika_comms.send_command(command, wait_for="Done")
         print (self.get_x())
 
     def move_xy(self, x_position, y_position, speed):#TODO check with Temika if this is correct
@@ -125,15 +123,37 @@ class TemikaStageController(Stage):
         command += "<status></status>"
         command += "</stepper>"
         command += f"</{self.name}>"
-        reply = self.temika_comms.send_command('</stepper>',True)
-        x_pos = float(reply.split()[3]) if len(reply.split()) > 3 else 0.0
+        reply = self.temika_comms.send_command('</stepper>',wait_for="status")
+
+        if "status" in reply:
+            parts = reply.split("status ")
+            if len(parts) > 1:
+                x_pos = float(parts[1].split()[0])
+            else:
+                x_pos = 0.0
+        else:
+            self.logger.error("No status found in reply, returning 0.0 x position.")
+            x_pos = 0.0
         return x_pos
 
     def get_y(self):
-        self.temika_comms.send_command(b'<stepper axis="y">',True)
-        reply = self.temika_comms.send_command( b'<status></status>', True )
-        self.temika_comms.send_command(b'</stepper>',False)
-        return float(reply.split()[3])
+        command = f"<{self.name}>"
+        command += "<stepper axis=\"y\">"
+        command += "<status></status>"
+        command += "</stepper>"
+        command += f"</{self.name}>"
+        reply = self.temika_comms.send_command('</stepper>',wait_for="status")
+        
+        if "status" in reply:
+            parts = reply.split("status ")
+            if len(parts) > 1:
+                y_pos = float(parts[1].split()[0])
+            else:
+                y_pos = 0.0
+        else:
+            self.logger.error("No status found in reply, returning 0.0 y position.")
+            y_pos = 0.0
+        return y_pos
 
 class StageControllerFactory:
 

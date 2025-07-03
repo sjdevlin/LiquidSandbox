@@ -3,6 +3,7 @@ from services import Logger, AppConfig
 from services.singleton import Singleton
 import socket
 import select
+import time
 
 class TemikaComms(metaclass=Singleton):
 
@@ -13,7 +14,6 @@ class TemikaComms(metaclass=Singleton):
         self.port = self.my_app_config.get("temika_port")
         self.timeout = self.my_app_config.get("temika_timeout")
         self.buffer_size = self.my_app_config.get("temika_buffer_size")
-
         self.socket = None
         self.connect()
 
@@ -35,9 +35,7 @@ class TemikaComms(metaclass=Singleton):
             self.socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_KEEPCNT, 5)
 
             self.logger.debug(f"Connected successfully to Temika server at {self.host}:{self.port}.")
-            self.send_command("<temika>")
-            # this tag starts the communication script.
-            # don't close this tag until you want to close the connection
+            self.send_command("<temika>") # This opens the connection
             return True
 
         except Exception as e:
@@ -45,7 +43,7 @@ class TemikaComms(metaclass=Singleton):
             self.socket = None
             return False
 
-    def send_command(self, command, reply=False):
+    def send_command(self, command, wait_for=None):
         if not self.socket or self.socket.fileno() == -1:
             self.logger.warning("Socket is not connected or invalid. Attempting to reconnect...")
             if self.socket:
@@ -53,7 +51,7 @@ class TemikaComms(metaclass=Singleton):
                 self.socket.close()
                 self.socket = None
 
-            for attempt in range(3):
+            for attempt in range(3):#TODO: make this a config option
                 if self.connect():
                     self.logger.info(f"Reconnected successfully on attempt {attempt + 1}.")
                     break
@@ -62,26 +60,59 @@ class TemikaComms(metaclass=Singleton):
                 self.logger.error("Failed to reconnect after 3 attempts.")
                 return None
 
+        # Check if socket is actually writable before sending
+        readable, writable, exceptional = select.select([], [self.socket], [self.socket], 0)
+        if not writable or exceptional:
+            self.logger.warning("Socket is not writable or has an error. Closing and attempting to reconnect.")
+            self.socket.close()
+            self.socket = None
+            return self.send_command(command, reply)  # Retry after reconnection
+
         try:
-            print (f"socket file number before send: {self.socket.fileno()}")
-            print (command)
+
+            # Clear any data in the receive buffer before sending command
+            try:
+                # Set socket to non-blocking temporarily
+                self.socket.setblocking(False)
+                # Try to read and discard any pending data
+                while True:
+                    chunk = self.socket.recv(self.buffer_size)
+                    if not chunk:
+                        break
+            except (socket.error, BlockingIOError):
+                # No more data to read or would block
+                pass
+            finally:
+                # Set socket back to blocking mode
+                self.socket.setblocking(True)
+
+            # Send the command
             self.socket.sendall(command.encode())
 
-            if reply:
-                data = b''
-                while True:
-                    try:                    
+            data = b''
+            if wait_for is not None:
+                    # Wait for the response
+                    start_time = time.time()
+                    while True:
+                        # Check if timeout has been reached
+                        if time.time() - start_time > self.timeout:
+                            self.logger.error(f"Timeout after {self.timeout}s waiting for 'Done' response")
+                            break
+                        
+                        readable, _, _ = select.select([self.socket], [], [], 1.0)
+                        if not readable:
+                            print("No data available, continuing to wait for 'Done' response")
+                            continue
+                            
                         part = self.socket.recv(self.buffer_size)
                         if not part:
                             break
                         data += part
-                        if b'\n' in part:
+                        if wait_for.encode() in data:
                             break
-                    except socket.error as e:
-                        self.logger.error(f"Socket error during recv: {e}")
-                        break
 
-                return data.decode().strip() if data else None
+
+            return data.decode().strip() if data else None
 
         except socket.error as e:
             self.logger.error(f"Socket error during send_command: {e}")

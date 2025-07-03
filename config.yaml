@@ -10,17 +10,18 @@ robot_ip:
 #Camera settings
 camera_type: FLIR
 camera_name: "Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"
+exposure_time: 50000 # in microseconds
 
 # Temika settings
 temika_host: 127.0.0.1
 temika_port: 60000
-temika_timeout: 15
+temika_timeout: 60
 temika_buffer_size: 1024
 temika_name: microscopeone
 
 # Illuminator settings
 illumination_type: Temika
-led_bitmask: 0x20 # 0x20 = 32 = 00100000 (led 6)
+led_bitmask: 0x03 # 0x03 = 3 = 00000011 (led 0 + 1)
 
 # Focus settings
 focus_type: Temika
