@@ -77,17 +77,32 @@ class TemikaStageController(Stage):
         self.my_app_config = AppConfig()  # Singleton instance - may be opened multiple times from different classes
         self.logger = Logger()
         self.name = self.my_app_config.get("temika_name")
+        self.normal_stage_speed = self.my_app_config.get("normal_stage_speed", 1000)  # in microns/s
+        self.max_stage_speed = self.my_app_config.get("max_stage_speed", 10000)
 
 
-    def move(self, axis="x", position="0", speed="100"):
+    def move(self, axis="x", position="0", speed="normal"):
+        stage_speed = self.max_stage_speed if speed == "max" else self.normal_stage_speed
         position = position * self.my_app_config.get("stage_scale", 1.0)
+        offset = self.my_app_config.get("origin_offset_x", 0) if axis == "x" else self.my_app_config.get("origin_offset_y", 0)
+        position -= offset  # Apply origin offset
+        position = -1 * position  if axis == "y" else position  # Invert Y axis for Temika
         command = f"<{self.name}>"
         command += f"<stepper axis=\"{axis}\">"
-        command += f"<move_absolute>{position} {speed}</move_absolute>"
+        command += f"<move_absolute>{position} {stage_speed}</move_absolute>"
         command += "<wait_moving_end></wait_moving_end>"
         command += "</stepper>"
         command += f"</{self.name}>"
         self.temika_comms.send_command(command, wait_for="Done")
+
+    def reset(self, axis="x"):
+        command = f"<{self.name}>"
+        command += f"<stepper axis=\"{axis}\">"
+        command += f"<reset></reset>"
+        command += "</stepper>"
+        command += f"</{self.name}>"
+        self.temika_comms.send_command(command)
+
 
     def get(self, axis="x"):
         command = f"<{self.name}>"

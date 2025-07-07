@@ -32,3 +32,10 @@
 2025-07-03 16:17:34 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
 2025-07-03 16:17:34 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
 2025-07-03 16:17:34 - ERROR - Failed to reconnect after 3 attempts.
+2025-07-07 10:38:41 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-07 10:38:41 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-07 10:38:48 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-07 10:42:26 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-07 10:42:26 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-07 10:42:26 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-07 10:42:29 - ERROR - Socket error during send_command: [Errno 32] Broken pipe

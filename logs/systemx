@@ -118,3 +118,102 @@
 2025-07-03 17:52:31 - INFO - Started imaging run for experiment 1 with image set 0
 2025-07-03 17:52:37 - INFO - Homing the stage before starting the imaging run
 2025-07-03 17:53:30 - INFO - Processing sample 3 at well (3, 3)
+2025-07-07 10:23:19 - INFO - TemikaCameraAdapter initialized.
+2025-07-07 10:24:06 - INFO - Selected illumination 0 with intensity 0.1
+2025-07-07 10:24:06 - INFO - Applied illumination to LED 0 with intensity 0.1
+2025-07-07 10:24:24 - INFO - Selected illumination 0 with intensity 0.1
+2025-07-07 10:24:24 - INFO - Applied illumination to LED 0 with intensity 0.1
+2025-07-07 10:24:30 - INFO - Selected illumination 0 with intensity 0.1
+2025-07-07 10:24:30 - INFO - Applied illumination to LED 0 with intensity 0.1
+2025-07-07 10:24:46 - INFO - Selected illumination 0 with intensity 0.1
+2025-07-07 10:24:46 - INFO - Applied illumination to LED 0 with intensity 0.1
+2025-07-07 10:38:41 - INFO - TemikaCameraAdapter initialized.
+2025-07-07 10:38:41 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-07 10:38:41 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-07 10:38:41 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-07 10:38:41 - INFO - Please ensure that the image is in focus before starting the run.
+2025-07-07 10:38:48 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-07 10:42:26 - INFO - TemikaCameraAdapter initialized.
+2025-07-07 10:42:26 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-07 10:42:26 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-07 10:42:26 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-07 10:42:26 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-07 10:42:26 - INFO - Please ensure that the image is in focus before starting the run.
+2025-07-07 10:42:29 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-07 10:43:17 - INFO - TemikaCameraAdapter initialized.
+2025-07-07 10:43:17 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-07 10:43:17 - INFO - Please ensure that the image is in focus before starting the run.
+2025-07-07 10:43:23 - INFO - Started imaging run for experiment 1 with image set 0
+2025-07-07 10:43:38 - INFO - Homing the stage before starting the imaging run
+2025-07-07 11:10:19 - INFO - TemikaCameraAdapter initialized.
+2025-07-07 11:10:19 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-07 11:10:19 - INFO - Please ensure that the image is in focus before starting the run.
+2025-07-07 11:10:38 - INFO - Started imaging run for experiment 1 with image set 0
+2025-07-07 11:10:59 - INFO - Processing sample 3 at well (3, 3)
+2025-07-07 14:30:10 - INFO - TemikaCameraAdapter initialized.
+2025-07-07 14:30:40 - INFO - Moved stage to position 4.0 with speed 1000.0
+2025-07-07 14:30:52 - INFO - Moved stage to position 0.0 with speed 1000.0
+2025-07-07 14:31:11 - INFO - Moved stage to position -1.0 with speed 100.0
+2025-07-07 14:31:28 - INFO - Moved stage to position -10.0 with speed 100.0
+2025-07-07 14:57:23 - INFO - TemikaCameraAdapter initialized.
+2025-07-07 14:57:23 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-07 14:57:23 - INFO - Please ensure that the image is in focus before starting the run.
+2025-07-07 14:57:43 - INFO - Started imaging run for experiment 1 with image set 0
+2025-07-07 14:59:02 - INFO - TemikaCameraAdapter initialized.
+2025-07-07 14:59:02 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-07 14:59:02 - INFO - Please ensure that the image is in focus before starting the run.
+2025-07-07 14:59:26 - INFO - Started imaging run for experiment 1 with image set 0
+2025-07-07 15:04:06 - INFO - TemikaCameraAdapter initialized.
+2025-07-07 15:04:06 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-07 15:04:06 - INFO - Please ensure that the image is in focus before starting the run.
+2025-07-07 15:04:14 - INFO - Started imaging run for experiment 1 with image set 0
+2025-07-07 15:04:56 - INFO - Processing sample 3 at well (3, 3)
+2025-07-07 15:07:00 - INFO - Capturing Z Stack for sample 3 at well (3, 3)
+2025-07-07 15:07:36 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 0
+2025-07-07 15:25:31 - INFO - TemikaCameraAdapter initialized.
+2025-07-07 15:25:31 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-07 15:25:31 - INFO - Please ensure that the image is in focus before starting the run.
+2025-07-07 15:25:55 - INFO - Started imaging run for experiment 1 with image set 0
+2025-07-07 15:26:19 - INFO - Processing sample 3 at well (3, 3)
+2025-07-07 15:27:25 - INFO - Capturing Z Stack for sample 3 at well (3, 3)
+2025-07-07 15:27:43 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 0
+2025-07-07 15:29:35 - INFO - TemikaCameraAdapter initialized.
+2025-07-07 15:29:35 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-07 15:29:35 - INFO - Please ensure that the image is in focus before starting the run.
+2025-07-07 15:29:43 - INFO - Started imaging run for experiment 1 with image set 0
+2025-07-07 15:30:56 - INFO - Processing sample 3 at well (3, 3)
+2025-07-07 15:31:21 - INFO - Capturing Z Stack for sample 3 at well (3, 3)
+2025-07-07 15:31:34 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 0
+2025-07-07 15:33:17 - INFO - TemikaCameraAdapter initialized.
+2025-07-07 15:33:17 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-07 15:33:17 - INFO - Please ensure that the image is in focus before starting the run.
+2025-07-07 15:33:21 - INFO - Started imaging run for experiment 1 with image set 0
+2025-07-07 15:33:37 - INFO - Processing sample 3 at well (3, 3)
+2025-07-07 15:34:05 - INFO - Capturing Z Stack for sample 3 at well (3, 3)
+2025-07-07 15:34:17 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 0
+2025-07-07 15:36:06 - INFO - TemikaCameraAdapter initialized.
+2025-07-07 15:36:06 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-07 15:36:06 - INFO - Please ensure that the image is in focus before starting the run.
+2025-07-07 15:36:11 - INFO - Started imaging run for experiment 1 with image set 0
+2025-07-07 15:36:50 - INFO - Processing sample 3 at well (3, 3)
+2025-07-07 15:37:04 - INFO - Capturing Z Stack for sample 3 at well (3, 3)
+2025-07-07 15:37:11 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 0
+2025-07-07 15:37:19 - INFO - Image saved for sample 3, site 0, stack 0
+2025-07-07 15:37:41 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 1
+2025-07-07 15:37:46 - INFO - Image saved for sample 3, site 0, stack 1
+2025-07-07 15:37:53 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 2
+2025-07-07 15:37:57 - INFO - Image saved for sample 3, site 0, stack 2
+2025-07-07 15:38:36 - INFO - Capturing Z Stack for sample 3 at well (3, 3)
+2025-07-07 15:38:37 - INFO - Taking image for sample 3 at well (3, 3), site 1, stack 0
+2025-07-07 15:38:40 - INFO - Image saved for sample 3, site 1, stack 0
+2025-07-07 15:38:40 - INFO - Taking image for sample 3 at well (3, 3), site 1, stack 1
+2025-07-07 15:39:08 - INFO - Image saved for sample 3, site 1, stack 1
+2025-07-07 15:39:08 - INFO - Taking image for sample 3 at well (3, 3), site 1, stack 2
+2025-07-07 15:39:17 - INFO - Image saved for sample 3, site 1, stack 2
+2025-07-07 15:39:53 - INFO - Capturing Z Stack for sample 3 at well (3, 3)
+2025-07-07 15:40:02 - INFO - Taking image for sample 3 at well (3, 3), site 2, stack 0
+2025-07-07 15:40:08 - INFO - Image saved for sample 3, site 2, stack 0
+2025-07-07 15:40:11 - INFO - Taking image for sample 3 at well (3, 3), site 2, stack 1
+2025-07-07 15:40:13 - INFO - Image saved for sample 3, site 2, stack 1
+2025-07-07 15:40:15 - INFO - Taking image for sample 3 at well (3, 3), site 2, stack 2
+2025-07-07 15:40:25 - INFO - Image saved for sample 3, site 2, stack 2

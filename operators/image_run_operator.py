@@ -34,7 +34,8 @@ class ImageRunOperator:
         # create window that pauses the run until the user clicks "Continue"
         # save the z value i focus for future reference       
         self.logger.info("Please ensure that the image is in focus before starting the run.")   
-        messagebox.showinfo("Focus Check", "Please ensure that the image is in focus and enable autofocus before starting the run. Click 'Continue' to proceed.")  
+        messagebox.showinfo("Important", "Have you reset the X and Y co-ords to the origin?")  
+        messagebox.showinfo("Focus Check", "Please go to first well and ensure that the image is in focus and enable autofocus before starting the run.")  
         self.focus_position = self.focus_controller.get_z()  # Get the current Z position as a reference for focus
 
 
@@ -58,7 +59,10 @@ class ImageRunOperator:
         self.logger.info(f"Started imaging run for experiment {self.experiment.id} with image set {self.image_set.id}")
 
         #home the stage before starting the imaging run
-        self._home_stage()
+        #self._home_stage()
+
+        self.focus_controller.autofocus(False)  # Ensure autofocus is off before homing
+        self.focus_controller.move_z(self.focus_position - 100)  #TODO change to config value
 
         for sample in self.experiment.sample:
 
@@ -92,8 +96,12 @@ class ImageRunOperator:
         self.logger.info("Homing the stage before starting the imaging run")
         self.focus_controller.autofocus(False)  # Ensure autofocus is off before homing
         self.focus_controller.move_z(self.focus_position - 100)  #TODO change to config value
-        self.stage_controller.move(axis="x", position=0, speed=self.app_config.get("stage_speed", 1000))
-        self.stage_controller.move(axis="y", position=0, speed=self.app_config.get("stage_speed", 1000))
+        self.stage_controller.move(axis="x", position=0, speed=self.app_config.get("max_stage_speed", 1000)) #TODO save config value in object
+        self.stage_controller.move(axis="y", position=0, speed=self.app_config.get("max_stage_speed", 1000))
+        self.stage_controller.reset(axis="x")
+        self.stage_controller.reset(axis="y")
+        self.logger.info("Stage homed successfully")
+
 
     def _move_stage_to_site(self, sample, site_number):
 
@@ -102,14 +110,15 @@ class ImageRunOperator:
         y = self.plate.centre_first_well_offset_y + (sample.well_row - 1) * self.plate.well_spacing_y
         y = y + (site_number * (self.plate.well_dimension * random.uniform(0.1, 0.4)))
 
-        self.stage_controller.move(position = x, axis= "x", speed = 1000)
-        self.stage_controller.move(position = y, axis="y", speed = 1000)
+        self.stage_controller.move(position = x, axis= "x", speed="normal")
+        self.stage_controller.move(position = y, axis="y", speed="normal")
         sleep(1)  # Allow time for the stage to stabilize
     
     def _take_image(self, sample, site_number, stack_number):
         self.logger.info(f"Taking image for sample {sample.id} at well ({sample.well_row}, {sample.well_column}), site {site_number}, stack {stack_number}")
-        self.focus_controller.move_z_relative(stack_number * self.image_set.z_step_size)
-        filename = f"{self.image_run.id}_{sample.well_row}_{sample.well_column}_{site_number}_{stack_number}.jpg"
+        new_z = self.focus_controller.get_z() + (stack_number * self.image_set.stack_step_size)
+        self.focus_controller.move_z(new_z, speed="normal")  # Move to the new Z position for the stack
+        filename = f"{self.image_run.id}_{sample.well_row}_{sample.well_column}_{site_number}_{stack_number}"
         self.camera_controller.set_filename(filename)
         self.camera_controller.capture_image()
         new_image = Image(

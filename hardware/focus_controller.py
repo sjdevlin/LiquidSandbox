@@ -73,6 +73,8 @@ class TemikaFocusController(Focus):
         self.my_app_config = AppConfig()  # Singleton instance - may be opened multiple times from different classes
         self.logger = Logger()
         self.name = self.my_app_config.get("temika_name")
+        self.max_focus_speed = self.my_app_config.get("max_focus_speed", 100)  # in microns/s
+        self.normal_focus_speed = self.my_app_config.get("normal_focus_speed", 5)
 
 
         
@@ -88,10 +90,11 @@ class TemikaFocusController(Focus):
         self.logger.debug(f"Autofocus set to {afocus_status}")
 
 
-    def move_z(self, distance="0"):
+    def move_z(self, distance="0", speed="normal"):
+        focus_speed = self.max_focus_speed if speed == "max" else self.normal_focus_speed
         command = f"<{self.name}>"
         command += f"<stepper axis=\"z\">"
-        command += f"<move_absolute>{distance} 10</move_absolute>"
+        command += f"<move_absolute>{distance} {focus_speed}</move_absolute>"
         command += "<wait_moving_end></wait_moving_end>"
         command += "</stepper>"
         command += f"</{self.name}>"

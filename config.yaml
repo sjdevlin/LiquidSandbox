@@ -27,8 +27,14 @@ led_bitmask: 0x03 # 0x03 = 3 = 00000011 (led 0 + 1)
 
 # Focus settings
 focus_type: Temika
+normal_focus_speed: 10 # in microns/s
+max_focus_speed: 100 # in microns/s
 
 # Stage settings
 stage_type: Temika
-stage_speed: 2000 # in microns/s
-
+stage_force_to_origin: 130 # in mm
+stage_scale: 1000.0 # convert mm to microns
+max_stage_speed: 10000 # in microns/s
+normal_stage_speed: 500 # in microns/s
+origin_offset_x: 4200
+origin_offset_y: 4200
