@@ -5,3 +5,8 @@ customtkinter
 matplotlib
 pyueye
 pySerial
+numpy
+opencv-python
+pillow
+scikit-image
+scipy

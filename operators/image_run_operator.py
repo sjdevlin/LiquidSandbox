@@ -1,6 +1,6 @@
 from hardware import CameraControllerFactory, StageControllerFactory, IlluminationControllerFactory, FocusControllerFactory
 from datetime import datetime
-from services import Logger, AppConfig
+from services import Logger, AppConfig, Movie2Tiff
 from models import Experiment, Sample, ImageSet, ImageRun, Image
 from time import sleep
 import random
@@ -13,6 +13,7 @@ class ImageRunOperator:
         self.image_set = image_set
         self.experiment = experiment
         self.plate = self.db.get_plate_by_id(self.experiment.plate_id)
+        self.converter = Movie2Tiff()  # Initialize the Movie2Tiff converter
 
         camera_type = self.app_config.get("camera_type", "default_camera") #change to do this in the camera initialization
         self.camera_controller = CameraControllerFactory.create_camera_controller(camera_type)

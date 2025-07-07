@@ -217,3 +217,22 @@
 2025-07-07 15:40:13 - INFO - Image saved for sample 3, site 2, stack 1
 2025-07-07 15:40:15 - INFO - Taking image for sample 3 at well (3, 3), site 2, stack 2
 2025-07-07 15:40:25 - INFO - Image saved for sample 3, site 2, stack 2
+2025-07-07 15:48:16 - INFO - TemikaCameraAdapter initialized.
+2025-07-07 15:48:16 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-07 15:48:16 - INFO - Please ensure that the image is in focus before starting the run.
+2025-07-07 15:48:25 - INFO - Started imaging run for experiment 1 with image set 0
+2025-07-07 15:48:49 - INFO - Processing sample 3 at well (3, 3)
+2025-07-07 15:49:05 - INFO - Capturing Z Stack for sample 3 at well (3, 3)
+2025-07-07 15:49:12 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 0
+2025-07-07 15:49:12 - INFO - Image saved for sample 3, site 0, stack 0
+2025-07-07 15:49:14 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 1
+2025-07-07 15:49:15 - INFO - Image saved for sample 3, site 0, stack 1
+2025-07-07 15:49:16 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 2
+2025-07-07 15:49:27 - INFO - Image saved for sample 3, site 0, stack 2
+2025-07-07 15:49:52 - INFO - Capturing Z Stack for sample 3 at well (3, 3)
+2025-07-07 15:50:02 - INFO - Taking image for sample 3 at well (3, 3), site 1, stack 0
+2025-07-07 15:50:02 - INFO - Image saved for sample 3, site 1, stack 0
+2025-07-07 15:50:07 - INFO - Taking image for sample 3 at well (3, 3), site 1, stack 1
+2025-07-07 15:50:13 - INFO - Image saved for sample 3, site 1, stack 1
+2025-07-07 15:50:16 - INFO - Taking image for sample 3 at well (3, 3), site 1, stack 2
+2025-07-07 15:50:26 - INFO - Image saved for sample 3, site 1, stack 2
