@@ -39,3 +39,5 @@
 2025-07-07 10:42:26 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
 2025-07-07 10:42:26 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
 2025-07-07 10:42:29 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-08 13:38:00 - ERROR - Timeout after 60s waiting for 'Done' response
+2025-07-08 13:39:00 - ERROR - Timeout after 60s waiting for 'Done' response

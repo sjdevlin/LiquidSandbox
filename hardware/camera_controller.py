@@ -1,6 +1,7 @@
 from services import Logger, AppConfig
 from abc import ABC, abstractmethod
 from serial import Serial
+from time import sleep
 
 class BaseCamera(ABC):
     """Abstract base class defining the interface for all cameras."""
@@ -121,7 +122,9 @@ class FlirCameraAdapter(BaseCamera):
         command = f"<camera name=\"{self.camera_name}\">"
         command += "<record>ON</record>"
         command += "<send_trigger></send_trigger>\n"
-        command += "<record>OFF</record>"
+        self.temika_comms.send_command(command, wait_for="Done")
+        sleep(0.1)  # Wait for the command to be processed
+        command = "<record>OFF</record>"
         command += "</camera>\n"
         self.temika_comms.send_command(command)
 
