@@ -34,7 +34,6 @@ class ImageRunOperator:
         # ask user to ensure that image is in focus before starting the run
         # create window that pauses the run until the user clicks "Continue"
         # save the z value i focus for future reference       
-        self.logger.info("Please ensure that the image is in focus before starting the run.")   
         messagebox.showinfo("Important", "Have you reset the X and Y co-ords to the origin?")  
         messagebox.showinfo("Focus Check", "Please go to first well and ensure that the image is in focus and enable autofocus before starting the run.")  
         self.focus_position = self.focus_controller.get_z()  # Get the current Z position as a reference for focus

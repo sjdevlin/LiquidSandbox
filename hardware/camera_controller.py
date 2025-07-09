@@ -85,10 +85,10 @@ class FlirCameraAdapter(BaseCamera):
         command = f"<camera name=\"{self.camera_name}\">"
         command += "<genicam>"
         command += "<boolean feature=\"AcquisitionFrameRateEnable\">ON</boolean>"
-        command += "<enumeration feature=\"AcquisitionMode\">SingleFrame</enumeration>"
+        command += "<enumeration feature=\"AcquisitionMode\">Continuous</enumeration>"
         command += "<enumeration feature=\"TriggerMode\">On</enumeration>"
         command += "<enumeration feature=\"TriggerSource\">Software</enumeration>"
-        command += "<command feature=\"TriggerSoftware\"/>"
+        command += "<command feature=\"TriggerSoftware\"></command>"
         command += "</genicam>"
         command += "</camera>"
         self.temika_comms.send_command(command)

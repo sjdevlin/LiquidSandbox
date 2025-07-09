@@ -297,3 +297,288 @@
 2025-07-08 15:11:38 - INFO - Image saved for sample 3, site 0, stack 2
 2025-07-08 15:11:45 - INFO - Capturing Z Stack for sample 3 at well (3, 3)
 2025-07-08 15:11:46 - INFO - Taking image for sample 3 at well (3, 3), site 1, stack 0
+2025-07-09 09:20:17 - INFO - TemikaCameraAdapter initialized.
+2025-07-09 09:20:17 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-09 09:20:17 - INFO - Please ensure that the image is in focus before starting the run.
+2025-07-09 09:20:23 - INFO - Started imaging run for experiment 1 with image set 0
+2025-07-09 09:21:23 - ERROR - Timeout after 60s waiting for 'Done' response
+2025-07-09 09:23:26 - INFO - Sent command: <temika>
+2025-07-09 09:23:26 - INFO - TemikaCameraAdapter initialized.
+2025-07-09 09:23:26 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><genicam><boolean feature="AcquisitionFrameRateEnable">ON</boolean><enumeration feature="AcquisitionMode">SingleFrame</enumeration><enumeration feature="TriggerMode">On</enumeration><enumeration feature="TriggerSource">Software</enumeration><command feature="TriggerSoftware"/></genicam></camera>
+2025-07-09 09:23:26 - INFO - Sent command: <microscopeone><illumination><value number="1">0.2</value></illumination></microscopeone>
+2025-07-09 09:23:26 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-09 09:23:26 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><genicam><float feature="ExposureTime">10000</float></genicam></camera>
+2025-07-09 09:23:26 - INFO - Please ensure that the image is in focus before starting the run.
+2025-07-09 09:23:46 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 09:23:46 - INFO - Started imaging run for experiment 1 with image set 0
+2025-07-09 09:23:46 - INFO - Sent command: <microscopeone><afocus>
+	<enable>OFF</enable>
+</afocus>
+</microscopeone>
+2025-07-09 09:36:41 - INFO - Sent command: <temika>
+2025-07-09 09:36:41 - INFO - TemikaCameraAdapter initialized.
+2025-07-09 09:36:41 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><genicam><boolean feature="AcquisitionFrameRateEnable">ON</boolean><enumeration feature="AcquisitionMode">SingleFrame</enumeration><enumeration feature="TriggerMode">On</enumeration><enumeration feature="TriggerSource">Software</enumeration><command feature="TriggerSoftware"></command></genicam></camera>
+2025-07-09 09:36:41 - INFO - Sent command: <microscopeone><illumination><value number="1">0.2</value></illumination></microscopeone>
+2025-07-09 09:36:41 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-09 09:36:41 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><genicam><float feature="ExposureTime">10000</float></genicam></camera>
+2025-07-09 09:36:43 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 09:36:43 - INFO - Started imaging run for experiment 1 with image set 0
+2025-07-09 09:36:43 - INFO - Sent command: <microscopeone><afocus>
+	<enable>OFF</enable>
+</afocus>
+</microscopeone>
+2025-07-09 09:36:53 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3302.32 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 09:38:10 - INFO - Processing sample 3 at well (3, 3)
+2025-07-09 09:38:10 - INFO - Sent command: <microscopeone><stepper axis="x"><move_absolute>16800.0 500</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 09:38:12 - INFO - Sent command: <microscopeone><stepper axis="y"><move_absolute>-13800.0 500</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 09:38:14 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3402.32 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 09:38:24 - INFO - Capturing Z Stack for sample 3 at well (3, 3)
+2025-07-09 09:38:24 - INFO - Sent command: <microscopeone><afocus>
+	<enable>ON</enable>
+	<wait_lock>0.2 10.3</wait_lock>
+</afocus>
+</microscopeone>
+2025-07-09 09:38:25 - INFO - Sent command: <microscopeone><afocus>
+	<enable>OFF</enable>
+</afocus>
+</microscopeone>
+2025-07-09 09:38:25 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 09:38:25 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 0
+2025-07-09 09:38:25 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 09:38:25 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3398.54 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 09:38:25 - INFO - Sent command: <save><basename>21_3_3_0_0</basename><append>NOTHING</append></save>
+2025-07-09 09:38:36 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><record>ON</record><send_trigger></send_trigger>
+
+2025-07-09 09:38:36 - INFO - Sent command: <record>OFF</record></camera>
+
+2025-07-09 09:38:36 - INFO - Image saved for sample 3, site 0, stack 0
+2025-07-09 09:38:36 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 1
+2025-07-09 09:38:36 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 09:38:36 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3408.54 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 09:38:37 - INFO - Sent command: <save><basename>21_3_3_0_1</basename><append>NOTHING</append></save>
+2025-07-09 09:38:39 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><record>ON</record><send_trigger></send_trigger>
+
+2025-07-09 09:38:49 - INFO - Sent command: <record>OFF</record></camera>
+
+2025-07-09 09:38:49 - INFO - Image saved for sample 3, site 0, stack 1
+2025-07-09 09:38:49 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 2
+2025-07-09 09:38:49 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 09:38:49 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3428.54 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 09:38:51 - INFO - Sent command: <save><basename>21_3_3_0_2</basename><append>NOTHING</append></save>
+2025-07-09 09:38:59 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><record>ON</record><send_trigger></send_trigger>
+
+2025-07-09 09:39:09 - INFO - Sent command: <record>OFF</record></camera>
+
+2025-07-09 09:39:09 - INFO - Image saved for sample 3, site 0, stack 2
+2025-07-09 09:39:09 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3398.58 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 09:39:12 - INFO - Sent command: <microscopeone><stepper axis="x"><move_absolute>17626.550053166207 500</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 14:54:59 - INFO - Sent command: <temika>
+2025-07-09 14:54:59 - INFO - TemikaCameraAdapter initialized.
+2025-07-09 14:54:59 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><genicam><boolean feature="AcquisitionFrameRateEnable">ON</boolean><enumeration feature="AcquisitionMode">SingleFrame</enumeration><enumeration feature="TriggerMode">On</enumeration><enumeration feature="TriggerSource">Software</enumeration><command feature="TriggerSoftware"></command></genicam></camera>
+2025-07-09 14:54:59 - INFO - Sent command: <microscopeone><illumination><value number="1">0.2</value></illumination></microscopeone>
+2025-07-09 14:54:59 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-09 14:54:59 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><genicam><float feature="ExposureTime">10000</float></genicam></camera>
+2025-07-09 14:55:04 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 14:55:04 - INFO - Started imaging run for experiment 1 with image set 0
+2025-07-09 14:55:04 - INFO - Sent command: <microscopeone><afocus>
+	<enable>OFF</enable>
+</afocus>
+</microscopeone>
+2025-07-09 14:55:08 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3309.75 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 14:55:59 - INFO - Processing sample 3 at well (3, 3)
+2025-07-09 14:55:59 - INFO - Sent command: <microscopeone><stepper axis="x"><move_absolute>16800.0 500</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 14:55:59 - INFO - Sent command: <microscopeone><stepper axis="y"><move_absolute>-13800.0 500</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 14:56:00 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3409.75 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 14:56:11 - INFO - Capturing Z Stack for sample 3 at well (3, 3)
+2025-07-09 14:56:11 - INFO - Sent command: <microscopeone><afocus>
+	<enable>ON</enable>
+	<wait_lock>0.2 10.3</wait_lock>
+</afocus>
+</microscopeone>
+2025-07-09 14:56:11 - INFO - Sent command: <microscopeone><afocus>
+	<enable>OFF</enable>
+</afocus>
+</microscopeone>
+2025-07-09 14:56:11 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 14:56:11 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 0
+2025-07-09 14:56:11 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 14:56:11 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3409.73 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 14:56:11 - INFO - Sent command: <save><basename>22_3_3_0_0</basename><append>NOTHING</append></save>
+2025-07-09 14:56:35 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><record>ON</record><send_trigger></send_trigger>
+
+2025-07-09 14:56:35 - INFO - Sent command: <record>OFF</record></camera>
+
+2025-07-09 14:56:35 - INFO - Image saved for sample 3, site 0, stack 0
+2025-07-09 14:56:35 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 1
+2025-07-09 14:56:35 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 14:56:35 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3419.73 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 14:56:36 - INFO - Sent command: <save><basename>22_3_3_0_1</basename><append>NOTHING</append></save>
+2025-07-09 14:56:50 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><record>ON</record><send_trigger></send_trigger>
+
+2025-07-09 14:57:00 - INFO - Sent command: <record>OFF</record></camera>
+
+2025-07-09 14:57:00 - INFO - Image saved for sample 3, site 0, stack 1
+2025-07-09 14:57:00 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 2
+2025-07-09 14:57:00 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 14:57:00 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3439.73 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 14:57:02 - INFO - Sent command: <save><basename>22_3_3_0_2</basename><append>NOTHING</append></save>
+2025-07-09 14:57:16 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><record>ON</record><send_trigger></send_trigger>
+
+2025-07-09 14:57:26 - INFO - Sent command: <record>OFF</record></camera>
+
+2025-07-09 14:57:26 - INFO - Image saved for sample 3, site 0, stack 2
+2025-07-09 14:57:26 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3409.73 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 14:57:29 - INFO - Sent command: <microscopeone><stepper axis="x"><move_absolute>17213.015547551444 500</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 14:57:30 - INFO - Sent command: <microscopeone><stepper axis="y"><move_absolute>-14303.236814145039 500</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 14:57:32 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3409.73 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 14:57:33 - INFO - Capturing Z Stack for sample 3 at well (3, 3)
+2025-07-09 14:57:33 - INFO - Sent command: <microscopeone><afocus>
+	<enable>ON</enable>
+	<wait_lock>0.2 10.3</wait_lock>
+</afocus>
+</microscopeone>
+2025-07-09 14:57:33 - INFO - Sent command: <microscopeone><afocus>
+	<enable>OFF</enable>
+</afocus>
+</microscopeone>
+2025-07-09 14:57:33 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 14:57:33 - INFO - Taking image for sample 3 at well (3, 3), site 1, stack 0
+2025-07-09 14:57:33 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 14:57:33 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3412.13 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 14:57:33 - INFO - Sent command: <save><basename>22_3_3_1_0</basename><append>NOTHING</append></save>
+2025-07-09 15:01:24 - INFO - Sent command: <temika>
+2025-07-09 15:01:24 - INFO - TemikaCameraAdapter initialized.
+2025-07-09 15:01:24 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><genicam><boolean feature="AcquisitionFrameRateEnable">ON</boolean><enumeration feature="AcquisitionMode">Continuous</enumeration><enumeration feature="TriggerMode">On</enumeration><enumeration feature="TriggerSource">Software</enumeration><command feature="TriggerSoftware"></command></genicam></camera>
+2025-07-09 15:01:24 - INFO - Sent command: <microscopeone><illumination><value number="1">0.2</value></illumination></microscopeone>
+2025-07-09 15:01:24 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-09 15:01:24 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><genicam><float feature="ExposureTime">10000</float></genicam></camera>
+2025-07-09 15:01:26 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 15:01:26 - INFO - Started imaging run for experiment 1 with image set 0
+2025-07-09 15:01:26 - INFO - Sent command: <microscopeone><afocus>
+	<enable>OFF</enable>
+</afocus>
+</microscopeone>
+2025-07-09 15:01:32 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3312.13 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:01:45 - INFO - Processing sample 3 at well (3, 3)
+2025-07-09 15:01:45 - INFO - Sent command: <microscopeone><stepper axis="x"><move_absolute>16800.0 500</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:01:46 - INFO - Sent command: <microscopeone><stepper axis="y"><move_absolute>-13800.0 500</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:01:49 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3412.13 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:01:59 - INFO - Capturing Z Stack for sample 3 at well (3, 3)
+2025-07-09 15:01:59 - INFO - Sent command: <microscopeone><afocus>
+	<enable>ON</enable>
+	<wait_lock>0.2 10.3</wait_lock>
+</afocus>
+</microscopeone>
+2025-07-09 15:01:59 - INFO - Sent command: <microscopeone><afocus>
+	<enable>OFF</enable>
+</afocus>
+</microscopeone>
+2025-07-09 15:01:59 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 15:01:59 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 0
+2025-07-09 15:01:59 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 15:01:59 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3409.64 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:02:00 - INFO - Sent command: <save><basename>23_3_3_0_0</basename><append>NOTHING</append></save>
+2025-07-09 15:02:03 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><record>ON</record><send_trigger></send_trigger>
+
+2025-07-09 15:02:03 - INFO - Sent command: <record>OFF</record></camera>
+
+2025-07-09 15:02:03 - INFO - Image saved for sample 3, site 0, stack 0
+2025-07-09 15:02:03 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 1
+2025-07-09 15:02:03 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 15:02:03 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3419.64 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:02:05 - INFO - Sent command: <save><basename>23_3_3_0_1</basename><append>NOTHING</append></save>
+2025-07-09 15:02:21 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><record>ON</record><send_trigger></send_trigger>
+
+2025-07-09 15:02:21 - INFO - Sent command: <record>OFF</record></camera>
+
+2025-07-09 15:02:21 - INFO - Image saved for sample 3, site 0, stack 1
+2025-07-09 15:02:21 - INFO - Taking image for sample 3 at well (3, 3), site 0, stack 2
+2025-07-09 15:02:21 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 15:02:21 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3439.64 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:02:24 - INFO - Sent command: <save><basename>23_3_3_0_2</basename><append>NOTHING</append></save>
+2025-07-09 15:03:18 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><record>ON</record><send_trigger></send_trigger>
+
+2025-07-09 15:03:18 - INFO - Sent command: <record>OFF</record></camera>
+
+2025-07-09 15:03:18 - INFO - Image saved for sample 3, site 0, stack 2
+2025-07-09 15:03:18 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3409.65 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:03:22 - INFO - Sent command: <microscopeone><stepper axis="x"><move_absolute>17535.474449029633 500</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:03:23 - INFO - Sent command: <microscopeone><stepper axis="y"><move_absolute>-14266.243946422997 500</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:03:25 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3409.65 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:03:25 - INFO - Capturing Z Stack for sample 3 at well (3, 3)
+2025-07-09 15:03:25 - INFO - Sent command: <microscopeone><afocus>
+	<enable>ON</enable>
+	<wait_lock>0.2 10.3</wait_lock>
+</afocus>
+</microscopeone>
+2025-07-09 15:03:26 - INFO - Sent command: <microscopeone><afocus>
+	<enable>OFF</enable>
+</afocus>
+</microscopeone>
+2025-07-09 15:03:26 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 15:03:26 - INFO - Taking image for sample 3 at well (3, 3), site 1, stack 0
+2025-07-09 15:03:26 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 15:03:26 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3412.05 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:03:26 - INFO - Sent command: <save><basename>23_3_3_1_0</basename><append>NOTHING</append></save>
+2025-07-09 15:03:26 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><record>ON</record><send_trigger></send_trigger>
+
+2025-07-09 15:03:27 - INFO - Sent command: <record>OFF</record></camera>
+
+2025-07-09 15:03:27 - INFO - Image saved for sample 3, site 1, stack 0
+2025-07-09 15:03:27 - INFO - Taking image for sample 3 at well (3, 3), site 1, stack 1
+2025-07-09 15:03:27 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 15:03:27 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3422.05 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:03:28 - INFO - Sent command: <save><basename>23_3_3_1_1</basename><append>NOTHING</append></save>
+2025-07-09 15:03:28 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><record>ON</record><send_trigger></send_trigger>
+
+2025-07-09 15:03:28 - INFO - Sent command: <record>OFF</record></camera>
+
+2025-07-09 15:03:28 - INFO - Image saved for sample 3, site 1, stack 1
+2025-07-09 15:03:28 - INFO - Taking image for sample 3 at well (3, 3), site 1, stack 2
+2025-07-09 15:03:28 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 15:03:28 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3442.05 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:03:30 - INFO - Sent command: <save><basename>23_3_3_1_2</basename><append>NOTHING</append></save>
+2025-07-09 15:03:30 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><record>ON</record><send_trigger></send_trigger>
+
+2025-07-09 15:03:31 - INFO - Sent command: <record>OFF</record></camera>
+
+2025-07-09 15:03:31 - INFO - Image saved for sample 3, site 1, stack 2
+2025-07-09 15:03:31 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3412.03 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:03:34 - INFO - Sent command: <microscopeone><stepper axis="x"><move_absolute>17798.830665329966 500</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:03:34 - INFO - Sent command: <microscopeone><stepper axis="y"><move_absolute>-15113.683147168718 500</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:03:37 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3412.03 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:03:37 - INFO - Capturing Z Stack for sample 3 at well (3, 3)
+2025-07-09 15:03:37 - INFO - Sent command: <microscopeone><afocus>
+	<enable>ON</enable>
+	<wait_lock>0.2 10.3</wait_lock>
+</afocus>
+</microscopeone>
+2025-07-09 15:03:38 - INFO - Sent command: <microscopeone><afocus>
+	<enable>OFF</enable>
+</afocus>
+</microscopeone>
+2025-07-09 15:03:38 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 15:03:38 - INFO - Taking image for sample 3 at well (3, 3), site 2, stack 0
+2025-07-09 15:03:38 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 15:03:38 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3412.86 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:03:38 - INFO - Sent command: <save><basename>23_3_3_2_0</basename><append>NOTHING</append></save>
+2025-07-09 15:03:38 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><record>ON</record><send_trigger></send_trigger>
+
+2025-07-09 15:03:38 - INFO - Sent command: <record>OFF</record></camera>
+
+2025-07-09 15:03:38 - INFO - Image saved for sample 3, site 2, stack 0
+2025-07-09 15:03:38 - INFO - Taking image for sample 3 at well (3, 3), site 2, stack 1
+2025-07-09 15:03:38 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 15:03:38 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3422.86 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:03:40 - INFO - Sent command: <save><basename>23_3_3_2_1</basename><append>NOTHING</append></save>
+2025-07-09 15:03:40 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><record>ON</record><send_trigger></send_trigger>
+
+2025-07-09 15:03:40 - INFO - Sent command: <record>OFF</record></camera>
+
+2025-07-09 15:03:40 - INFO - Image saved for sample 3, site 2, stack 1
+2025-07-09 15:03:40 - INFO - Taking image for sample 3 at well (3, 3), site 2, stack 2
+2025-07-09 15:03:40 - INFO - Sent command: <microscopeone><stepper axis="z"><status></status></stepper></microscopeone>
+2025-07-09 15:03:40 - INFO - Sent command: <microscopeone><stepper axis="z"><move_absolute>3442.86 10</move_absolute><wait_moving_end></wait_moving_end></stepper></microscopeone>
+2025-07-09 15:03:42 - INFO - Sent command: <save><basename>23_3_3_2_2</basename><append>NOTHING</append></save>
+2025-07-09 15:03:42 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><record>ON</record><send_trigger></send_trigger>
+

@@ -86,7 +86,7 @@ class TemikaFocusController(Focus):
         command += "\t<wait_lock>0.2 10.3</wait_lock>\n" if status else ""
         command += "</afocus>\n"
         command += f"</{self.name}>"
-        self.temika_comms.send_command(command)
+        self.temika_comms.send_command(command, wait_for=("Done" if status else None))# add a time out here so that we can process what happens when perfect focus is lost
         self.logger.debug(f"Autofocus set to {afocus_status}")
 
 
