@@ -14,7 +14,7 @@ class MainView():
         # Configure a 3-row grid in the home frame.
 
         self.experiment_button = customtkinter.CTkButton(self.home_frame, text="Experiment", state=customtkinter.NORMAL)
-        self.formulation_button = customtkinter.CTkButton(self.home_frame, text="Formulations",state=customtkinter.DISABLED)
+        self.results_button = customtkinter.CTkButton(self.home_frame, text="Results",state=customtkinter.NORMAL)
         self.annealing_button = customtkinter.CTkButton(self.home_frame, text="Annealing Profiles", state=customtkinter.DISABLED)   
         self.imaging_button = customtkinter.CTkButton(self.home_frame, text="Imaging", state=customtkinter.DISABLED)    
         self.plate_config_button = customtkinter.CTkButton(self.home_frame, text="Configure Plate",state=customtkinter.DISABLED)
@@ -22,7 +22,7 @@ class MainView():
         self.image_sandbox_button = customtkinter.CTkButton(self.home_frame, text="Image Sandbox",state=customtkinter.NORMAL)
 
         self.experiment_button.grid(row=1, column=0, sticky="nsew", padx=20, pady=20)
-        self.formulation_button.grid(row=2, column=0, sticky="nsew", padx=20, pady=20,)
+        self.results_button.grid(row=2, column=0, sticky="nsew", padx=20, pady=20,)
         self.annealing_button.grid(row=3, column=0, sticky="nsew", padx=20, pady=20)
         self.imaging_button.grid(row=4, column=0, sticky="nsew", padx=20, pady=20)
         self.plate_config_button.grid(row=5, column=0, sticky="nsew", padx=20, pady=20)

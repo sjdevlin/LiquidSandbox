@@ -5,7 +5,7 @@ class MainPresenter():
         self.db = db
         self.view.experiment_button.configure(command=self.open_experiment_window)
         self.view.annealing_button.configure(command=self.open_annealing_window)
-        self.view.formulation_button.configure(command=self.open_formulation_window)
+        self.view.results_button.configure(command=self.open_results_window)
         self.view.imaging_button.configure(command=self.open_imaging_window)
         self.view.plate_config_button.configure(command=self.open_plate_config_window)
         self.view.plate_sandbox_button.configure(command=self.open_plate_sandbox_window)
@@ -20,8 +20,11 @@ class MainPresenter():
     def open_annealing_window(self):
         pass
 
-    def open_formulation_window(self):
-        pass
+    def open_results_window(self):
+        from views import ImageRunListView
+        from presenters import ImageRunListPresenter
+        result_list_view = ImageRunListView()  # Create a new view
+        experiment_presenter = ImageRunListPresenter(result_list_view, self.db)  # Initialize the new presenter with the root widget
 
     def open_imaging_window(self):
         pass

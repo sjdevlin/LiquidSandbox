@@ -582,3 +582,38 @@
 2025-07-09 15:03:42 - INFO - Sent command: <save><basename>23_3_3_2_2</basename><append>NOTHING</append></save>
 2025-07-09 15:03:42 - INFO - Sent command: <camera name="Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"><record>ON</record><send_trigger></send_trigger>
 
+2025-07-11 13:09:48 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
+2025-07-11 13:09:48 - INFO - TemikaCameraAdapter initialized.
+2025-07-11 13:09:48 - WARNING - Socket is not connected or invalid. Attempting to reconnect...
+2025-07-11 13:09:48 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
+2025-07-11 13:09:48 - WARNING - Reconnect attempt 1 failed.
+2025-07-11 13:09:48 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
+2025-07-11 13:09:48 - WARNING - Reconnect attempt 2 failed.
+2025-07-11 13:09:48 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
+2025-07-11 13:09:48 - WARNING - Reconnect attempt 3 failed.
+2025-07-11 13:09:48 - ERROR - Failed to reconnect after 3 attempts.
+2025-07-11 13:09:48 - WARNING - Socket is not connected or invalid. Attempting to reconnect...
+2025-07-11 13:09:48 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
+2025-07-11 13:09:48 - WARNING - Reconnect attempt 1 failed.
+2025-07-11 13:09:48 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
+2025-07-11 13:09:48 - WARNING - Reconnect attempt 2 failed.
+2025-07-11 13:09:48 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
+2025-07-11 13:09:48 - WARNING - Reconnect attempt 3 failed.
+2025-07-11 13:09:48 - ERROR - Failed to reconnect after 3 attempts.
+2025-07-11 13:09:48 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-11 13:09:48 - WARNING - Socket is not connected or invalid. Attempting to reconnect...
+2025-07-11 13:09:48 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
+2025-07-11 13:09:48 - WARNING - Reconnect attempt 1 failed.
+2025-07-11 13:09:48 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
+2025-07-11 13:09:48 - WARNING - Reconnect attempt 2 failed.
+2025-07-11 13:09:48 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
+2025-07-11 13:09:48 - WARNING - Reconnect attempt 3 failed.
+2025-07-11 13:09:48 - ERROR - Failed to reconnect after 3 attempts.
+2025-07-11 13:11:11 - WARNING - Socket is not connected or invalid. Attempting to reconnect...
+2025-07-11 13:11:11 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
+2025-07-11 13:11:11 - WARNING - Reconnect attempt 1 failed.
+2025-07-11 13:11:11 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
+2025-07-11 13:11:11 - WARNING - Reconnect attempt 2 failed.
+2025-07-11 13:11:11 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
+2025-07-11 13:11:11 - WARNING - Reconnect attempt 3 failed.
+2025-07-11 13:11:11 - ERROR - Failed to reconnect after 3 attempts.

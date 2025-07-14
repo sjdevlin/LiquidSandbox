@@ -34,9 +34,10 @@ class ImageRun(Base):
     experiment_id = Column(Integer, ForeignKey("Experiment.id"))
     description = Column(String)
     notes = Column(String)
-    image_set_start_date_time = Column(DateTime)
-    image_set_finish_date_time = Column(DateTime)
+    image_run_start_date_time = Column(DateTime)
+    image_run_finish_date_time = Column(DateTime)
     image_set_status = Column(String)
+    number_of_samples = Column(Integer)
     image = relationship(
         "Image",
         backref="parent",
@@ -48,10 +49,13 @@ class Image(Base):
     id = Column(Integer, primary_key=True)
     sample_id = Column(Integer, ForeignKey("Sample.id"))
     image_run_id = Column(Integer, ForeignKey("ImageRun.id"))
+    image_site_number = Column(Integer)
+    image_stack_number = Column(Integer)
     image_dimension_x = Column(Integer)
     image_dimension_y = Column(Integer)
     image_file_path = Column(String)
     image_timestamp = Column(DateTime)
+    image_focus_score = Column(Float)
     average_droplet_size = Column(Float)
     standard_deviation_droplet_size = Column(Float)
 

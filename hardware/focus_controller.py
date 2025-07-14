@@ -76,7 +76,6 @@ class TemikaFocusController(Focus):
         self.max_focus_speed = self.my_app_config.get("max_focus_speed", 100)  # in microns/s
         self.normal_focus_speed = self.my_app_config.get("normal_focus_speed", 5)
 
-
         
     def autofocus(self, status=False):
         afocus_status = "ON" if status else "OFF"
@@ -87,8 +86,7 @@ class TemikaFocusController(Focus):
         command += "</afocus>\n"
         command += f"</{self.name}>"
         self.temika_comms.send_command(command, wait_for=("Done" if status else None))# add a time out here so that we can process what happens when perfect focus is lost
-        self.logger.debug(f"Autofocus set to {afocus_status}")
-
+        self.logger.info(f"Autofocus set to {afocus_status}")
 
     def move_z(self, distance="0", speed="normal"):
         focus_speed = self.max_focus_speed if speed == "max" else self.normal_focus_speed

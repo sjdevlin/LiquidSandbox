@@ -1,32 +1,22 @@
 """
-movie2tiff.py – Proprietary “TemI” movie → TIFF converter
-=========================================================
+movie2tiff.py – TemI movie → per-frame TIFF extractor with focus scoring
+========================================================================
 
-A faithful Python rewrite of *movie2tiff_v2.c* that understands the bespoke
-“TemI” movie container produced by the original camera software.  It extracts
-**the first frame only**, writes it as a single‑page TIFF with **loss‑less
-compression** (LZW by default) **and embeds all original header fields as JSON
-metadata** so nothing is lost.
+This version extracts **every frame** from a proprietary *TemI* movie, saves
+each frame to an individual TIFF, and returns the filename list **plus a per-
+frame focus score**.  Filenames are based on a *stub* that you supply (or the
+movies own name if you leave it blank).
 
-Dependencies
-------------
-* **NumPy**
-* **Pillow ≥ 8.0** (for TIFF writing). The code now works on *any* Pillow 8→10
-  release – no `TAGS_V2` attribute required.
+Focus score algorithm
+---------------------
+A simple, fast, no-dependency metric:
+* **Variance of the Laplacian** high-frequency content indicates sharp focus.
+  For an NxM grayscale image *I* the discrete Laplacian is approximated by
+  
+  $$ \nabla^2 I = -4I_{i,j} + I_{i-1,j}+I_{i+1,j}+I_{i,j-1}+I_{i,j+1} $$
+  and the focus score is the population variance of that response.
 
-Usage
------
-```python
-from movie2tiff import Movie2Tiff
-
-conv = Movie2Tiff()                           # LZW compression
-conv.convert('capture.temi', 'frame0.tif')    # → frame0.tif
-```
-You can choose another loss‑less scheme (`"tiff_adobe_deflate"`, `"tiff_zip"`,
-or `"raw"` for none):
-```python
-conv = Movie2Tiff(compression='tiff_zip')
-```
+No OpenCV/SciPy needed – implemented with NumPy slicing.
 """
 
 from __future__ import annotations
@@ -36,18 +26,17 @@ import struct
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Tuple
+from typing import Iterator, List, Tuple
 
 import numpy as np
 from PIL import Image, TiffImagePlugin
 
 # ---------------------------------------------------------------------------
-# Constants mirroring those in movie2tiff_v2.c
+# TemI constants (from movie2tiff_v2.c)
 # ---------------------------------------------------------------------------
-CAMERA_MOVIE_MAGIC = 0x496D6554  # ASCII “TemI” little‑endian
-CAMERA_HEADER_LEN = 56  # bytes
+CAMERA_MOVIE_MAGIC = 0x496D6554  # 'TemI' little-endian
+CAMERA_HEADER_LEN = 56
 
-# Pixel‑format enums from the original header
 CAMERA_PIXELFORMAT_MONO_8 = 0x01080001
 CAMERA_PIXELFORMAT_MONO_12_PACKED = 0x010C0006
 CAMERA_PIXELFORMAT_MONO_16 = 0x01100007
@@ -58,13 +47,12 @@ G_LITTLE_ENDIAN = 1234
 
 _LOSSLESS_TIFF = {"raw", "tiff_lzw", "tiff_zip", "tiff_adobe_deflate"}
 
-# TIFF tag numbers we use (numeric so they work on all Pillow versions)
-TAG_IMAGE_DESCRIPTION = 270  # ASCII or UTF‑8 string
+TAG_IMAGE_DESCRIPTION = 270  # ASCII/UTF-8 – JSON header dump
 TAG_DATETIME = 306           # "YYYY:MM:DD HH:MM:SS"
 
 
 # ---------------------------------------------------------------------------
-# Header helper – exactly matches `camera_save_struct` (version ≥ 2)
+# Header helper – mirrors `camera_save_struct` (version ≥ 2)
 # ---------------------------------------------------------------------------
 @dataclass(slots=True)
 class FrameHeader:
@@ -81,20 +69,19 @@ class FrameHeader:
     height: int
     stride: int
 
-    _STRUCT = struct.Struct("<7I2Q3I")  # little‑endian layout from the C code
+    _STRUCT = struct.Struct("<7I2Q3I")
 
     @classmethod
     def from_bytes(cls, buf: bytes) -> "FrameHeader":
         if len(buf) < CAMERA_HEADER_LEN:
-            raise ValueError("Buffer shorter than camera_save_struct")
+            raise ValueError("Incomplete camera_save_struct header")
         fields = cls._STRUCT.unpack_from(buf)
         hdr = cls(*fields)
         if hdr.magic != CAMERA_MOVIE_MAGIC:
-            raise ValueError(
-                f"Bad magic 0x{hdr.magic:08X}, expected 0x{CAMERA_MOVIE_MAGIC:08X}")
+            raise ValueError("Bad TemI magic")
         return hdr
 
-    # Convenience helpers --------------------------------------------------
+    # Convenience ----------------------------------------------------------
     @property
     def shape(self) -> Tuple[int, int]:
         return self.height, self.width
@@ -104,7 +91,6 @@ class FrameHeader:
         return datetime.fromtimestamp(self.time_sec + self.time_nsec / 1e9, tz=timezone.utc)
 
     def to_json(self, extra: bytes | None = None) -> str:
-        """Return *all* header fields (+ extra bytes) as pretty‑printed JSON."""
         d = {
             "magic": f"0x{self.magic:08X}",
             "version": self.version,
@@ -125,98 +111,143 @@ class FrameHeader:
 
 
 # ---------------------------------------------------------------------------
-# Main public class
+# Main extractor class
 # ---------------------------------------------------------------------------
 class Movie2Tiff:
-    """Convert the first frame of a proprietary “TemI” movie to TIFF."""
+    """Extract every frame from a TemI movie to TIFF and return focus scores."""
 
     def __init__(self, compression: str = "tiff_lzw") -> None:
         compression = compression.lower()
         if compression not in _LOSSLESS_TIFF:
             raise ValueError(
-                f"Unsupported or lossy compression '{compression}'. "
-                f"Choose from {', '.join(sorted(_LOSSLESS_TIFF))}.")
+                f"Unsupported compression '{compression}'. Choose from {', '.join(sorted(_LOSSLESS_TIFF))}")
         self.compression = compression
 
     # ------------------------------------------------------------------
     # Public API
     # ------------------------------------------------------------------
-    def convert(self, src: str | Path, dst: str | Path) -> Path:
-        """Extract and write the first frame.
+    def convert(
+        self,
+        movie_name: str | Path,
+        file_stub: str | Path | None = None,
+    ) -> Tuple[List[Path], List[float]]:
+        """Process **all** frames and return filenames + focus scores.
 
         Parameters
         ----------
-        src : path‑like
-            *TemI* movie file.
-        dst : path‑like
-            Output TIFF path (extension forced to .tif/.tiff).
+        movie_name : path-like
+            TemI movie file.
+        file_stub : str or path-like or ``None``
+            Base name for output files – if ``None`` or empty, the movie’s
+            *stem* is used.  For example, movie `clip.temi` → `clip_0001.tif`,
+            `clip_0002.tif`, …
+
         Returns
         -------
-        pathlib.Path
-            Absolute path of written file.
+        (list[Path], list[float])
+            *Absolute* paths of written TIFFs and their corresponding focus
+            scores (same order).
         """
-        src_p = Path(src).expanduser().resolve()
-        dst_p = Path(dst).expanduser().with_suffix(".tiff").resolve()
+        movie_p = Path(movie_name).expanduser().resolve()
+        if not movie_p.exists():
+            raise FileNotFoundError(movie_p)
 
-        with src_p.open("rb") as fh:
-            hdr, extra, frame_mv = self._read_first_frame(fh)
+        # Determine stub path
+        if not file_stub:
+            stub_p = movie_p.with_suffix("")  # removes .temi, keeps dir
+        else:
+            stub_p = Path(file_stub).expanduser().resolve()
+        # Directory: use stub's parent (or movie's if stub has no parent)
+        out_dir = stub_p.parent if stub_p.parent != Path("") else movie_p.parent
+        out_dir.mkdir(parents=True, exist_ok=True)
 
-        img_arr = self._decode_frame(hdr, frame_mv)
-        self._save_tiff(img_arr, dst_p, hdr, extra)
-        return dst_p
+        data = movie_p.read_bytes()
+        frames = list(self._iterate_frames(data))
+        n_frames = len(frames)
+        if n_frames == 0:
+            raise ValueError("No TemI frames found")
+
+        width_pad = len(str(n_frames))
+        filenames: List[Path] = []
+        scores: List[float] = []
+
+        for idx, (hdr, extra, mv) in enumerate(frames, start=1):
+            arr = self._decode_frame(hdr, mv)
+            score = self._calculate_focus_score(arr)
+            scores.append(score)
+
+            out_name = f"{stub_p.stem}_{idx:0{width_pad}d}.tiff"
+            out_path = out_dir / out_name
+            self._save_tiff(arr, out_path, hdr, extra, score)
+            filenames.append(out_path.resolve())
+
+        return filenames, scores
 
     # ------------------------------------------------------------------
     # Internal helpers
     # ------------------------------------------------------------------
     @staticmethod
-    def _read_first_frame(fh) -> tuple[FrameHeader, bytes, memoryview]:
-        """Scan for the first 'TemI' magic and return header + payload."""
-        data = fh.read()
+    def _iterate_frames(data: bytes) -> Iterator[Tuple[FrameHeader, bytes, memoryview]]:
         magic = CAMERA_MOVIE_MAGIC.to_bytes(4, "little")
-        idx = data.find(magic)
-        if idx == -1:
-            raise ValueError("Magic word 'TemI' not found – not a TemI movie file?")
+        off = 0
+        total = len(data)
+        while off < total:
+            idx = data.find(magic, off)
+            if idx == -1:
+                break
+            hdr = FrameHeader.from_bytes(data[idx : idx + CAMERA_HEADER_LEN])
+            extra_start = idx + CAMERA_HEADER_LEN
+            extra_end = idx + hdr.length_header
+            extra = data[extra_start:extra_end]
+            frame_start = extra_end
+            frame_end = frame_start + hdr.length_data
+            yield hdr, extra, memoryview(data)[frame_start:frame_end]
+            off = frame_end
 
-        hdr_bytes = data[idx : idx + CAMERA_HEADER_LEN]
-        header = FrameHeader.from_bytes(hdr_bytes)
-
-        extra_start = idx + CAMERA_HEADER_LEN
-        extra_end = idx + header.length_header
-        extra_hdr = data[extra_start:extra_end]
-
-        frame_start = extra_end
-        frame_end = frame_start + header.length_data
-        frame_mv = memoryview(data)[frame_start:frame_end]
-        return header, extra_hdr, frame_mv
-
+    # -------------- Focus metric ---------------
     @staticmethod
-    def _decode_frame(header: FrameHeader, buf: memoryview) -> np.ndarray:
-        """Return a numpy 2‑D array matching the pixel format."""
-        h, w = header.shape
-        stride = header.stride
+    def _calculate_focus_score(arr: np.ndarray) -> float:
+        """Variance of Laplacian – higher ⇒ sharper."""
+        if arr.dtype != np.float64:
+            img = arr.astype(np.float64)
+        else:
+            img = arr  # zero-copy
+        # Exclude 1-pixel border to keep indexing simple
+        lap = (
+            -4 * img[1:-1, 1:-1]
+            + img[:-2, 1:-1] + img[2:, 1:-1]
+            + img[1:-1, :-2] + img[1:-1, 2:]
+        )
+        return float(np.var(lap))
 
-        if header.pixelformat == CAMERA_PIXELFORMAT_MONO_8:
+    # -------------- Frame decoding -------------
+    @staticmethod
+    def _decode_frame(hdr: FrameHeader, buf: memoryview) -> np.ndarray:
+        h, w = hdr.shape
+        stride = hdr.stride
+
+        if hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_8:
             out = np.empty((h, w), dtype=np.uint8)
             for r in range(h):
                 off = r * stride
-                out[r] = np.frombuffer(buf[off: off + w], dtype=np.uint8, count=w)
+                out[r] = np.frombuffer(buf[off : off + w], dtype=np.uint8, count=w)
             return out
 
-        if header.pixelformat == CAMERA_PIXELFORMAT_MONO_16:
+        if hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_16:
             out = np.empty((h, w), dtype=np.uint16)
             for r in range(h):
                 off = r * stride
-                row = np.frombuffer(buf[off: off + w * 2], dtype="<u2", count=w)
-                if header.endianness == G_BIG_ENDIAN:
+                row = np.frombuffer(buf[off : off + w * 2], dtype="<u2", count=w)
+                if hdr.endianness == G_BIG_ENDIAN:
                     row = row.byteswap()
                 out[r] = row
             return out
 
-        if header.pixelformat == CAMERA_PIXELFORMAT_MONO_12_PACKED:
+        if hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_12_PACKED:
             out = np.empty((h, w), dtype=np.uint16)
             for r in range(h):
-                in_off = r * stride
-                packed = buf[in_off: in_off + ((w + 1) // 2) * 3]
+                off = r * stride
+                packed = buf[off : off + ((w + 1) // 2) * 3]
                 j = 0
                 for c in range(0, w, 2):
                     b0, b1, b2 = packed[j : j + 3]
@@ -226,38 +257,38 @@ class Movie2Tiff:
                     j += 3
             return out
 
-        if header.pixelformat == CAMERA_PIXELFORMAT_MONO_32:
+        if hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_32:
             out = np.empty((h, w), dtype=np.uint32)
             for r in range(h):
                 off = r * stride
-                row = np.frombuffer(buf[off: off + w * 4], dtype="<u4", count=w)
-                if header.endianness == G_BIG_ENDIAN:
+                row = np.frombuffer(buf[off : off + w * 4], dtype="<u4", count=w)
+                if hdr.endianness == G_BIG_ENDIAN:
                     row = row.byteswap()
                 out[r] = row
             return out
 
-        raise NotImplementedError(
-            f"Pixel format 0x{header.pixelformat:08X} not implemented.")
+        raise NotImplementedError(f"Unsupported pixel format 0x{hdr.pixelformat:08X}")
 
+    # -------------- TIFF writing ---------------
     def _save_tiff(
         self,
         arr: np.ndarray,
         path: Path,
         hdr: FrameHeader,
         extra: bytes,
+        focus_score: float,
     ) -> None:
         img = Image.fromarray(arr)
-
-        # Build TIFF IFD (Image File Directory) – numeric tags so Pillow 8–10 works
         try:
             ifd = TiffImagePlugin.ImageFileDirectory_v2()
-        except AttributeError:  # Pillow <9.1 fallback
+        except AttributeError:
             ifd = TiffImagePlugin.ImageFileDirectory()
 
-        ifd[TAG_IMAGE_DESCRIPTION] = hdr.to_json(extra)
+        meta_json = json.loads(hdr.to_json(extra))
+        meta_json["focus_var_lap"] = focus_score
+        ifd[TAG_IMAGE_DESCRIPTION] = json.dumps(meta_json, indent=2)
         ifd[TAG_DATETIME] = hdr.timestamp.strftime("%Y:%m:%d %H:%M:%S")
 
-        path.parent.mkdir(parents=True, exist_ok=True)
         img.save(
             str(path),
             format="TIFF",
@@ -266,30 +297,19 @@ class Movie2Tiff:
         )
 
 
-
 # ---------------------------------------------------------------------------
-# Optional CLI front‑end
+# CLI entry (optional)
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
-    import argparse, textwrap
+    import argparse
 
-    parser = argparse.ArgumentParser(
-        description="Extract the first frame of a TemI movie into a TIFF.",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog=textwrap.dedent("""
-            Supported loss‑less compression names:
-              • raw                (no compression)
-              • tiff_lzw           (default)
-              • tiff_zip
-              • tiff_adobe_deflate
-        """),
-    )
-    parser.add_argument("src", help="Path to .temi movie file")
-    parser.add_argument("dst", help="Output .tif/.tiff path")
-    parser.add_argument("-c", "--compression", default="tiff_lzw",
-                        help="TIFF compression (loss‑less only)")
-    args = parser.parse_args()
+    p = argparse.ArgumentParser(description="Extract every frame of a TemI movie to TIFFs with focus scores")
+    p.add_argument("movie", help="TemI movie file")
+    p.add_argument("stub", nargs="?", default="", help="Filename stub (default = movie stem)")
+    p.add_argument("-c", "--compression", default="tiff_lzw", help="TIFF compression")
+    args = p.parse_args()
 
     conv = Movie2Tiff(compression=args.compression)
-    out_path = conv.convert(args.src, args.dst)
-    print(f"✔ Wrote {out_path}")
+    files, scores = conv.convert(args.movie, args.stub)
+    for fp, sc in zip(files, scores):
+        print(f"{fp.name}\tfocus={sc:.1f}")

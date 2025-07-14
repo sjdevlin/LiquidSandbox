@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+#Temika movie files and tiffs
+*.movie
+*.tiff
+
 # C extensions
 *.so
 

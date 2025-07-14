@@ -72,6 +72,13 @@ class DatabaseService:
         with self.Session() as session: 
             return session.query(ImageRun).filter_by(id=exp_id).first()
 
+    def get_all_image_runs(self):
+        with self.Session() as session: 
+            return session.query(ImageRun).options(joinedload(ImageRun.image)).all()
+
+    def get_images_by_image_run_id(self, image_run_id):
+        with self.Session() as session: 
+            return session.query(Image).filter_by(image_run_id=image_run_id).order_by(Image.id).all()
 
     def add_image(self, image):
         with self.Session() as session:

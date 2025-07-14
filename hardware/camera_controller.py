@@ -93,7 +93,6 @@ class FlirCameraAdapter(BaseCamera):
         command += "</camera>"
         self.temika_comms.send_command(command)
 
-
     def set_shutter_speed(self, speed):
         command = f"<camera name=\"{self.camera_name}\">"
         command += "<genicam>"
@@ -119,24 +118,15 @@ class FlirCameraAdapter(BaseCamera):
         pass
 
     def capture_image(self):        
-        command = f"<camera name=\"{self.camera_name}\">"
-        command += "<record>ON</record>"
-        command += "<send_trigger></send_trigger>\n"
+        command = "<send_trigger></send_trigger>\n"
         self.temika_comms.send_command(command, wait_for="Done")
-        sleep(0.1)  # Wait for the command to be processed
-        command = "<record>OFF</record>"
-        command += "</camera>\n"
-        self.temika_comms.send_command(command)
 
-    def start_record_video_image(self):        
+    def start_recording(self):        
         command = f"<camera name=\"{self.camera_name}\">"
         command += "<record>ON</record>"
-        command += "<send_trigger></send_trigger>\n"
-        command += "</camera>\n"
         self.temika_comms.send_command(command)
 
-    def stop_record_video_image(self):        
-        command = f"<camera name=\"{self.camera_name}\">"
-        command += "<record>OFF</record>"
+    def stop_recording(self):        
+        command = "<record>OFF</record>"
         command += "</camera>\n"
         self.temika_comms.send_command(command)

@@ -82,7 +82,7 @@ class TemikaComms(metaclass=Singleton):
 
             # Send the command
             self.socket.sendall(command.encode())
-            self.logger.info(f"Sent command: {command}")
+            self.logger.debug(f"Sent command: {command}")
 
             data = b''
             if wait_for is not None:

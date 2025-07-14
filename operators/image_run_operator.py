@@ -37,6 +37,7 @@ class ImageRunOperator:
         messagebox.showinfo("Important", "Have you reset the X and Y co-ords to the origin?")  
         messagebox.showinfo("Focus Check", "Please go to first well and ensure that the image is in focus and enable autofocus before starting the run.")  
         self.focus_position = self.focus_controller.get_z()  # Get the current Z position as a reference for focus
+        self.move_position = self.focus_position - 50  # Move Z position for the next major move
 
 
        # First create the image run in the database, then retrieve it.  
@@ -47,10 +48,11 @@ class ImageRunOperator:
         self.image_run_id = self.db.add_image_run(ImageRun(
             image_set_id=self.image_set.id,
             experiment_id=self.experiment.id,
-            description= (f"{self.image_set.description}_run_{number_prev_runs_of_exp_set + 1}"),
-            notes=(f"Experiment: {self.experiment.description}\nImage Set: {self.image_set.description}"),
+            description= (f"{self.experiment.description}: Image Run: {number_prev_runs_of_exp_set + 1}"),
+            notes=(f"Image Set: {self.image_set.description}"),
             image_set_start_date_time= datetime.now(),
             image_set_status="Not Started",
+            number_of_samples=len(self.experiment.sample)
         ))
 
         self.image_run = self.db.get_image_run_by_id(self.image_run_id)
@@ -60,9 +62,8 @@ class ImageRunOperator:
 
         #home the stage before starting the imaging run
         #self._home_stage()
-
         self.focus_controller.autofocus(False)  # Ensure autofocus is off before homing
-        self.focus_controller.move_z(self.focus_position - 100)  #TODO change to config value
+        self.focus_controller.move_z(self.move_position)  #TODO change to config value
 
         for sample in self.experiment.sample:
 
@@ -70,22 +71,17 @@ class ImageRunOperator:
 
             for site_number in range(self.image_set.number_of_sites):
 
+                filename = f"{self.image_run.id}_{sample.well_row}_{sample.well_column}_{site_number}"
+                self.camera_controller.set_filename(filename)
+
                 self._move_stage_to_site(sample, site_number)
-                self.focus_controller.move_z(self.focus_position)  # Return to last focus
+                self._readjust_focus()
 
-                # Take the Z Stack
-                self.logger.info(f"Capturing Z Stack for sample {sample.id} at well ({sample.well_row}, {sample.well_column})")
-                self.focus_controller.autofocus(True)  # Enable autofocus to get in position then disable it
-                self.focus_controller.autofocus(False)  # Disable autofocus after getting in position
-                self.focus_position = self.focus_controller.get_z()  # Get the current Z position as a reference for focus
+                self._take_stack(sample, site_number)
+                self._process_stack(filename, sample)
+                self._readjust_focus()
 
-                for stack_number in range(self.image_set.stack_size):
-                    self._take_image(sample, site_number, stack_number)
-                self.focus_controller.move_z(self.focus_position)  # Return to original focus position after stack
-
-            self.focus_controller.move_z(self.focus_position - 100)  # Drop Z for next major move
-
-
+            self.focus_controller.move_z(self.move_position)  # Drop Z for next major move
 
         self.finish_date_time = datetime.now()
         self.status = "Complete"
@@ -114,24 +110,50 @@ class ImageRunOperator:
         self.stage_controller.move(position = y, axis="y", speed="normal")
         sleep(1)  # Allow time for the stage to stabilize
     
-    def _take_image(self, sample, site_number, stack_number):
-        self.logger.info(f"Taking image for sample {sample.id} at well ({sample.well_row}, {sample.well_column}), site {site_number}, stack {stack_number}")
-        new_z = self.focus_controller.get_z() + (stack_number * self.image_set.stack_step_size)
-        self.focus_controller.move_z(new_z, speed="normal")  # Move to the new Z position for the stack
-        filename = f"{self.image_run.id}_{sample.well_row}_{sample.well_column}_{site_number}_{stack_number}"
-        self.camera_controller.set_filename(filename)
-        self.camera_controller.capture_image()
-        new_image = Image(
-            sample_id=sample.id,
-            image_run_id=self.image_run.id,
-            image_dimension_x=self.camera_controller.image_dimension_x,
-            image_dimension_y=self.camera_controller.image_dimension_y,
-            image_file_path=filename,
-            image_timestamp=datetime.now(),
-            average_droplet_size=0.0,  # Placeholder, to be calculated later
-            standard_deviation_droplet_size=0.0  # Placeholder, to be calculated later
-            )
+    def _take_stack(self, sample, site_number):
 
-        # Save the image to the database
-        self.db.add_image(new_image)
-        self.logger.info(f"Image saved for sample {sample.id}, site {site_number}, stack {stack_number}")
+        self.logger.info(f"Taking image stack for sample {sample.id} at well ({sample.well_row}, {sample.well_column}), site {site_number}")
+        self.camera_controller.start_recording()
+        for stack_number in range(self.image_set.stack_size):
+            new_z = self.focus_controller.get_z() + (stack_number * self.image_set.stack_step_size)
+            self.focus_controller.move_z(new_z, speed="normal")  # Move to the new Z position for the stack
+            self.camera_controller.capture_image()
+        self.camera_controller.stop_recording()
+
+    def _readjust_focus(self):
+        """
+        Adjust the focus before taking images.
+        This method can be extended to include more sophisticated focus adjustments if needed.
+        """
+        self.focus_controller.move_z(self.focus_position)  # Return to last focus
+        self.focus_controller.autofocus(True)  # Enable autofocus to get in position then disable it
+        self.focus_controller.autofocus(False)  # Disable autofocus after getting in position
+        self.focus_position = self.focus_controller.get_z()  # Get the current Z position as a reference for focus
+
+    def _process_stack(self, movie_name, sample, site_number):
+
+        for stack_number in range(self.image_set.stack_size):
+
+            self.logger.info(f"Processing image stack {movie_name} at stack number {stack_number}")
+            filenames, focus_scores = self.converter.convert(movie_name)
+
+            for file, score in zip(filenames, focus_scores):
+
+                new_image = Image(
+                        sample_id=sample.id,
+                        image_run_id=self.image_run.id,
+                        image_site_number=site_number,
+                        image_stack_number=focus_scores.index(score),  # Use the index of the score as the stack ID
+                        image_dimension_x=self.camera_controller.image_dimension_x,
+                        image_dimension_y=self.camera_controller.image_dimension_y,
+                        image_file_path=file,
+                        image_timestamp=datetime.now(),
+                        image_focus_score=score,  # Focus score calculated from the Movie2Tiff conversion
+                        average_droplet_size=0.0,  # Placeholder, to be calculated later
+                        standard_deviation_droplet_size=0.0  # Placeholder, to be calculated later
+                        )
+
+                    # Save the image to the database
+                self.db.add_image(new_image)
+
+            self.logger.info(f"Image stack extracted for movie {movie_name}")
