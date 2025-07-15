@@ -17,6 +17,8 @@ class Experiment(Base):
     creation_date_time = Column(DateTime)
     dispensing_start_date_time = Column(DateTime)
     dispensing_finish_date_time = Column(DateTime)
+    repeats = Column(Integer)
+    status = Column(String)  # e.g., "in_progress", "completed", "failed"
     sample = relationship(
         "Sample",
         backref="parent",
@@ -29,13 +31,21 @@ class Sample(Base):
     experiment_id = Column(Integer, ForeignKey("Experiment.id"))
     well_row = Column(Integer)
     well_column = Column(Integer)
-    mix_cycles = Column(Integer)
-    mix_speed = Column(Float)
-    mix_volume = Column(Float)
-    mix_height = Column(Float)
-    pipette = Column(String)
+    sample_detail = relationship("SampleDetail", backref="sample", cascade="all, delete-orphan", single_parent=True)
     image = relationship("Image", backref="sample", cascade="all, delete-orphan", single_parent=True)
 
+class SampleDetail(Base):
+    __tablename__ = "SampleDetail"
+    id = Column(Integer, primary_key=True)
+    sample_id = Column(Integer, ForeignKey("Sample.id"))
+    parameter_id = Column(Integer, ForeignKey("Parameter.id"))
+    value = Column(String)
+
+class Parameter(Base):
+    __tablename__ = "Parameter"
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    type = Column(String)
 
 
 

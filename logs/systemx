@@ -617,3 +617,4 @@
 2025-07-11 13:11:11 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
 2025-07-11 13:11:11 - WARNING - Reconnect attempt 3 failed.
 2025-07-11 13:11:11 - ERROR - Failed to reconnect after 3 attempts.
+2025-07-15 17:50:27 - INFO - Protocol written → open_trons_protocols/exp_1.json

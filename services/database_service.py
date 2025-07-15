@@ -30,7 +30,7 @@ class DatabaseService:
         
     def get_experiment_by_id(self, exp_id):
         with self.Session() as session: 
-           return session.query(Experiment).options(joinedload(Experiment.sample)).filter_by(id=exp_id).first()
+           return session.query(Experiment).options(joinedload(Experiment.sample).joinedload(Sample.sample_detail)).filter_by(id=exp_id).first()
 
     def get_all_experiments(self):
         with self.Session() as session:
@@ -48,7 +48,54 @@ class DatabaseService:
             session.delete(experiment)
             session.commit()
 
+##Parameters
 
+    def get_parameter_by_id(self, param_id):
+        with self.Session() as session:
+            return session.query(Parameter).filter_by(id=param_id).first()
+        
+    def get_parameter_by_name(self, name):
+        with self.Session() as session:
+            return session.query(Parameter).filter_by(name=name).first()    
+        
+    def get_all_parameters(self):
+        with self.Session() as session:
+            return session.query(Parameter).all()
+
+## Samples
+    def add_sample(self, sample):
+        with self.Session() as session:
+            session.add(sample)
+            session.commit()
+            return sample.id
+        
+    def update_sample(self, sample):
+        with self.Session() as session:
+            session.merge(sample)  # Merges the detached object into the session
+            session.commit()
+            return True
+
+    def delete_sample(self, sample_id):
+        with self.Session() as session:
+            sample = session.query(Sample).filter_by(id=sample_id).first()
+            session.delete(sample)
+            session.commit()
+
+    def add_sample_detail(self, sample_detail):
+        with self.Session() as session:
+            session.add(sample_detail)
+            session.commit()
+            return sample_detail.id
+
+    def get_sample_by_id(self, sample_id):
+        with self.Session() as session: 
+            return session.query(Sample).filter_by(id=sample_id).first()
+
+    def get_samples_by_experiment_id(self, experiment_id):
+        with self.Session() as session: 
+            return session.query(Sample).options(joinedload(Sample.sample_detail)).filter_by(experiment_id=experiment_id).all()
+
+#images
 
     def get_number_image_runs_by_exp_and_set(self, experiment_id, image_set_id):
         with self.Session() as session:

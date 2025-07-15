@@ -4,6 +4,7 @@ from operators import ExperimentOperator, ImageRunOperator
 import copy
 
 
+
 class ExperimentListPresenter():
     def __init__(self, view, db):
         self.view = view
@@ -11,6 +12,7 @@ class ExperimentListPresenter():
         self.view.exp_bind_row_selection(self.on_exp_row_selected)
         self.view.img_bind_row_selection(self.on_img_row_selected)
         self.refresh_view()
+        self.view.script_button.configure(command=self.generate_script)
         self.view.delete_button.configure(command=self.delete_experiment)
         self.view.copy_button.configure(command=self.copy_experiment)
         self.view.run_button.configure(command=self.run_experiment)
@@ -24,6 +26,7 @@ class ExperimentListPresenter():
         if self.selected_exp_row:
             self.view.enable_copy_button()
             self.view.enable_delete_button()
+            self.view.enable_script_button()
             if self.selected_img_row:
                 self.view.enable_run_button()
 
@@ -63,6 +66,7 @@ class ExperimentListPresenter():
         self.view.disable_run_button()
         self.view.disable_copy_button()
         self.view.disable_delete_button()
+        self.view.disable_script_button()
 
 
     def copy_experiment(self):
@@ -86,6 +90,7 @@ class ExperimentListPresenter():
         self.view.disable_run_button()
         self.view.disable_copy_button()
         self.view.disable_delete_button()
+        self.view.disable_script_button()
         self.refresh_view()
 
     def new_experiment(self):
@@ -130,3 +135,17 @@ class ExperimentListPresenter():
         run_and_refresh() #TODO replace with threading when the GUI is stable
 
 
+    def generate_script(self):
+        from operators import ScriptfileGenerator
+        from services import DatabaseService
+        from tkinter import messagebox
+        # Generate the script file for the selected experiment
+        if self.selected_exp_row:
+            exp = self.db.get_experiment_by_id(self.selected_exp_row)
+            if exp:
+                script_generator = ScriptfileGenerator(experiment=exp, db=self.db)
+                script_path = script_generator.generate()
+                messagebox.showinfo("Success",f"Script generated at: {script_path}")
+                exp.status = "Script Generated"
+                self.db.update_experiment(exp)
+                self.refresh_view()

@@ -125,7 +125,7 @@ class ExperimentListView():
         self.exp_button_frame.grid(row=2, column=0, sticky="ew", pady=(5, 10))
         
         # Configure a 3-column grid in the button frame.
-        for col in range(2):
+        for col in range(3):
             self.exp_button_frame.grid_columnconfigure(col, weight=1)
                 
         self.copy_button = customtkinter.CTkButton(
@@ -141,6 +141,13 @@ class ExperimentListView():
             state=customtkinter.DISABLED
         )
         self.delete_button.grid(sticky="",row=0, column=1, padx=5, pady=10)
+
+        self.script_button = customtkinter.CTkButton(
+            master=self.exp_button_frame,
+            text="Generate Script",
+            state=customtkinter.DISABLED
+        )
+        self.script_button.grid(sticky="",row=0, column=2, padx=5, pady=10)
 
 
        # ----------------------------
@@ -246,6 +253,10 @@ class ExperimentListView():
     def enable_delete_button(self):
             self.delete_button.configure(state=customtkinter.NORMAL)
 
+    def enable_script_button(self):
+            self.script_button.configure(state=customtkinter.NORMAL)
+
+
     def disable_edit_button(self):
             self.edit_button.configure(state=customtkinter.DISABLED)
 
@@ -258,4 +269,6 @@ class ExperimentListView():
     def disable_delete_button(self):
             self.delete_button.configure(state=customtkinter.DISABLED)
 
+    def disable_script_button(self):
+            self.script_button.configure(state=customtkinter.DISABLED)
 
