@@ -9,7 +9,8 @@ robot_ip:
 
 #Camera settings
 camera_type: FLIR
-camera_name: "Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"
+#camera_name: "Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"
+camera_name: "Genicam FLIR Blackfly S BFS-U3-70S7M 0159F410"
 exposure_time: 50000 # in microseconds
 image_dimension_x: 1920 # in pixels
 image_dimension_y: 1080 # in pixels
@@ -39,7 +40,7 @@ stage_type: Temika
 stage_force_to_origin: 130 # in mm
 stage_scale: 1000.0 # convert mm to microns
 max_stage_speed: 10000 # in microns/s
-normal_stage_speed: 500 # in microns/s
+normal_stage_speed: 3000 # in microns/s
 origin_offset_x: 4200
 origin_offset_y: 4200
 

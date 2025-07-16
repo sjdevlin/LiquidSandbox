@@ -103,10 +103,10 @@ class ImageRunOperator:
 
     def _move_stage_to_site(self, sample, site_number):
 
-        x = self.plate.centre_first_well_offset_x + (sample.well_column) * self.plate.well_spacing_x
-        x = x + (site_number * (self.plate.well_dimension * random.uniform(0.1, 0.4))) 
-        y = self.plate.centre_first_well_offset_y + (sample.well_row) * self.plate.well_spacing_y
-        y = y + (site_number * (self.plate.well_dimension * random.uniform(0.1, 0.4)))
+        x = self.plate.centre_first_well_offset_x + (sample.well_column * self.plate.well_spacing_x)
+        x = x + (self.plate.well_dimension * random.uniform(-0.1, 0.1))
+        y = self.plate.centre_first_well_offset_y + (sample.well_row * self.plate.well_spacing_y)
+        y = y + (self.plate.well_dimension * random.uniform(-0.1, 0.1))
 
         self.stage_controller.move(position = x, axis= "x", speed="normal")
         self.stage_controller.move(position = y, axis="y", speed="normal")

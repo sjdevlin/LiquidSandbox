@@ -28,8 +28,18 @@ class ImageRunDetailPresenter():
             print(f"No sample found with ID {self.sample_id}.")
             return
         
-        meta_data = f"\nSample:{self.sample_id} Row: {sample.well_row}, Column: {sample.well_column}"
-        meta_data += f"Site: {self.site_number}, Stack: {self.stack_number}"
+        meta_data = f"Sample: {self.sample_id} Row: {sample.well_row}, Column: {sample.well_column}"
+        meta_data += f"\nSite: {self.site_number}, Stack: {self.stack_number}"
+
+        focus_score = next(
+                img.image_focus_score for img in self.images
+                if img.sample_id == self.sample_id and
+                   img.image_site_number == self.site_number and
+                   img.image_stack_number == self.stack_number
+            )
+
+        meta_data += f"\nFocus Score: {focus_score}"
+
 
         try:
             image_file_name = next(

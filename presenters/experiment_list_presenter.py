@@ -128,7 +128,7 @@ class ExperimentListPresenter():
         def run_and_refresh():
             new_image_run.run()
             # After completion, schedule a refresh of the view in the main thread.
-            self.view.after(0, self.refresh_view)
+            self.view.root_window.after(0, self.refresh_view)
 
 #        thread = threading.Thread(target=run_and_refresh, daemon=True)
 #        thread.start()
