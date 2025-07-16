@@ -54,8 +54,8 @@ class ImageRunDetailPresenter():
         sorted_images = sorted({img.sample_id for img in self.images})
 
         try:
-            next_sample = next(s for s in sorted_images if s > self.sample_id)
-            next_sample_id = next_sample.sample_id
+            next_sample_id = next(s for s in sorted_images if s > self.sample_id)
+            self.sample_id = next_sample_id
             self.site_number = 0
             self.stack_number = self._get_index_of_sharpest_image()
             self.refresh_view()
@@ -69,7 +69,7 @@ class ImageRunDetailPresenter():
         try:
             prev_candidates = [s for s in sorted_images if s < self.sample_id]
             prev_sample = prev_candidates[-1]
-            self.sample_id = prev_sample.sample_id
+            self.sample_id = prev_sample
             self.site_number = 0
             self.stack_number = self._get_index_of_sharpest_image()
             self.refresh_view()

@@ -148,7 +148,7 @@ class Movie2Tiff:
             *Absolute* paths of written TIFFs and their corresponding focus
             scores (same order).
         """
-        movie_p = Path(movie_name).expanduser().resolve()
+        movie_p = Path(movie_name)
         if not movie_p.exists():
             raise FileNotFoundError(movie_p)
 

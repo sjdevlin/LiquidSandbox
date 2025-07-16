@@ -36,7 +36,7 @@ class ImageRun(Base):
     notes = Column(String)
     image_run_start_date_time = Column(DateTime)
     image_run_finish_date_time = Column(DateTime)
-    image_set_status = Column(String)
+    image_run_status = Column(String)
     number_of_samples = Column(Integer)
     image = relationship(
         "Image",

@@ -59,3 +59,9 @@
 2025-07-11 13:11:11 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
 2025-07-11 13:11:11 - ERROR - Error connecting to Temika server: [Errno 61] Connection refused
 2025-07-11 13:11:11 - ERROR - Failed to reconnect after 3 attempts.
+2025-07-16 12:10:17 - ERROR - No status found in reply, returning 0.0 position for focus.
+2025-07-16 12:10:17 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-16 12:10:17 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-16 13:27:18 - ERROR - No status found in reply, returning 0.0 position for focus.
+2025-07-16 14:32:46 - ERROR - Timeout after 60s waiting for 'Done' response
+2025-07-16 14:33:54 - ERROR - Timeout after 60s waiting for 'Done' response

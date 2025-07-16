@@ -618,3 +618,206 @@
 2025-07-11 13:11:11 - WARNING - Reconnect attempt 3 failed.
 2025-07-11 13:11:11 - ERROR - Failed to reconnect after 3 attempts.
 2025-07-15 17:50:27 - INFO - Protocol written → open_trons_protocols/exp_1.json
+2025-07-16 11:52:49 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 11:52:49 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 11:56:25 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 11:56:25 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 11:58:14 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 11:58:14 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 11:58:34 - INFO - Started imaging run for experiment 0 with image set 1
+2025-07-16 11:58:36 - INFO - Autofocus set to OFF
+2025-07-16 11:58:59 - INFO - Processing sample 49 at well (2, 2)
+2025-07-16 12:07:45 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 12:07:45 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 12:08:43 - INFO - Started imaging run for experiment 0 with image set 1
+2025-07-16 12:08:51 - INFO - Autofocus set to OFF
+2025-07-16 12:09:01 - INFO - Processing sample 49 at well (2, 2)
+2025-07-16 12:09:55 - INFO - Autofocus set to ON
+2025-07-16 12:09:55 - INFO - Autofocus set to OFF
+2025-07-16 12:10:17 - INFO - Taking image stack for sample 49 at well (2, 2), site 0
+2025-07-16 12:10:17 - ERROR - No status found in reply, returning 0.0 position for focus.
+2025-07-16 12:10:17 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-16 12:10:17 - ERROR - Socket error during send_command: [Errno 32] Broken pipe
+2025-07-16 13:10:17 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 13:10:17 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 13:10:50 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 13:10:50 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 13:22:42 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 13:22:42 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 13:23:16 - INFO - Started imaging run for experiment 0 with image set 1
+2025-07-16 13:23:19 - INFO - Autofocus set to OFF
+2025-07-16 13:23:45 - INFO - Processing sample 49 at well (2, 2)
+2025-07-16 13:26:48 - INFO - Autofocus set to ON
+2025-07-16 13:26:53 - INFO - Autofocus set to OFF
+2025-07-16 13:27:04 - INFO - Taking image stack for sample 49 at well (2, 2), site 0
+2025-07-16 13:27:18 - ERROR - No status found in reply, returning 0.0 position for focus.
+2025-07-16 13:29:50 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 13:29:50 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 13:30:00 - INFO - Started imaging run for experiment 0 with image set 1
+2025-07-16 13:30:00 - INFO - Autofocus set to OFF
+2025-07-16 13:30:05 - INFO - Processing sample 49 at well (2, 2)
+2025-07-16 13:30:17 - INFO - Autofocus set to ON
+2025-07-16 13:30:17 - INFO - Autofocus set to OFF
+2025-07-16 13:30:17 - INFO - Taking image stack for sample 49 at well (2, 2), site 0
+2025-07-16 13:35:54 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 13:35:54 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 13:36:09 - INFO - Started imaging run for experiment 1 with image set 1
+2025-07-16 13:36:09 - INFO - Autofocus set to OFF
+2025-07-16 13:36:14 - INFO - Processing sample 1 at well (2, 2)
+2025-07-16 13:36:25 - INFO - Autofocus set to ON
+2025-07-16 13:36:25 - INFO - Autofocus set to OFF
+2025-07-16 13:36:25 - INFO - Taking image stack for sample 1 at well (2, 2), site 0
+2025-07-16 13:37:56 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 13:37:56 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 13:37:59 - INFO - Started imaging run for experiment 0 with image set 1
+2025-07-16 13:37:59 - INFO - Autofocus set to OFF
+2025-07-16 13:38:04 - INFO - Processing sample 49 at well (2, 2)
+2025-07-16 13:38:11 - INFO - Autofocus set to ON
+2025-07-16 13:38:11 - INFO - Autofocus set to OFF
+2025-07-16 13:38:11 - INFO - Taking image stack for sample 49 at well (2, 2), site 0
+2025-07-16 13:38:33 - INFO - Processing image stack 6_2_2_0 at stack number 0
+2025-07-16 13:42:05 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 13:42:05 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 13:42:08 - INFO - Started imaging run for experiment 0 with image set 1
+2025-07-16 13:42:08 - INFO - Autofocus set to OFF
+2025-07-16 13:42:13 - INFO - Processing sample 49 at well (2, 2)
+2025-07-16 13:42:20 - INFO - Autofocus set to ON
+2025-07-16 13:42:20 - INFO - Autofocus set to OFF
+2025-07-16 13:42:20 - INFO - Taking image stack for sample 49 at well (2, 2), site 0
+2025-07-16 13:47:19 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 13:47:19 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 13:47:21 - INFO - Started imaging run for experiment 0 with image set 1
+2025-07-16 13:47:21 - INFO - Autofocus set to OFF
+2025-07-16 13:47:27 - INFO - Processing sample 49 at well (2, 2)
+2025-07-16 13:47:34 - INFO - Autofocus set to ON
+2025-07-16 13:47:34 - INFO - Autofocus set to OFF
+2025-07-16 13:47:34 - INFO - Taking image stack for sample 49 at well (2, 2), site 0
+2025-07-16 13:47:49 - INFO - Processing image stack 1_2_2_0 at stack number 0
+2025-07-16 13:51:39 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 13:51:39 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 13:51:42 - INFO - Started imaging run for experiment 0 with image set 1
+2025-07-16 13:51:42 - INFO - Autofocus set to OFF
+2025-07-16 13:51:47 - INFO - Processing sample 49 at well (2, 2)
+2025-07-16 13:51:54 - INFO - Autofocus set to ON
+2025-07-16 13:51:54 - INFO - Autofocus set to OFF
+2025-07-16 13:51:54 - INFO - Taking image stack for sample 49 at well (2, 2), site 0
+2025-07-16 13:52:02 - INFO - Processing image stack 2_2_2_0 at stack number 0
+2025-07-16 14:08:19 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 14:08:19 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 14:08:21 - INFO - Started imaging run for experiment 0 with image set 1
+2025-07-16 14:08:21 - INFO - Autofocus set to OFF
+2025-07-16 14:08:26 - INFO - Processing sample 49 at well (2, 2)
+2025-07-16 14:08:33 - INFO - Autofocus set to ON
+2025-07-16 14:08:33 - INFO - Autofocus set to OFF
+2025-07-16 14:08:33 - INFO - Taking image stack for sample 49 at well (2, 2), site 0
+2025-07-16 14:08:44 - INFO - Processing image stack ~/data/3_2_2_0 at stack number 0
+2025-07-16 14:15:26 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 14:15:26 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 14:15:28 - INFO - Started imaging run for experiment 0 with image set 1
+2025-07-16 14:15:28 - INFO - Autofocus set to OFF
+2025-07-16 14:15:33 - INFO - Processing sample 49 at well (2, 2)
+2025-07-16 14:15:40 - INFO - Autofocus set to ON
+2025-07-16 14:15:40 - INFO - Autofocus set to OFF
+2025-07-16 14:15:40 - INFO - Taking image stack for sample 49 at well (2, 2), site 0
+2025-07-16 14:15:49 - INFO - Processing image stack /home/sd2030/data/4_2_2_0 at stack number 0
+2025-07-16 14:18:15 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 14:18:15 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 14:18:17 - INFO - Started imaging run for experiment 0 with image set 1
+2025-07-16 14:18:17 - INFO - Autofocus set to OFF
+2025-07-16 14:18:22 - INFO - Processing sample 49 at well (2, 2)
+2025-07-16 14:18:30 - INFO - Autofocus set to ON
+2025-07-16 14:18:30 - INFO - Autofocus set to OFF
+2025-07-16 14:18:30 - INFO - Taking image stack for sample 49 at well (2, 2), site 0
+2025-07-16 14:18:44 - INFO - Processing image stack /home/sd2030/data/5_2_2_0 at stack number 0
+2025-07-16 14:19:53 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 14:19:53 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 14:19:55 - INFO - Started imaging run for experiment 0 with image set 1
+2025-07-16 14:19:55 - INFO - Autofocus set to OFF
+2025-07-16 14:20:00 - INFO - Processing sample 49 at well (2, 2)
+2025-07-16 14:20:07 - INFO - Autofocus set to ON
+2025-07-16 14:20:07 - INFO - Autofocus set to OFF
+2025-07-16 14:20:08 - INFO - Taking image stack for sample 49 at well (2, 2), site 0
+2025-07-16 14:20:19 - INFO - Processing image stack /home/sd2030/data/6_2_2_0 at stack number 0
+2025-07-16 14:22:08 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 14:22:08 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 14:22:10 - INFO - Started imaging run for experiment 0 with image set 1
+2025-07-16 14:22:10 - INFO - Autofocus set to OFF
+2025-07-16 14:22:15 - INFO - Processing sample 49 at well (2, 2)
+2025-07-16 14:22:22 - INFO - Autofocus set to ON
+2025-07-16 14:22:22 - INFO - Autofocus set to OFF
+2025-07-16 14:22:23 - INFO - Taking image stack for sample 49 at well (2, 2), site 0
+2025-07-16 14:22:35 - INFO - Processing image stack /home/sd2030/data/7_2_2_0.movie at stack number 0
+2025-07-16 14:30:24 - INFO - TemikaCameraAdapter initialized.
+2025-07-16 14:30:24 - INFO - Selected illumination 1 with intensity 0.2
+2025-07-16 14:30:25 - INFO - Started imaging run for experiment 0 with image set 1
+2025-07-16 14:30:25 - INFO - Autofocus set to OFF
+2025-07-16 14:30:31 - INFO - Processing sample 49 at well (2, 2)
+2025-07-16 14:30:38 - INFO - Autofocus set to ON
+2025-07-16 14:30:38 - INFO - Autofocus set to OFF
+2025-07-16 14:30:38 - INFO - Taking image stack for sample 49 at well (2, 2), site 0
+2025-07-16 14:30:46 - INFO - Processing image stack /home/sd2030/data/8_2_2_0.movie at stack number 0
+2025-07-16 14:30:55 - INFO - Image stack extracted for movie /home/sd2030/data/8_2_2_0.movie
+2025-07-16 14:30:55 - INFO - Processing image stack /home/sd2030/data/8_2_2_0.movie at stack number 1
+2025-07-16 14:31:05 - INFO - Image stack extracted for movie /home/sd2030/data/8_2_2_0.movie
+2025-07-16 14:31:05 - INFO - Processing image stack /home/sd2030/data/8_2_2_0.movie at stack number 2
+2025-07-16 14:31:12 - INFO - Image stack extracted for movie /home/sd2030/data/8_2_2_0.movie
+2025-07-16 14:31:12 - INFO - Autofocus set to ON
+2025-07-16 14:31:12 - INFO - Autofocus set to OFF
+2025-07-16 14:31:18 - INFO - Autofocus set to ON
+2025-07-16 14:31:18 - INFO - Autofocus set to OFF
+2025-07-16 14:31:18 - INFO - Taking image stack for sample 49 at well (2, 2), site 1
+2025-07-16 14:31:23 - INFO - Processing image stack /home/sd2030/data/8_2_2_1.movie at stack number 0
+2025-07-16 14:31:29 - INFO - Image stack extracted for movie /home/sd2030/data/8_2_2_1.movie
+2025-07-16 14:31:29 - INFO - Processing image stack /home/sd2030/data/8_2_2_1.movie at stack number 1
+2025-07-16 14:31:29 - INFO - Image stack extracted for movie /home/sd2030/data/8_2_2_1.movie
+2025-07-16 14:31:29 - INFO - Processing image stack /home/sd2030/data/8_2_2_1.movie at stack number 2
+2025-07-16 14:31:30 - INFO - Image stack extracted for movie /home/sd2030/data/8_2_2_1.movie
+2025-07-16 14:31:31 - INFO - Autofocus set to ON
+2025-07-16 14:31:31 - INFO - Autofocus set to OFF
+2025-07-16 14:31:37 - INFO - Autofocus set to ON
+2025-07-16 14:31:37 - INFO - Autofocus set to OFF
+2025-07-16 14:31:37 - INFO - Taking image stack for sample 49 at well (2, 2), site 2
+2025-07-16 14:31:38 - INFO - Processing image stack /home/sd2030/data/8_2_2_2.movie at stack number 0
+2025-07-16 14:31:39 - INFO - Image stack extracted for movie /home/sd2030/data/8_2_2_2.movie
+2025-07-16 14:31:39 - INFO - Processing image stack /home/sd2030/data/8_2_2_2.movie at stack number 1
+2025-07-16 14:31:39 - INFO - Image stack extracted for movie /home/sd2030/data/8_2_2_2.movie
+2025-07-16 14:31:39 - INFO - Processing image stack /home/sd2030/data/8_2_2_2.movie at stack number 2
+2025-07-16 14:31:40 - INFO - Image stack extracted for movie /home/sd2030/data/8_2_2_2.movie
+2025-07-16 14:31:40 - INFO - Autofocus set to ON
+2025-07-16 14:31:40 - INFO - Autofocus set to OFF
+2025-07-16 14:31:45 - INFO - Processing sample 50 at well (10, 10)
+2025-07-16 14:32:46 - ERROR - Timeout after 60s waiting for 'Done' response
+2025-07-16 14:33:54 - ERROR - Timeout after 60s waiting for 'Done' response
+2025-07-16 14:34:03 - INFO - Autofocus set to ON
+2025-07-16 14:34:03 - INFO - Autofocus set to OFF
+2025-07-16 14:34:09 - INFO - Taking image stack for sample 50 at well (10, 10), site 0
+2025-07-16 14:34:11 - INFO - Processing image stack /home/sd2030/data/8_10_10_0.movie at stack number 0
+2025-07-16 14:34:11 - INFO - Image stack extracted for movie /home/sd2030/data/8_10_10_0.movie
+2025-07-16 14:34:11 - INFO - Processing image stack /home/sd2030/data/8_10_10_0.movie at stack number 1
+2025-07-16 14:34:12 - INFO - Image stack extracted for movie /home/sd2030/data/8_10_10_0.movie
+2025-07-16 14:34:12 - INFO - Processing image stack /home/sd2030/data/8_10_10_0.movie at stack number 2
+2025-07-16 14:34:12 - INFO - Image stack extracted for movie /home/sd2030/data/8_10_10_0.movie
+2025-07-16 14:34:13 - INFO - Autofocus set to ON
+2025-07-16 14:34:13 - INFO - Autofocus set to OFF
+2025-07-16 14:34:18 - INFO - Autofocus set to ON
+2025-07-16 14:34:18 - INFO - Autofocus set to OFF
+2025-07-16 14:34:18 - INFO - Taking image stack for sample 50 at well (10, 10), site 1
+2025-07-16 14:34:20 - INFO - Processing image stack /home/sd2030/data/8_10_10_1.movie at stack number 0
+2025-07-16 14:34:21 - INFO - Image stack extracted for movie /home/sd2030/data/8_10_10_1.movie
+2025-07-16 14:34:21 - INFO - Processing image stack /home/sd2030/data/8_10_10_1.movie at stack number 1
+2025-07-16 14:34:21 - INFO - Image stack extracted for movie /home/sd2030/data/8_10_10_1.movie
+2025-07-16 14:34:21 - INFO - Processing image stack /home/sd2030/data/8_10_10_1.movie at stack number 2
+2025-07-16 14:34:22 - INFO - Image stack extracted for movie /home/sd2030/data/8_10_10_1.movie
+2025-07-16 14:34:23 - INFO - Autofocus set to ON
+2025-07-16 14:34:23 - INFO - Autofocus set to OFF
+2025-07-16 14:34:26 - INFO - Autofocus set to ON
+2025-07-16 14:34:26 - INFO - Autofocus set to OFF
+2025-07-16 14:34:26 - INFO - Taking image stack for sample 50 at well (10, 10), site 2
+2025-07-16 14:34:29 - INFO - Processing image stack /home/sd2030/data/8_10_10_2.movie at stack number 0
+2025-07-16 14:34:29 - INFO - Image stack extracted for movie /home/sd2030/data/8_10_10_2.movie
+2025-07-16 14:34:29 - INFO - Processing image stack /home/sd2030/data/8_10_10_2.movie at stack number 1
+2025-07-16 14:34:29 - INFO - Image stack extracted for movie /home/sd2030/data/8_10_10_2.movie
+2025-07-16 14:34:29 - INFO - Processing image stack /home/sd2030/data/8_10_10_2.movie at stack number 2
+2025-07-16 14:34:30 - INFO - Image stack extracted for movie /home/sd2030/data/8_10_10_2.movie
+2025-07-16 14:34:31 - INFO - Autofocus set to ON
+2025-07-16 14:34:31 - INFO - Autofocus set to OFF

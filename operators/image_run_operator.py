@@ -24,6 +24,7 @@ class ImageRunOperator:
         self.illumination_controller.illumination_setup(self.app_config.get("illumination_led_number", 1),
                                                          self.app_config.get("illumination_intensity", 0.2))
         self.camera_controller.set_shutter_speed(self.app_config.get("shutter_speed", 10000))
+        self.movie_path = self.app_config.get("movie_file_directory", "~/data")
 
 
 
@@ -50,8 +51,8 @@ class ImageRunOperator:
             experiment_id=self.experiment.id,
             description= (f"{self.experiment.description}: Image Run: {number_prev_runs_of_exp_set + 1}"),
             notes=(f"Image Set: {self.image_set.description}"),
-            image_set_start_date_time= datetime.now(),
-            image_set_status="Not Started",
+            image_run_start_date_time= datetime.now(),
+            image_run_status="Not Started",
             number_of_samples=len(self.experiment.sample)
         ))
 
@@ -71,14 +72,15 @@ class ImageRunOperator:
 
             for site_number in range(self.image_set.number_of_sites):
 
-                filename = f"{self.image_run.id}_{sample.well_row}_{sample.well_column}_{site_number}"
+                filename = f"{self.movie_path}/{self.image_run.id}_{sample.well_row}_{sample.well_column}_{site_number}"
                 self.camera_controller.set_filename(filename)
 
                 self._move_stage_to_site(sample, site_number)
                 self._readjust_focus()
 
                 self._take_stack(sample, site_number)
-                self._process_stack(filename, sample)
+                movie_filename = f"{filename}{self.app_config.get('movie_extension', '.movie')}"
+                self._process_stack(movie_filename, sample, site_number)
                 self._readjust_focus()
 
             self.focus_controller.move_z(self.move_position)  # Drop Z for next major move
@@ -101,9 +103,9 @@ class ImageRunOperator:
 
     def _move_stage_to_site(self, sample, site_number):
 
-        x = self.plate.centre_first_well_offset_x + (sample.well_column - 1) * self.plate.well_spacing_x
+        x = self.plate.centre_first_well_offset_x + (sample.well_column) * self.plate.well_spacing_x
         x = x + (site_number * (self.plate.well_dimension * random.uniform(0.1, 0.4))) 
-        y = self.plate.centre_first_well_offset_y + (sample.well_row - 1) * self.plate.well_spacing_y
+        y = self.plate.centre_first_well_offset_y + (sample.well_row) * self.plate.well_spacing_y
         y = y + (site_number * (self.plate.well_dimension * random.uniform(0.1, 0.4)))
 
         self.stage_controller.move(position = x, axis= "x", speed="normal")
@@ -130,12 +132,12 @@ class ImageRunOperator:
         self.focus_controller.autofocus(False)  # Disable autofocus after getting in position
         self.focus_position = self.focus_controller.get_z()  # Get the current Z position as a reference for focus
 
-    def _process_stack(self, movie_name, sample, site_number):
+    def _process_stack(self, movie_filename, sample, site_number):
 
         for stack_number in range(self.image_set.stack_size):
 
-            self.logger.info(f"Processing image stack {movie_name} at stack number {stack_number}")
-            filenames, focus_scores = self.converter.convert(movie_name)
+            self.logger.info(f"Processing image stack {movie_filename} at stack number {stack_number}")
+            filenames, focus_scores = self.converter.convert(movie_name = movie_filename)
 
             for file, score in zip(filenames, focus_scores):
 
@@ -146,7 +148,7 @@ class ImageRunOperator:
                         image_stack_number=focus_scores.index(score),  # Use the index of the score as the stack ID
                         image_dimension_x=self.camera_controller.image_dimension_x,
                         image_dimension_y=self.camera_controller.image_dimension_y,
-                        image_file_path=file,
+                        image_file_path=str(file),
                         image_timestamp=datetime.now(),
                         image_focus_score=score,  # Focus score calculated from the Movie2Tiff conversion
                         average_droplet_size=0.0,  # Placeholder, to be calculated later
@@ -156,4 +158,4 @@ class ImageRunOperator:
                     # Save the image to the database
                 self.db.add_image(new_image)
 
-            self.logger.info(f"Image stack extracted for movie {movie_name}")
+            self.logger.info(f"Image stack extracted for movie {movie_filename}")

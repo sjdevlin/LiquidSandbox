@@ -118,15 +118,19 @@ class FlirCameraAdapter(BaseCamera):
         pass
 
     def capture_image(self):        
-        command = "<send_trigger></send_trigger>\n"
+        command = f"<camera name=\"{self.camera_name}\">"
+        command += "<send_trigger></send_trigger>"
+        command += "</camera>"
         self.temika_comms.send_command(command, wait_for="Done")
 
     def start_recording(self):        
         command = f"<camera name=\"{self.camera_name}\">"
         command += "<record>ON</record>"
+        command += "</camera>\n"
         self.temika_comms.send_command(command)
 
     def stop_recording(self):        
-        command = "<record>OFF</record>"
+        command = f"<camera name=\"{self.camera_name}\">"
+        command += "<record>OFF</record>"
         command += "</camera>\n"
         self.temika_comms.send_command(command)
