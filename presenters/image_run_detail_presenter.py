@@ -23,6 +23,14 @@ class ImageRunDetailPresenter():
 
     def refresh_view(self):
 
+        sample = self.db.get_sample_by_id(self.sample_id)
+        if not sample:
+            print(f"No sample found with ID {self.sample_id}.")
+            return
+        
+        meta_data = f"\nSample:{self.sample_id} Row: {sample.well_row}, Column: {sample.well_column}"
+        meta_data += f"Site: {self.site_number}, Stack: {self.stack_number}"
+
         try:
             image_file_name = next(
                 img.image_file_path for img in self.images
@@ -30,7 +38,7 @@ class ImageRunDetailPresenter():
                    img.image_site_number == self.site_number and
                    img.image_stack_number == self.stack_number
             )
-            self.view.show_image(image_file_name)
+            self.view.show_image(image_file_name, meta_data)
         except StopIteration:
             print(f"No image found for sample {self.sample_id}, site {self.site_number}, and stack {self.stack_number}.")
         except Exception as e:

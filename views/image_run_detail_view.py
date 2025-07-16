@@ -115,7 +115,7 @@ class ImageRunDetailView():
         )
         self.next_site_button.grid(sticky="",row=0, column=3, padx=5, pady=10)
 
-    def show_image(self, path_to_tiff):
+    def show_image(self, path_to_tiff, meta_data=None):
         """
         Load the TIFF from disk, resize it to fit the placeholder,
         and display it in image_label.
@@ -157,10 +157,9 @@ class ImageRunDetailView():
             # Convert to RGB if it's not already
             if img.mode != 'RGB':
                 img = img.convert('RGB')
-                print(f"Converted to RGB mode")
             
             # 2) Calculate new size while maintaining aspect ratio
-            target_width, target_height = 600, 400
+            target_width, target_height = 600, 410
             img_width, img_height = img.size
             
             # Calculate scaling factor
@@ -182,6 +181,7 @@ class ImageRunDetailView():
 
             # 4) Update the label
             self.image_label.configure(image=ctk_img, text="")
+            self.description_label.configure(text=meta_data if meta_data else "No metadata available")
             
             # 5) Keep a reference around so Tkinter doesn't GC it
             self.image_label.image = ctk_img
