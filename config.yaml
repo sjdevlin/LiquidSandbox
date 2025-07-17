@@ -9,9 +9,9 @@ robot_ip:
 
 #Camera settings
 camera_type: FLIR
-camera_name: "Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"
-#camera_name: "Genicam FLIR Blackfly S BFS-U3-70S7M 0159F410"
-shutter_speed: 40000 # in microseconds
+#camera_name: "Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"
+camera_name: "Genicam FLIR Blackfly S BFS-U3-70S7M 0159F410"
+exposure_time: 50000 # in microseconds
 image_dimension_x: 1920 # in pixels
 image_dimension_y: 1080 # in pixels
 
