@@ -22,7 +22,7 @@ class ImageRunOperator:
         self.focus_controller = FocusControllerFactory.create_focus_controller()
 
         self.illumination_controller.illumination_setup(self.app_config.get("illumination_led_number", 1),
-                                                         self.app_config.get("illumination_intensity", 0.2))
+                                                         self.app_config.get("illumination_intensity", 0.3))
         self.camera_controller.set_shutter_speed(self.app_config.get("shutter_speed", 10000))
         self.movie_path = self.app_config.get("movie_file_directory", "~/data")
 
@@ -117,7 +117,7 @@ class ImageRunOperator:
         self.logger.info(f"Taking image stack for sample {sample.id} at well ({sample.well_row}, {sample.well_column}), site {site_number}")
         self.camera_controller.start_recording()
         for stack_number in range(self.image_set.stack_size):
-            new_z = self.focus_controller.get_z() + (stack_number * self.image_set.stack_step_size)
+            new_z = self.focus_controller.get_z() + self.image_set.stack_step_size
             self.focus_controller.move_z(new_z, speed="normal")  # Move to the new Z position for the stack
             self.camera_controller.capture_image()
         self.camera_controller.stop_recording()
