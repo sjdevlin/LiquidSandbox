@@ -11,13 +11,13 @@ class ExperimentListPresenter():
         self.db = db
         self.view.exp_bind_row_selection(self.on_exp_row_selected)
         self.view.img_bind_row_selection(self.on_img_row_selected)
-        self.refresh_view()
         self.view.script_button.configure(command=self.generate_script)
         self.view.delete_button.configure(command=self.delete_experiment)
         self.view.copy_button.configure(command=self.copy_experiment)
         self.view.run_button.configure(command=self.run_experiment)
         self.selected_exp_row = None
         self.selected_img_row = None
+        self.refresh_view()
 
 
     def on_exp_row_selected(self, event):
