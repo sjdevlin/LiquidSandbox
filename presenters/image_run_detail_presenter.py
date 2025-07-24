@@ -1,9 +1,11 @@
 from models import Experiment, Sample
+from services import AppConfig
 
 class ImageRunDetailPresenter():
     def __init__(self, image_run_id, view, db):
         self.view = view
         self.db = db
+        self.app_config = AppConfig()
         self.view.next_sample_button.configure(command=self.next_sample)
         self.view.prev_sample_button.configure(command=self.prev_sample)
         self.view.next_stack_button.configure(command=self.next_stack)
@@ -50,8 +52,8 @@ class ImageRunDetailPresenter():
             )
             
             # Check if path is already absolute, if not make it relative to current directory
-            image_file_path = f"/Users/dev{image_file_path}"
-            
+            image_file_path = f"{self.app_config.get('local_file_path')}{image_file_path}"
+
             self.view.show_image(image_file_path, meta_data)
         except StopIteration:
             print(f"No image found for sample {self.sample_id}, site {self.site_number}, and stack {self.stack_number}.")

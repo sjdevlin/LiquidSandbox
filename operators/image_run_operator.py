@@ -104,9 +104,9 @@ class ImageRunOperator:
     def _move_stage_to_site(self, sample, site_number):
 
         x = self.plate.centre_first_well_offset_x + (sample.well_column * self.plate.well_spacing_x)
-        x = x + (self.plate.well_dimension * random.uniform(-0.1, 0.1))
+        x = x + (self.plate.well_dimension * random.uniform(-0.15, 0.15))
         y = self.plate.centre_first_well_offset_y + (sample.well_row * self.plate.well_spacing_y)
-        y = y + (self.plate.well_dimension * random.uniform(-0.1, 0.1))
+        y = y + (self.plate.well_dimension * random.uniform(-0.15, 0.15))
 
         self.stage_controller.move(position = x, axis= "x", speed="normal")
         self.stage_controller.move(position = y, axis="y", speed="normal")
@@ -134,8 +134,8 @@ class ImageRunOperator:
 
     def _process_stack(self, movie_filename, sample, site_number):
 
-        self.logger.info(f"Processing image stack {movie_filename} at stack number {stack_number}")
-        filenames, focus_scores, highest_pixel_values = self.converter.convert(movie_name = movie_filename)
+        self.logger.info(f"Processing image stack {movie_filename} at site number {site_number} for sample {sample.id}")
+        filenames, focus_scores = self.converter.convert(movie_name = movie_filename)
 
         for file, score in zip(filenames, focus_scores):
 

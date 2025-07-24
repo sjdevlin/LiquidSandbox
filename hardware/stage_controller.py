@@ -81,10 +81,10 @@ class TemikaStageController(Stage):
         self.max_stage_speed = self.my_app_config.get("max_stage_speed", 10000)
 
 
-    def move(self, axis="x", position="0", speed="normal"):
+    def move(self, axis, position, speed):
         stage_speed = self.max_stage_speed if speed == "max" else self.normal_stage_speed
         position = position * self.my_app_config.get("stage_scale", 1.0)
-        offset = self.my_app_config.get("origin_offset_x", 0) if axis == "x" else self.my_app_config.get("origin_offset_y", 0)
+        offset = self.my_app_config.get("origin_offset_x") if axis == "x" else self.my_app_config.get("origin_offset_y")
         position -= offset  # Apply origin offset
         position = -1 * position  if axis == "y" else position  # Invert Y axis for Temika
         command = f"<{self.name}>"

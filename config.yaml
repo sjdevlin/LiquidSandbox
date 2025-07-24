@@ -41,8 +41,8 @@ stage_force_to_origin: 130 # in mm
 stage_scale: 1000.0 # convert mm to microns
 max_stage_speed: 10000 # in microns/s
 normal_stage_speed: 3000 # in microns/s
-origin_offset_x: 4200
-origin_offset_y: 4200
+origin_offset_x: 4300 # in microns
+origin_offset_y: 3300 # in microns
 
 # Opentrons settings
 script_template: ./opentrons_protocols/template.json
@@ -53,4 +53,5 @@ image_file_type: tiff
 image_file_compression: lzw
 movie_file_directory: /home/sd2030/data
 movie_extension: .movie
-local_file_path: /Users/dev
+#local_file_path: /Users/dev
+local_file_path: /home/sd2030

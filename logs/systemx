@@ -1,2 +1,1624 @@
 2025-07-22 19:27:45 - INFO - Protocol written → opentrons_protocols/script/exp_1.json
 2025-07-22 19:45:04 - INFO - Protocol written → opentrons_protocols/script/exp_1.json
+2025-07-24 11:38:59 - INFO - TemikaCameraAdapter initialized.
+2025-07-24 11:38:59 - INFO - Selected illumination 1 with intensity 0.3
+2025-07-24 11:46:06 - INFO - Started imaging run for experiment 1 with image set 1
+2025-07-24 11:46:06 - INFO - Autofocus set to OFF
+2025-07-24 11:46:09 - INFO - Processing sample 1 at well (2, 2)
+2025-07-24 11:46:13 - INFO - Autofocus set to ON
+2025-07-24 11:46:13 - INFO - Autofocus set to OFF
+2025-07-24 11:46:13 - INFO - Taking image stack for sample 1 at well (2, 2), site 0
+2025-07-24 11:48:29 - INFO - TemikaCameraAdapter initialized.
+2025-07-24 11:48:29 - INFO - Selected illumination 1 with intensity 0.3
+2025-07-24 11:48:33 - INFO - Started imaging run for experiment 1 with image set 1
+2025-07-24 11:48:33 - INFO - Autofocus set to OFF
+2025-07-24 11:48:35 - INFO - Processing sample 1 at well (2, 2)
+2025-07-24 11:48:41 - INFO - Autofocus set to ON
+2025-07-24 11:48:41 - INFO - Autofocus set to OFF
+2025-07-24 11:48:41 - INFO - Taking image stack for sample 1 at well (2, 2), site 0
+2025-07-24 11:48:49 - INFO - Processing image stack /home/sd2030/data/2_2_2_0.movie at site number 0 for sample 1
+2025-07-24 11:52:18 - INFO - TemikaCameraAdapter initialized.
+2025-07-24 11:52:18 - INFO - Selected illumination 1 with intensity 0.3
+2025-07-24 11:53:21 - INFO - Started imaging run for experiment 1 with image set 1
+2025-07-24 11:53:21 - INFO - Autofocus set to OFF
+2025-07-24 11:53:23 - INFO - Processing sample 1 at well (2, 2)
+2025-07-24 11:53:27 - INFO - Autofocus set to ON
+2025-07-24 11:53:27 - INFO - Autofocus set to OFF
+2025-07-24 11:53:27 - INFO - Taking image stack for sample 1 at well (2, 2), site 0
+2025-07-24 11:53:28 - ERROR - Encountered 'ERROR' in data. Halting process for manual intervention.
+2025-07-24 11:54:41 - INFO - TemikaCameraAdapter initialized.
+2025-07-24 11:54:41 - INFO - Selected illumination 1 with intensity 0.3
+2025-07-24 11:54:45 - INFO - Started imaging run for experiment 1 with image set 1
+2025-07-24 11:54:45 - INFO - Autofocus set to OFF
+2025-07-24 11:54:47 - INFO - Processing sample 1 at well (2, 2)
+2025-07-24 11:54:51 - INFO - Autofocus set to ON
+2025-07-24 11:54:51 - INFO - Autofocus set to OFF
+2025-07-24 11:54:51 - INFO - Taking image stack for sample 1 at well (2, 2), site 0
+2025-07-24 11:54:58 - INFO - Processing image stack /home/sd2030/data/4_2_2_0.movie at site number 0 for sample 1
+2025-07-24 11:54:59 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_2_0.movie
+2025-07-24 11:55:02 - INFO - Autofocus set to ON
+2025-07-24 11:55:02 - INFO - Autofocus set to OFF
+2025-07-24 11:55:04 - INFO - Autofocus set to ON
+2025-07-24 11:55:04 - INFO - Autofocus set to OFF
+2025-07-24 11:55:04 - INFO - Taking image stack for sample 1 at well (2, 2), site 1
+2025-07-24 11:55:11 - INFO - Processing image stack /home/sd2030/data/4_2_2_1.movie at site number 1 for sample 1
+2025-07-24 11:55:11 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_2_1.movie
+2025-07-24 11:55:15 - INFO - Autofocus set to ON
+2025-07-24 11:55:15 - INFO - Autofocus set to OFF
+2025-07-24 11:55:17 - INFO - Autofocus set to ON
+2025-07-24 11:55:17 - INFO - Autofocus set to OFF
+2025-07-24 11:55:17 - INFO - Taking image stack for sample 1 at well (2, 2), site 2
+2025-07-24 11:55:26 - INFO - Processing image stack /home/sd2030/data/4_2_2_2.movie at site number 2 for sample 1
+2025-07-24 11:55:26 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_2_2.movie
+2025-07-24 11:55:29 - INFO - Autofocus set to ON
+2025-07-24 11:55:29 - INFO - Autofocus set to OFF
+2025-07-24 11:55:32 - INFO - Processing sample 2 at well (2, 3)
+2025-07-24 11:55:37 - INFO - Autofocus set to ON
+2025-07-24 11:55:37 - INFO - Autofocus set to OFF
+2025-07-24 11:55:37 - INFO - Taking image stack for sample 2 at well (2, 3), site 0
+2025-07-24 11:55:45 - INFO - Processing image stack /home/sd2030/data/4_2_3_0.movie at site number 0 for sample 2
+2025-07-24 11:55:45 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_3_0.movie
+2025-07-24 11:55:48 - INFO - Autofocus set to ON
+2025-07-24 11:55:48 - INFO - Autofocus set to OFF
+2025-07-24 11:55:51 - INFO - Autofocus set to ON
+2025-07-24 11:55:51 - INFO - Autofocus set to OFF
+2025-07-24 11:55:51 - INFO - Taking image stack for sample 2 at well (2, 3), site 1
+2025-07-24 11:55:58 - INFO - Processing image stack /home/sd2030/data/4_2_3_1.movie at site number 1 for sample 2
+2025-07-24 11:55:58 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_3_1.movie
+2025-07-24 11:56:01 - INFO - Autofocus set to ON
+2025-07-24 11:56:01 - INFO - Autofocus set to OFF
+2025-07-24 11:56:03 - INFO - Autofocus set to ON
+2025-07-24 11:56:03 - INFO - Autofocus set to OFF
+2025-07-24 11:56:04 - INFO - Taking image stack for sample 2 at well (2, 3), site 2
+2025-07-24 11:56:11 - INFO - Processing image stack /home/sd2030/data/4_2_3_2.movie at site number 2 for sample 2
+2025-07-24 11:56:12 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_3_2.movie
+2025-07-24 11:56:15 - INFO - Autofocus set to ON
+2025-07-24 11:56:15 - INFO - Autofocus set to OFF
+2025-07-24 11:56:18 - INFO - Processing sample 3 at well (2, 4)
+2025-07-24 11:56:24 - INFO - Autofocus set to ON
+2025-07-24 11:56:24 - INFO - Autofocus set to OFF
+2025-07-24 11:56:24 - INFO - Taking image stack for sample 3 at well (2, 4), site 0
+2025-07-24 11:56:32 - INFO - Processing image stack /home/sd2030/data/4_2_4_0.movie at site number 0 for sample 3
+2025-07-24 11:56:33 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_4_0.movie
+2025-07-24 11:56:36 - INFO - Autofocus set to ON
+2025-07-24 11:56:36 - INFO - Autofocus set to OFF
+2025-07-24 11:56:38 - INFO - Autofocus set to ON
+2025-07-24 11:56:38 - INFO - Autofocus set to OFF
+2025-07-24 11:56:38 - INFO - Taking image stack for sample 3 at well (2, 4), site 1
+2025-07-24 11:56:45 - INFO - Processing image stack /home/sd2030/data/4_2_4_1.movie at site number 1 for sample 3
+2025-07-24 11:56:46 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_4_1.movie
+2025-07-24 11:56:49 - INFO - Autofocus set to ON
+2025-07-24 11:56:49 - INFO - Autofocus set to OFF
+2025-07-24 11:56:51 - INFO - Autofocus set to ON
+2025-07-24 11:56:51 - INFO - Autofocus set to OFF
+2025-07-24 11:56:51 - INFO - Taking image stack for sample 3 at well (2, 4), site 2
+2025-07-24 11:56:59 - INFO - Processing image stack /home/sd2030/data/4_2_4_2.movie at site number 2 for sample 3
+2025-07-24 11:56:59 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_4_2.movie
+2025-07-24 11:57:02 - INFO - Autofocus set to ON
+2025-07-24 11:57:02 - INFO - Autofocus set to OFF
+2025-07-24 11:57:05 - INFO - Processing sample 4 at well (2, 5)
+2025-07-24 11:57:12 - INFO - Autofocus set to ON
+2025-07-24 11:57:12 - INFO - Autofocus set to OFF
+2025-07-24 11:57:12 - INFO - Taking image stack for sample 4 at well (2, 5), site 0
+2025-07-24 11:57:20 - INFO - Processing image stack /home/sd2030/data/4_2_5_0.movie at site number 0 for sample 4
+2025-07-24 11:57:20 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_5_0.movie
+2025-07-24 11:57:23 - INFO - Autofocus set to ON
+2025-07-24 11:57:23 - INFO - Autofocus set to OFF
+2025-07-24 11:57:26 - INFO - Autofocus set to ON
+2025-07-24 11:57:26 - INFO - Autofocus set to OFF
+2025-07-24 11:57:26 - INFO - Taking image stack for sample 4 at well (2, 5), site 1
+2025-07-24 11:57:33 - INFO - Processing image stack /home/sd2030/data/4_2_5_1.movie at site number 1 for sample 4
+2025-07-24 11:57:33 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_5_1.movie
+2025-07-24 11:57:36 - INFO - Autofocus set to ON
+2025-07-24 11:57:36 - INFO - Autofocus set to OFF
+2025-07-24 11:57:39 - INFO - Autofocus set to ON
+2025-07-24 11:57:39 - INFO - Autofocus set to OFF
+2025-07-24 11:57:39 - INFO - Taking image stack for sample 4 at well (2, 5), site 2
+2025-07-24 11:57:46 - INFO - Processing image stack /home/sd2030/data/4_2_5_2.movie at site number 2 for sample 4
+2025-07-24 11:57:46 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_5_2.movie
+2025-07-24 11:57:49 - INFO - Autofocus set to ON
+2025-07-24 11:57:49 - INFO - Autofocus set to OFF
+2025-07-24 11:57:52 - INFO - Processing sample 5 at well (2, 6)
+2025-07-24 11:57:59 - INFO - Autofocus set to ON
+2025-07-24 11:57:59 - INFO - Autofocus set to OFF
+2025-07-24 11:57:59 - INFO - Taking image stack for sample 5 at well (2, 6), site 0
+2025-07-24 11:58:06 - INFO - Processing image stack /home/sd2030/data/4_2_6_0.movie at site number 0 for sample 5
+2025-07-24 11:58:07 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_6_0.movie
+2025-07-24 11:58:10 - INFO - Autofocus set to ON
+2025-07-24 11:58:10 - INFO - Autofocus set to OFF
+2025-07-24 11:58:12 - INFO - Autofocus set to ON
+2025-07-24 11:58:12 - INFO - Autofocus set to OFF
+2025-07-24 11:58:12 - INFO - Taking image stack for sample 5 at well (2, 6), site 1
+2025-07-24 11:58:20 - INFO - Processing image stack /home/sd2030/data/4_2_6_1.movie at site number 1 for sample 5
+2025-07-24 11:58:21 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_6_1.movie
+2025-07-24 11:58:24 - INFO - Autofocus set to ON
+2025-07-24 11:58:24 - INFO - Autofocus set to OFF
+2025-07-24 11:58:26 - INFO - Autofocus set to ON
+2025-07-24 11:58:26 - INFO - Autofocus set to OFF
+2025-07-24 11:58:26 - INFO - Taking image stack for sample 5 at well (2, 6), site 2
+2025-07-24 11:58:34 - INFO - Processing image stack /home/sd2030/data/4_2_6_2.movie at site number 2 for sample 5
+2025-07-24 11:58:34 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_6_2.movie
+2025-07-24 11:58:38 - INFO - Autofocus set to ON
+2025-07-24 11:58:38 - INFO - Autofocus set to OFF
+2025-07-24 11:58:41 - INFO - Processing sample 6 at well (2, 7)
+2025-07-24 11:58:48 - INFO - Autofocus set to ON
+2025-07-24 11:58:48 - INFO - Autofocus set to OFF
+2025-07-24 11:58:48 - INFO - Taking image stack for sample 6 at well (2, 7), site 0
+2025-07-24 11:58:56 - INFO - Processing image stack /home/sd2030/data/4_2_7_0.movie at site number 0 for sample 6
+2025-07-24 11:58:57 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_7_0.movie
+2025-07-24 11:59:00 - INFO - Autofocus set to ON
+2025-07-24 11:59:00 - INFO - Autofocus set to OFF
+2025-07-24 11:59:02 - INFO - Autofocus set to ON
+2025-07-24 11:59:02 - INFO - Autofocus set to OFF
+2025-07-24 11:59:02 - INFO - Taking image stack for sample 6 at well (2, 7), site 1
+2025-07-24 11:59:10 - INFO - Processing image stack /home/sd2030/data/4_2_7_1.movie at site number 1 for sample 6
+2025-07-24 11:59:10 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_7_1.movie
+2025-07-24 11:59:14 - INFO - Autofocus set to ON
+2025-07-24 11:59:14 - INFO - Autofocus set to OFF
+2025-07-24 11:59:16 - INFO - Autofocus set to ON
+2025-07-24 11:59:16 - INFO - Autofocus set to OFF
+2025-07-24 11:59:16 - INFO - Taking image stack for sample 6 at well (2, 7), site 2
+2025-07-24 11:59:24 - INFO - Processing image stack /home/sd2030/data/4_2_7_2.movie at site number 2 for sample 6
+2025-07-24 11:59:24 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_7_2.movie
+2025-07-24 11:59:28 - INFO - Autofocus set to ON
+2025-07-24 11:59:28 - INFO - Autofocus set to OFF
+2025-07-24 11:59:31 - INFO - Processing sample 7 at well (2, 8)
+2025-07-24 11:59:38 - INFO - Autofocus set to ON
+2025-07-24 11:59:38 - INFO - Autofocus set to OFF
+2025-07-24 11:59:38 - INFO - Taking image stack for sample 7 at well (2, 8), site 0
+2025-07-24 11:59:47 - INFO - Processing image stack /home/sd2030/data/4_2_8_0.movie at site number 0 for sample 7
+2025-07-24 11:59:47 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_8_0.movie
+2025-07-24 11:59:50 - INFO - Autofocus set to ON
+2025-07-24 11:59:50 - INFO - Autofocus set to OFF
+2025-07-24 11:59:52 - INFO - Autofocus set to ON
+2025-07-24 11:59:52 - INFO - Autofocus set to OFF
+2025-07-24 11:59:52 - INFO - Taking image stack for sample 7 at well (2, 8), site 1
+2025-07-24 12:00:00 - INFO - Processing image stack /home/sd2030/data/4_2_8_1.movie at site number 1 for sample 7
+2025-07-24 12:00:01 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_8_1.movie
+2025-07-24 12:00:04 - INFO - Autofocus set to ON
+2025-07-24 12:00:04 - INFO - Autofocus set to OFF
+2025-07-24 12:00:06 - INFO - Autofocus set to ON
+2025-07-24 12:00:06 - INFO - Autofocus set to OFF
+2025-07-24 12:00:06 - INFO - Taking image stack for sample 7 at well (2, 8), site 2
+2025-07-24 12:00:15 - INFO - Processing image stack /home/sd2030/data/4_2_8_2.movie at site number 2 for sample 7
+2025-07-24 12:00:15 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_8_2.movie
+2025-07-24 12:00:19 - INFO - Autofocus set to ON
+2025-07-24 12:00:19 - INFO - Autofocus set to OFF
+2025-07-24 12:00:22 - INFO - Processing sample 8 at well (2, 9)
+2025-07-24 12:00:28 - INFO - Autofocus set to ON
+2025-07-24 12:00:28 - INFO - Autofocus set to OFF
+2025-07-24 12:00:28 - INFO - Taking image stack for sample 8 at well (2, 9), site 0
+2025-07-24 12:00:36 - INFO - Processing image stack /home/sd2030/data/4_2_9_0.movie at site number 0 for sample 8
+2025-07-24 12:00:36 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_9_0.movie
+2025-07-24 12:00:40 - INFO - Autofocus set to ON
+2025-07-24 12:00:40 - INFO - Autofocus set to OFF
+2025-07-24 12:00:42 - INFO - Autofocus set to ON
+2025-07-24 12:00:42 - INFO - Autofocus set to OFF
+2025-07-24 12:00:42 - INFO - Taking image stack for sample 8 at well (2, 9), site 1
+2025-07-24 12:00:50 - INFO - Processing image stack /home/sd2030/data/4_2_9_1.movie at site number 1 for sample 8
+2025-07-24 12:00:51 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_9_1.movie
+2025-07-24 12:00:54 - INFO - Autofocus set to ON
+2025-07-24 12:00:54 - INFO - Autofocus set to OFF
+2025-07-24 12:00:56 - INFO - Autofocus set to ON
+2025-07-24 12:00:56 - INFO - Autofocus set to OFF
+2025-07-24 12:00:56 - INFO - Taking image stack for sample 8 at well (2, 9), site 2
+2025-07-24 12:01:03 - INFO - Processing image stack /home/sd2030/data/4_2_9_2.movie at site number 2 for sample 8
+2025-07-24 12:01:04 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_9_2.movie
+2025-07-24 12:01:07 - INFO - Autofocus set to ON
+2025-07-24 12:01:07 - INFO - Autofocus set to OFF
+2025-07-24 12:01:11 - INFO - Processing sample 9 at well (2, 10)
+2025-07-24 12:01:18 - INFO - Autofocus set to ON
+2025-07-24 12:01:18 - INFO - Autofocus set to OFF
+2025-07-24 12:01:18 - INFO - Taking image stack for sample 9 at well (2, 10), site 0
+2025-07-24 12:01:25 - INFO - Processing image stack /home/sd2030/data/4_2_10_0.movie at site number 0 for sample 9
+2025-07-24 12:01:26 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_10_0.movie
+2025-07-24 12:01:29 - INFO - Autofocus set to ON
+2025-07-24 12:01:29 - INFO - Autofocus set to OFF
+2025-07-24 12:01:31 - INFO - Autofocus set to ON
+2025-07-24 12:01:31 - INFO - Autofocus set to OFF
+2025-07-24 12:01:31 - INFO - Taking image stack for sample 9 at well (2, 10), site 1
+2025-07-24 12:01:39 - INFO - Processing image stack /home/sd2030/data/4_2_10_1.movie at site number 1 for sample 9
+2025-07-24 12:01:39 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_10_1.movie
+2025-07-24 12:01:43 - INFO - Autofocus set to ON
+2025-07-24 12:01:43 - INFO - Autofocus set to OFF
+2025-07-24 12:01:45 - INFO - Autofocus set to ON
+2025-07-24 12:01:45 - INFO - Autofocus set to OFF
+2025-07-24 12:01:45 - INFO - Taking image stack for sample 9 at well (2, 10), site 2
+2025-07-24 12:01:52 - INFO - Processing image stack /home/sd2030/data/4_2_10_2.movie at site number 2 for sample 9
+2025-07-24 12:01:53 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_10_2.movie
+2025-07-24 12:01:56 - INFO - Autofocus set to ON
+2025-07-24 12:01:56 - INFO - Autofocus set to OFF
+2025-07-24 12:01:59 - INFO - Processing sample 10 at well (2, 11)
+2025-07-24 12:02:05 - INFO - Autofocus set to ON
+2025-07-24 12:02:05 - INFO - Autofocus set to OFF
+2025-07-24 12:02:05 - INFO - Taking image stack for sample 10 at well (2, 11), site 0
+2025-07-24 12:02:13 - INFO - Processing image stack /home/sd2030/data/4_2_11_0.movie at site number 0 for sample 10
+2025-07-24 12:02:13 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_11_0.movie
+2025-07-24 12:02:17 - INFO - Autofocus set to ON
+2025-07-24 12:02:17 - INFO - Autofocus set to OFF
+2025-07-24 12:02:19 - INFO - Autofocus set to ON
+2025-07-24 12:02:19 - INFO - Autofocus set to OFF
+2025-07-24 12:02:19 - INFO - Taking image stack for sample 10 at well (2, 11), site 1
+2025-07-24 12:02:28 - INFO - Processing image stack /home/sd2030/data/4_2_11_1.movie at site number 1 for sample 10
+2025-07-24 12:02:29 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_11_1.movie
+2025-07-24 12:02:32 - INFO - Autofocus set to ON
+2025-07-24 12:02:32 - INFO - Autofocus set to OFF
+2025-07-24 12:02:34 - INFO - Autofocus set to ON
+2025-07-24 12:02:34 - INFO - Autofocus set to OFF
+2025-07-24 12:02:34 - INFO - Taking image stack for sample 10 at well (2, 11), site 2
+2025-07-24 12:02:43 - INFO - Processing image stack /home/sd2030/data/4_2_11_2.movie at site number 2 for sample 10
+2025-07-24 12:02:43 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_11_2.movie
+2025-07-24 12:02:46 - INFO - Autofocus set to ON
+2025-07-24 12:02:46 - INFO - Autofocus set to OFF
+2025-07-24 12:02:49 - INFO - Processing sample 11 at well (2, 12)
+2025-07-24 12:02:56 - INFO - Autofocus set to ON
+2025-07-24 12:02:56 - INFO - Autofocus set to OFF
+2025-07-24 12:02:56 - INFO - Taking image stack for sample 11 at well (2, 12), site 0
+2025-07-24 12:03:05 - INFO - Processing image stack /home/sd2030/data/4_2_12_0.movie at site number 0 for sample 11
+2025-07-24 12:03:05 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_12_0.movie
+2025-07-24 12:03:09 - INFO - Autofocus set to ON
+2025-07-24 12:03:09 - INFO - Autofocus set to OFF
+2025-07-24 12:03:11 - INFO - Autofocus set to ON
+2025-07-24 12:03:11 - INFO - Autofocus set to OFF
+2025-07-24 12:03:11 - INFO - Taking image stack for sample 11 at well (2, 12), site 1
+2025-07-24 12:03:19 - INFO - Processing image stack /home/sd2030/data/4_2_12_1.movie at site number 1 for sample 11
+2025-07-24 12:03:19 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_12_1.movie
+2025-07-24 12:03:22 - INFO - Autofocus set to ON
+2025-07-24 12:03:22 - INFO - Autofocus set to OFF
+2025-07-24 12:03:25 - INFO - Autofocus set to ON
+2025-07-24 12:03:25 - INFO - Autofocus set to OFF
+2025-07-24 12:03:25 - INFO - Taking image stack for sample 11 at well (2, 12), site 2
+2025-07-24 12:03:34 - INFO - Processing image stack /home/sd2030/data/4_2_12_2.movie at site number 2 for sample 11
+2025-07-24 12:03:34 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_12_2.movie
+2025-07-24 12:03:38 - INFO - Autofocus set to ON
+2025-07-24 12:03:38 - INFO - Autofocus set to OFF
+2025-07-24 12:03:40 - INFO - Processing sample 12 at well (2, 13)
+2025-07-24 12:03:47 - INFO - Autofocus set to ON
+2025-07-24 12:03:47 - INFO - Autofocus set to OFF
+2025-07-24 12:03:47 - INFO - Taking image stack for sample 12 at well (2, 13), site 0
+2025-07-24 12:03:55 - INFO - Processing image stack /home/sd2030/data/4_2_13_0.movie at site number 0 for sample 12
+2025-07-24 12:03:55 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_13_0.movie
+2025-07-24 12:03:58 - INFO - Autofocus set to ON
+2025-07-24 12:03:58 - INFO - Autofocus set to OFF
+2025-07-24 12:04:00 - INFO - Autofocus set to ON
+2025-07-24 12:04:00 - INFO - Autofocus set to OFF
+2025-07-24 12:04:00 - INFO - Taking image stack for sample 12 at well (2, 13), site 1
+2025-07-24 12:04:08 - INFO - Processing image stack /home/sd2030/data/4_2_13_1.movie at site number 1 for sample 12
+2025-07-24 12:04:09 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_13_1.movie
+2025-07-24 12:04:12 - INFO - Autofocus set to ON
+2025-07-24 12:04:12 - INFO - Autofocus set to OFF
+2025-07-24 12:04:14 - INFO - Autofocus set to ON
+2025-07-24 12:04:14 - INFO - Autofocus set to OFF
+2025-07-24 12:04:14 - INFO - Taking image stack for sample 12 at well (2, 13), site 2
+2025-07-24 12:04:21 - INFO - Processing image stack /home/sd2030/data/4_2_13_2.movie at site number 2 for sample 12
+2025-07-24 12:04:22 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_13_2.movie
+2025-07-24 12:04:25 - INFO - Autofocus set to ON
+2025-07-24 12:04:25 - INFO - Autofocus set to OFF
+2025-07-24 12:04:27 - INFO - Processing sample 13 at well (2, 14)
+2025-07-24 12:04:33 - INFO - Autofocus set to ON
+2025-07-24 12:04:33 - INFO - Autofocus set to OFF
+2025-07-24 12:04:33 - INFO - Taking image stack for sample 13 at well (2, 14), site 0
+2025-07-24 12:04:41 - INFO - Processing image stack /home/sd2030/data/4_2_14_0.movie at site number 0 for sample 13
+2025-07-24 12:04:42 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_14_0.movie
+2025-07-24 12:04:45 - INFO - Autofocus set to ON
+2025-07-24 12:04:45 - INFO - Autofocus set to OFF
+2025-07-24 12:04:47 - INFO - Autofocus set to ON
+2025-07-24 12:04:47 - INFO - Autofocus set to OFF
+2025-07-24 12:04:47 - INFO - Taking image stack for sample 13 at well (2, 14), site 1
+2025-07-24 12:04:55 - INFO - Processing image stack /home/sd2030/data/4_2_14_1.movie at site number 1 for sample 13
+2025-07-24 12:04:56 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_14_1.movie
+2025-07-24 12:04:59 - INFO - Autofocus set to ON
+2025-07-24 12:04:59 - INFO - Autofocus set to OFF
+2025-07-24 12:05:01 - INFO - Autofocus set to ON
+2025-07-24 12:05:01 - INFO - Autofocus set to OFF
+2025-07-24 12:05:01 - INFO - Taking image stack for sample 13 at well (2, 14), site 2
+2025-07-24 12:05:09 - INFO - Processing image stack /home/sd2030/data/4_2_14_2.movie at site number 2 for sample 13
+2025-07-24 12:05:09 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_14_2.movie
+2025-07-24 12:05:13 - INFO - Autofocus set to ON
+2025-07-24 12:05:13 - INFO - Autofocus set to OFF
+2025-07-24 12:05:14 - INFO - Processing sample 14 at well (2, 15)
+2025-07-24 12:05:20 - INFO - Autofocus set to ON
+2025-07-24 12:05:20 - INFO - Autofocus set to OFF
+2025-07-24 12:05:20 - INFO - Taking image stack for sample 14 at well (2, 15), site 0
+2025-07-24 12:05:29 - INFO - Processing image stack /home/sd2030/data/4_2_15_0.movie at site number 0 for sample 14
+2025-07-24 12:05:30 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_15_0.movie
+2025-07-24 12:05:33 - INFO - Autofocus set to ON
+2025-07-24 12:05:33 - INFO - Autofocus set to OFF
+2025-07-24 12:05:35 - INFO - Autofocus set to ON
+2025-07-24 12:05:35 - INFO - Autofocus set to OFF
+2025-07-24 12:05:35 - INFO - Taking image stack for sample 14 at well (2, 15), site 1
+2025-07-24 12:05:44 - INFO - Processing image stack /home/sd2030/data/4_2_15_1.movie at site number 1 for sample 14
+2025-07-24 12:05:44 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_15_1.movie
+2025-07-24 12:05:48 - INFO - Autofocus set to ON
+2025-07-24 12:05:48 - INFO - Autofocus set to OFF
+2025-07-24 12:05:50 - INFO - Autofocus set to ON
+2025-07-24 12:05:50 - INFO - Autofocus set to OFF
+2025-07-24 12:05:50 - INFO - Taking image stack for sample 14 at well (2, 15), site 2
+2025-07-24 12:05:59 - INFO - Processing image stack /home/sd2030/data/4_2_15_2.movie at site number 2 for sample 14
+2025-07-24 12:05:59 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_15_2.movie
+2025-07-24 12:06:03 - INFO - Autofocus set to ON
+2025-07-24 12:06:03 - INFO - Autofocus set to OFF
+2025-07-24 12:06:04 - INFO - Processing sample 15 at well (2, 16)
+2025-07-24 12:06:09 - INFO - Autofocus set to ON
+2025-07-24 12:06:09 - INFO - Autofocus set to OFF
+2025-07-24 12:06:09 - INFO - Taking image stack for sample 15 at well (2, 16), site 0
+2025-07-24 12:06:17 - INFO - Processing image stack /home/sd2030/data/4_2_16_0.movie at site number 0 for sample 15
+2025-07-24 12:06:17 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_16_0.movie
+2025-07-24 12:06:21 - INFO - Autofocus set to ON
+2025-07-24 12:06:21 - INFO - Autofocus set to OFF
+2025-07-24 12:06:23 - INFO - Autofocus set to ON
+2025-07-24 12:06:23 - INFO - Autofocus set to OFF
+2025-07-24 12:06:23 - INFO - Taking image stack for sample 15 at well (2, 16), site 1
+2025-07-24 12:06:31 - INFO - Processing image stack /home/sd2030/data/4_2_16_1.movie at site number 1 for sample 15
+2025-07-24 12:06:32 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_16_1.movie
+2025-07-24 12:06:35 - INFO - Autofocus set to ON
+2025-07-24 12:06:35 - INFO - Autofocus set to OFF
+2025-07-24 12:06:37 - INFO - Autofocus set to ON
+2025-07-24 12:06:37 - INFO - Autofocus set to OFF
+2025-07-24 12:06:37 - INFO - Taking image stack for sample 15 at well (2, 16), site 2
+2025-07-24 12:06:45 - INFO - Processing image stack /home/sd2030/data/4_2_16_2.movie at site number 2 for sample 15
+2025-07-24 12:06:46 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_16_2.movie
+2025-07-24 12:06:49 - INFO - Autofocus set to ON
+2025-07-24 12:06:49 - INFO - Autofocus set to OFF
+2025-07-24 12:06:50 - INFO - Processing sample 16 at well (2, 17)
+2025-07-24 12:06:55 - INFO - Autofocus set to ON
+2025-07-24 12:06:55 - INFO - Autofocus set to OFF
+2025-07-24 12:06:55 - INFO - Taking image stack for sample 16 at well (2, 17), site 0
+2025-07-24 12:07:03 - INFO - Processing image stack /home/sd2030/data/4_2_17_0.movie at site number 0 for sample 16
+2025-07-24 12:07:03 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_17_0.movie
+2025-07-24 12:07:06 - INFO - Autofocus set to ON
+2025-07-24 12:07:06 - INFO - Autofocus set to OFF
+2025-07-24 12:07:09 - INFO - Autofocus set to ON
+2025-07-24 12:07:09 - INFO - Autofocus set to OFF
+2025-07-24 12:07:09 - INFO - Taking image stack for sample 16 at well (2, 17), site 1
+2025-07-24 12:07:17 - INFO - Processing image stack /home/sd2030/data/4_2_17_1.movie at site number 1 for sample 16
+2025-07-24 12:07:17 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_17_1.movie
+2025-07-24 12:07:20 - INFO - Autofocus set to ON
+2025-07-24 12:07:20 - INFO - Autofocus set to OFF
+2025-07-24 12:07:22 - INFO - Autofocus set to ON
+2025-07-24 12:07:22 - INFO - Autofocus set to OFF
+2025-07-24 12:07:23 - INFO - Taking image stack for sample 16 at well (2, 17), site 2
+2025-07-24 12:07:30 - INFO - Processing image stack /home/sd2030/data/4_2_17_2.movie at site number 2 for sample 16
+2025-07-24 12:07:31 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_17_2.movie
+2025-07-24 12:07:34 - INFO - Autofocus set to ON
+2025-07-24 12:07:34 - INFO - Autofocus set to OFF
+2025-07-24 12:07:34 - INFO - Processing sample 17 at well (2, 18)
+2025-07-24 12:07:39 - INFO - Autofocus set to ON
+2025-07-24 12:07:39 - INFO - Autofocus set to OFF
+2025-07-24 12:07:39 - INFO - Taking image stack for sample 17 at well (2, 18), site 0
+2025-07-24 12:07:46 - INFO - Processing image stack /home/sd2030/data/4_2_18_0.movie at site number 0 for sample 17
+2025-07-24 12:07:47 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_18_0.movie
+2025-07-24 12:07:50 - INFO - Autofocus set to ON
+2025-07-24 12:07:50 - INFO - Autofocus set to OFF
+2025-07-24 12:07:52 - INFO - Autofocus set to ON
+2025-07-24 12:07:52 - INFO - Autofocus set to OFF
+2025-07-24 12:07:52 - INFO - Taking image stack for sample 17 at well (2, 18), site 1
+2025-07-24 12:08:00 - INFO - Processing image stack /home/sd2030/data/4_2_18_1.movie at site number 1 for sample 17
+2025-07-24 12:08:00 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_18_1.movie
+2025-07-24 12:08:04 - INFO - Autofocus set to ON
+2025-07-24 12:08:04 - INFO - Autofocus set to OFF
+2025-07-24 12:08:05 - INFO - Autofocus set to ON
+2025-07-24 12:08:05 - INFO - Autofocus set to OFF
+2025-07-24 12:08:06 - INFO - Taking image stack for sample 17 at well (2, 18), site 2
+2025-07-24 12:08:13 - INFO - Processing image stack /home/sd2030/data/4_2_18_2.movie at site number 2 for sample 17
+2025-07-24 12:08:14 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_18_2.movie
+2025-07-24 12:08:17 - INFO - Autofocus set to ON
+2025-07-24 12:08:17 - INFO - Autofocus set to OFF
+2025-07-24 12:08:18 - INFO - Processing sample 18 at well (2, 19)
+2025-07-24 12:08:24 - INFO - Autofocus set to ON
+2025-07-24 12:08:24 - INFO - Autofocus set to OFF
+2025-07-24 12:08:24 - INFO - Taking image stack for sample 18 at well (2, 19), site 0
+2025-07-24 12:08:31 - INFO - Processing image stack /home/sd2030/data/4_2_19_0.movie at site number 0 for sample 18
+2025-07-24 12:08:31 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_19_0.movie
+2025-07-24 12:08:35 - INFO - Autofocus set to ON
+2025-07-24 12:08:35 - INFO - Autofocus set to OFF
+2025-07-24 12:08:37 - INFO - Autofocus set to ON
+2025-07-24 12:08:37 - INFO - Autofocus set to OFF
+2025-07-24 12:08:37 - INFO - Taking image stack for sample 18 at well (2, 19), site 1
+2025-07-24 12:08:45 - INFO - Processing image stack /home/sd2030/data/4_2_19_1.movie at site number 1 for sample 18
+2025-07-24 12:08:45 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_19_1.movie
+2025-07-24 12:08:48 - INFO - Autofocus set to ON
+2025-07-24 12:08:48 - INFO - Autofocus set to OFF
+2025-07-24 12:08:50 - INFO - Autofocus set to ON
+2025-07-24 12:08:50 - INFO - Autofocus set to OFF
+2025-07-24 12:08:50 - INFO - Taking image stack for sample 18 at well (2, 19), site 2
+2025-07-24 12:08:59 - INFO - Processing image stack /home/sd2030/data/4_2_19_2.movie at site number 2 for sample 18
+2025-07-24 12:08:59 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_19_2.movie
+2025-07-24 12:09:02 - INFO - Autofocus set to ON
+2025-07-24 12:09:02 - INFO - Autofocus set to OFF
+2025-07-24 12:09:04 - INFO - Processing sample 19 at well (2, 20)
+2025-07-24 12:09:11 - INFO - Autofocus set to ON
+2025-07-24 12:09:11 - INFO - Autofocus set to OFF
+2025-07-24 12:09:11 - INFO - Taking image stack for sample 19 at well (2, 20), site 0
+2025-07-24 12:09:20 - INFO - Processing image stack /home/sd2030/data/4_2_20_0.movie at site number 0 for sample 19
+2025-07-24 12:09:20 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_20_0.movie
+2025-07-24 12:09:24 - INFO - Autofocus set to ON
+2025-07-24 12:09:24 - INFO - Autofocus set to OFF
+2025-07-24 12:09:26 - INFO - Autofocus set to ON
+2025-07-24 12:09:26 - INFO - Autofocus set to OFF
+2025-07-24 12:09:26 - INFO - Taking image stack for sample 19 at well (2, 20), site 1
+2025-07-24 12:09:34 - INFO - Processing image stack /home/sd2030/data/4_2_20_1.movie at site number 1 for sample 19
+2025-07-24 12:09:34 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_20_1.movie
+2025-07-24 12:09:38 - INFO - Autofocus set to ON
+2025-07-24 12:09:38 - INFO - Autofocus set to OFF
+2025-07-24 12:09:40 - INFO - Autofocus set to ON
+2025-07-24 12:09:40 - INFO - Autofocus set to OFF
+2025-07-24 12:09:40 - INFO - Taking image stack for sample 19 at well (2, 20), site 2
+2025-07-24 12:09:48 - INFO - Processing image stack /home/sd2030/data/4_2_20_2.movie at site number 2 for sample 19
+2025-07-24 12:09:48 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_20_2.movie
+2025-07-24 12:09:52 - INFO - Autofocus set to ON
+2025-07-24 12:09:52 - INFO - Autofocus set to OFF
+2025-07-24 12:09:54 - INFO - Processing sample 20 at well (2, 21)
+2025-07-24 12:10:02 - INFO - Autofocus set to ON
+2025-07-24 12:10:02 - INFO - Autofocus set to OFF
+2025-07-24 12:10:02 - INFO - Taking image stack for sample 20 at well (2, 21), site 0
+2025-07-24 12:10:09 - INFO - Processing image stack /home/sd2030/data/4_2_21_0.movie at site number 0 for sample 20
+2025-07-24 12:10:09 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_21_0.movie
+2025-07-24 12:10:13 - INFO - Autofocus set to ON
+2025-07-24 12:10:13 - INFO - Autofocus set to OFF
+2025-07-24 12:10:15 - INFO - Autofocus set to ON
+2025-07-24 12:10:15 - INFO - Autofocus set to OFF
+2025-07-24 12:10:15 - INFO - Taking image stack for sample 20 at well (2, 21), site 1
+2025-07-24 12:10:23 - INFO - Processing image stack /home/sd2030/data/4_2_21_1.movie at site number 1 for sample 20
+2025-07-24 12:10:23 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_21_1.movie
+2025-07-24 12:10:27 - INFO - Autofocus set to ON
+2025-07-24 12:10:27 - INFO - Autofocus set to OFF
+2025-07-24 12:10:29 - INFO - Autofocus set to ON
+2025-07-24 12:10:29 - INFO - Autofocus set to OFF
+2025-07-24 12:10:29 - INFO - Taking image stack for sample 20 at well (2, 21), site 2
+2025-07-24 12:10:37 - INFO - Processing image stack /home/sd2030/data/4_2_21_2.movie at site number 2 for sample 20
+2025-07-24 12:10:38 - INFO - Image stack extracted for movie /home/sd2030/data/4_2_21_2.movie
+2025-07-24 12:10:41 - INFO - Autofocus set to ON
+2025-07-24 12:10:41 - INFO - Autofocus set to OFF
+2025-07-24 12:10:45 - INFO - Processing sample 21 at well (3, 2)
+2025-07-24 12:11:30 - ERROR - Encountered 'ERROR' in data. Halting process for manual intervention.
+2025-07-24 12:12:34 - ERROR - Timeout after 60s waiting for 'Done' response
+2025-07-24 12:12:34 - INFO - Autofocus set to ON
+2025-07-24 12:12:34 - INFO - Autofocus set to OFF
+2025-07-24 12:12:34 - INFO - Taking image stack for sample 21 at well (3, 2), site 0
+2025-07-24 12:12:42 - INFO - Processing image stack /home/sd2030/data/4_3_2_0.movie at site number 0 for sample 21
+2025-07-24 12:12:42 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_2_0.movie
+2025-07-24 12:12:45 - INFO - Autofocus set to ON
+2025-07-24 12:12:45 - INFO - Autofocus set to OFF
+2025-07-24 12:12:48 - INFO - Autofocus set to ON
+2025-07-24 12:12:48 - INFO - Autofocus set to OFF
+2025-07-24 12:12:48 - INFO - Taking image stack for sample 21 at well (3, 2), site 1
+2025-07-24 12:12:55 - INFO - Processing image stack /home/sd2030/data/4_3_2_1.movie at site number 1 for sample 21
+2025-07-24 12:12:55 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_2_1.movie
+2025-07-24 12:13:00 - INFO - Autofocus set to ON
+2025-07-24 12:13:00 - INFO - Autofocus set to OFF
+2025-07-24 12:13:02 - INFO - Autofocus set to ON
+2025-07-24 12:13:02 - INFO - Autofocus set to OFF
+2025-07-24 12:13:02 - INFO - Taking image stack for sample 21 at well (3, 2), site 2
+2025-07-24 12:13:10 - INFO - Processing image stack /home/sd2030/data/4_3_2_2.movie at site number 2 for sample 21
+2025-07-24 12:13:11 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_2_2.movie
+2025-07-24 12:13:16 - INFO - Autofocus set to ON
+2025-07-24 12:13:16 - INFO - Autofocus set to OFF
+2025-07-24 12:13:16 - INFO - Processing sample 22 at well (3, 3)
+2025-07-24 12:13:21 - INFO - Autofocus set to ON
+2025-07-24 12:13:21 - INFO - Autofocus set to OFF
+2025-07-24 12:13:21 - INFO - Taking image stack for sample 22 at well (3, 3), site 0
+2025-07-24 12:13:28 - INFO - Processing image stack /home/sd2030/data/4_3_3_0.movie at site number 0 for sample 22
+2025-07-24 12:13:29 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_3_0.movie
+2025-07-24 12:13:34 - INFO - Autofocus set to ON
+2025-07-24 12:13:34 - INFO - Autofocus set to OFF
+2025-07-24 12:13:36 - INFO - Autofocus set to ON
+2025-07-24 12:13:36 - INFO - Autofocus set to OFF
+2025-07-24 12:13:36 - INFO - Taking image stack for sample 22 at well (3, 3), site 1
+2025-07-24 12:13:44 - INFO - Processing image stack /home/sd2030/data/4_3_3_1.movie at site number 1 for sample 22
+2025-07-24 12:13:45 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_3_1.movie
+2025-07-24 12:13:48 - INFO - Autofocus set to ON
+2025-07-24 12:13:48 - INFO - Autofocus set to OFF
+2025-07-24 12:13:50 - INFO - Autofocus set to ON
+2025-07-24 12:13:50 - INFO - Autofocus set to OFF
+2025-07-24 12:13:50 - INFO - Taking image stack for sample 22 at well (3, 3), site 2
+2025-07-24 12:13:58 - INFO - Processing image stack /home/sd2030/data/4_3_3_2.movie at site number 2 for sample 22
+2025-07-24 12:13:58 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_3_2.movie
+2025-07-24 12:14:04 - INFO - Autofocus set to ON
+2025-07-24 12:14:04 - INFO - Autofocus set to OFF
+2025-07-24 12:14:09 - INFO - Processing sample 23 at well (3, 4)
+2025-07-24 12:14:18 - INFO - Autofocus set to ON
+2025-07-24 12:14:18 - INFO - Autofocus set to OFF
+2025-07-24 12:14:18 - INFO - Taking image stack for sample 23 at well (3, 4), site 0
+2025-07-24 12:14:26 - INFO - Processing image stack /home/sd2030/data/4_3_4_0.movie at site number 0 for sample 23
+2025-07-24 12:14:27 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_4_0.movie
+2025-07-24 12:14:31 - INFO - Autofocus set to ON
+2025-07-24 12:14:31 - INFO - Autofocus set to OFF
+2025-07-24 12:14:33 - INFO - Autofocus set to ON
+2025-07-24 12:14:33 - INFO - Autofocus set to OFF
+2025-07-24 12:14:33 - INFO - Taking image stack for sample 23 at well (3, 4), site 1
+2025-07-24 12:14:42 - INFO - Processing image stack /home/sd2030/data/4_3_4_1.movie at site number 1 for sample 23
+2025-07-24 12:14:43 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_4_1.movie
+2025-07-24 12:14:46 - INFO - Autofocus set to ON
+2025-07-24 12:14:46 - INFO - Autofocus set to OFF
+2025-07-24 12:14:48 - INFO - Autofocus set to ON
+2025-07-24 12:14:48 - INFO - Autofocus set to OFF
+2025-07-24 12:14:48 - INFO - Taking image stack for sample 23 at well (3, 4), site 2
+2025-07-24 12:14:55 - INFO - Processing image stack /home/sd2030/data/4_3_4_2.movie at site number 2 for sample 23
+2025-07-24 12:14:56 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_4_2.movie
+2025-07-24 12:15:00 - INFO - Autofocus set to ON
+2025-07-24 12:15:00 - INFO - Autofocus set to OFF
+2025-07-24 12:15:05 - INFO - Processing sample 24 at well (3, 5)
+2025-07-24 12:15:14 - INFO - Autofocus set to ON
+2025-07-24 12:15:14 - INFO - Autofocus set to OFF
+2025-07-24 12:15:14 - INFO - Taking image stack for sample 24 at well (3, 5), site 0
+2025-07-24 12:15:21 - INFO - Processing image stack /home/sd2030/data/4_3_5_0.movie at site number 0 for sample 24
+2025-07-24 12:15:22 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_5_0.movie
+2025-07-24 12:15:25 - INFO - Autofocus set to ON
+2025-07-24 12:15:25 - INFO - Autofocus set to OFF
+2025-07-24 12:15:27 - INFO - Autofocus set to ON
+2025-07-24 12:15:27 - INFO - Autofocus set to OFF
+2025-07-24 12:15:27 - INFO - Taking image stack for sample 24 at well (3, 5), site 1
+2025-07-24 12:15:36 - INFO - Processing image stack /home/sd2030/data/4_3_5_1.movie at site number 1 for sample 24
+2025-07-24 12:15:36 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_5_1.movie
+2025-07-24 12:15:41 - INFO - Autofocus set to ON
+2025-07-24 12:15:41 - INFO - Autofocus set to OFF
+2025-07-24 12:15:43 - INFO - Autofocus set to ON
+2025-07-24 12:15:43 - INFO - Autofocus set to OFF
+2025-07-24 12:15:43 - INFO - Taking image stack for sample 24 at well (3, 5), site 2
+2025-07-24 12:15:51 - INFO - Processing image stack /home/sd2030/data/4_3_5_2.movie at site number 2 for sample 24
+2025-07-24 12:15:51 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_5_2.movie
+2025-07-24 12:15:56 - INFO - Autofocus set to ON
+2025-07-24 12:15:56 - INFO - Autofocus set to OFF
+2025-07-24 12:16:01 - INFO - Processing sample 25 at well (3, 6)
+2025-07-24 12:16:10 - INFO - Autofocus set to ON
+2025-07-24 12:16:10 - INFO - Autofocus set to OFF
+2025-07-24 12:16:10 - INFO - Taking image stack for sample 25 at well (3, 6), site 0
+2025-07-24 12:16:17 - INFO - Processing image stack /home/sd2030/data/4_3_6_0.movie at site number 0 for sample 25
+2025-07-24 12:16:18 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_6_0.movie
+2025-07-24 12:16:21 - INFO - Autofocus set to ON
+2025-07-24 12:16:21 - INFO - Autofocus set to OFF
+2025-07-24 12:16:23 - INFO - Autofocus set to ON
+2025-07-24 12:16:23 - INFO - Autofocus set to OFF
+2025-07-24 12:16:23 - INFO - Taking image stack for sample 25 at well (3, 6), site 1
+2025-07-24 12:16:30 - INFO - Processing image stack /home/sd2030/data/4_3_6_1.movie at site number 1 for sample 25
+2025-07-24 12:16:30 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_6_1.movie
+2025-07-24 12:16:34 - INFO - Autofocus set to ON
+2025-07-24 12:16:34 - INFO - Autofocus set to OFF
+2025-07-24 12:16:36 - INFO - Autofocus set to ON
+2025-07-24 12:16:36 - INFO - Autofocus set to OFF
+2025-07-24 12:16:36 - INFO - Taking image stack for sample 25 at well (3, 6), site 2
+2025-07-24 12:16:43 - INFO - Processing image stack /home/sd2030/data/4_3_6_2.movie at site number 2 for sample 25
+2025-07-24 12:16:44 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_6_2.movie
+2025-07-24 12:16:48 - INFO - Autofocus set to ON
+2025-07-24 12:16:48 - INFO - Autofocus set to OFF
+2025-07-24 12:16:54 - INFO - Processing sample 26 at well (3, 7)
+2025-07-24 12:17:04 - INFO - Autofocus set to ON
+2025-07-24 12:17:04 - INFO - Autofocus set to OFF
+2025-07-24 12:17:04 - INFO - Taking image stack for sample 26 at well (3, 7), site 0
+2025-07-24 12:17:11 - INFO - Processing image stack /home/sd2030/data/4_3_7_0.movie at site number 0 for sample 26
+2025-07-24 12:17:11 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_7_0.movie
+2025-07-24 12:17:15 - INFO - Autofocus set to ON
+2025-07-24 12:17:15 - INFO - Autofocus set to OFF
+2025-07-24 12:17:17 - INFO - Autofocus set to ON
+2025-07-24 12:17:17 - INFO - Autofocus set to OFF
+2025-07-24 12:17:17 - INFO - Taking image stack for sample 26 at well (3, 7), site 1
+2025-07-24 12:17:24 - INFO - Processing image stack /home/sd2030/data/4_3_7_1.movie at site number 1 for sample 26
+2025-07-24 12:17:25 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_7_1.movie
+2025-07-24 12:17:28 - INFO - Autofocus set to ON
+2025-07-24 12:17:28 - INFO - Autofocus set to OFF
+2025-07-24 12:17:31 - INFO - Autofocus set to ON
+2025-07-24 12:17:31 - INFO - Autofocus set to OFF
+2025-07-24 12:17:31 - INFO - Taking image stack for sample 26 at well (3, 7), site 2
+2025-07-24 12:17:38 - INFO - Processing image stack /home/sd2030/data/4_3_7_2.movie at site number 2 for sample 26
+2025-07-24 12:17:39 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_7_2.movie
+2025-07-24 12:17:42 - INFO - Autofocus set to ON
+2025-07-24 12:17:42 - INFO - Autofocus set to OFF
+2025-07-24 12:17:48 - INFO - Processing sample 27 at well (3, 8)
+2025-07-24 12:17:57 - INFO - Autofocus set to ON
+2025-07-24 12:17:57 - INFO - Autofocus set to OFF
+2025-07-24 12:17:57 - INFO - Taking image stack for sample 27 at well (3, 8), site 0
+2025-07-24 12:18:04 - INFO - Processing image stack /home/sd2030/data/4_3_8_0.movie at site number 0 for sample 27
+2025-07-24 12:18:05 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_8_0.movie
+2025-07-24 12:18:08 - INFO - Autofocus set to ON
+2025-07-24 12:18:08 - INFO - Autofocus set to OFF
+2025-07-24 12:18:10 - INFO - Autofocus set to ON
+2025-07-24 12:18:10 - INFO - Autofocus set to OFF
+2025-07-24 12:18:10 - INFO - Taking image stack for sample 27 at well (3, 8), site 1
+2025-07-24 12:18:17 - INFO - Processing image stack /home/sd2030/data/4_3_8_1.movie at site number 1 for sample 27
+2025-07-24 12:18:18 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_8_1.movie
+2025-07-24 12:18:21 - INFO - Autofocus set to ON
+2025-07-24 12:18:21 - INFO - Autofocus set to OFF
+2025-07-24 12:18:23 - INFO - Autofocus set to ON
+2025-07-24 12:18:23 - INFO - Autofocus set to OFF
+2025-07-24 12:18:23 - INFO - Taking image stack for sample 27 at well (3, 8), site 2
+2025-07-24 12:18:30 - INFO - Processing image stack /home/sd2030/data/4_3_8_2.movie at site number 2 for sample 27
+2025-07-24 12:18:31 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_8_2.movie
+2025-07-24 12:18:34 - INFO - Autofocus set to ON
+2025-07-24 12:18:34 - INFO - Autofocus set to OFF
+2025-07-24 12:18:40 - INFO - Processing sample 28 at well (3, 9)
+2025-07-24 12:18:50 - INFO - Autofocus set to ON
+2025-07-24 12:18:50 - INFO - Autofocus set to OFF
+2025-07-24 12:18:50 - INFO - Taking image stack for sample 28 at well (3, 9), site 0
+2025-07-24 12:18:58 - INFO - Processing image stack /home/sd2030/data/4_3_9_0.movie at site number 0 for sample 28
+2025-07-24 12:18:59 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_9_0.movie
+2025-07-24 12:19:02 - INFO - Autofocus set to ON
+2025-07-24 12:19:02 - INFO - Autofocus set to OFF
+2025-07-24 12:19:04 - INFO - Autofocus set to ON
+2025-07-24 12:19:04 - INFO - Autofocus set to OFF
+2025-07-24 12:19:04 - INFO - Taking image stack for sample 28 at well (3, 9), site 1
+2025-07-24 12:19:12 - INFO - Processing image stack /home/sd2030/data/4_3_9_1.movie at site number 1 for sample 28
+2025-07-24 12:19:13 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_9_1.movie
+2025-07-24 12:19:16 - INFO - Autofocus set to ON
+2025-07-24 12:19:16 - INFO - Autofocus set to OFF
+2025-07-24 12:19:18 - INFO - Autofocus set to ON
+2025-07-24 12:19:18 - INFO - Autofocus set to OFF
+2025-07-24 12:19:18 - INFO - Taking image stack for sample 28 at well (3, 9), site 2
+2025-07-24 12:19:26 - INFO - Processing image stack /home/sd2030/data/4_3_9_2.movie at site number 2 for sample 28
+2025-07-24 12:19:26 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_9_2.movie
+2025-07-24 12:19:29 - INFO - Autofocus set to ON
+2025-07-24 12:19:29 - INFO - Autofocus set to OFF
+2025-07-24 12:19:35 - INFO - Processing sample 29 at well (3, 10)
+2025-07-24 12:19:45 - INFO - Autofocus set to ON
+2025-07-24 12:19:45 - INFO - Autofocus set to OFF
+2025-07-24 12:19:45 - INFO - Taking image stack for sample 29 at well (3, 10), site 0
+2025-07-24 12:19:53 - INFO - Processing image stack /home/sd2030/data/4_3_10_0.movie at site number 0 for sample 29
+2025-07-24 12:19:54 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_10_0.movie
+2025-07-24 12:19:57 - INFO - Autofocus set to ON
+2025-07-24 12:19:57 - INFO - Autofocus set to OFF
+2025-07-24 12:19:59 - INFO - Autofocus set to ON
+2025-07-24 12:19:59 - INFO - Autofocus set to OFF
+2025-07-24 12:19:59 - INFO - Taking image stack for sample 29 at well (3, 10), site 1
+2025-07-24 12:20:09 - INFO - Processing image stack /home/sd2030/data/4_3_10_1.movie at site number 1 for sample 29
+2025-07-24 12:20:09 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_10_1.movie
+2025-07-24 12:20:13 - INFO - Autofocus set to ON
+2025-07-24 12:20:13 - INFO - Autofocus set to OFF
+2025-07-24 12:20:15 - INFO - Autofocus set to ON
+2025-07-24 12:20:15 - INFO - Autofocus set to OFF
+2025-07-24 12:20:15 - INFO - Taking image stack for sample 29 at well (3, 10), site 2
+2025-07-24 12:20:23 - INFO - Processing image stack /home/sd2030/data/4_3_10_2.movie at site number 2 for sample 29
+2025-07-24 12:20:24 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_10_2.movie
+2025-07-24 12:20:27 - INFO - Autofocus set to ON
+2025-07-24 12:20:27 - INFO - Autofocus set to OFF
+2025-07-24 12:20:33 - INFO - Processing sample 30 at well (3, 11)
+2025-07-24 12:20:42 - INFO - Autofocus set to ON
+2025-07-24 12:20:42 - INFO - Autofocus set to OFF
+2025-07-24 12:20:42 - INFO - Taking image stack for sample 30 at well (3, 11), site 0
+2025-07-24 12:20:51 - INFO - Processing image stack /home/sd2030/data/4_3_11_0.movie at site number 0 for sample 30
+2025-07-24 12:20:51 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_11_0.movie
+2025-07-24 12:20:55 - INFO - Autofocus set to ON
+2025-07-24 12:20:55 - INFO - Autofocus set to OFF
+2025-07-24 12:20:57 - INFO - Autofocus set to ON
+2025-07-24 12:20:57 - INFO - Autofocus set to OFF
+2025-07-24 12:20:57 - INFO - Taking image stack for sample 30 at well (3, 11), site 1
+2025-07-24 12:21:04 - INFO - Processing image stack /home/sd2030/data/4_3_11_1.movie at site number 1 for sample 30
+2025-07-24 12:21:05 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_11_1.movie
+2025-07-24 12:21:08 - INFO - Autofocus set to ON
+2025-07-24 12:21:08 - INFO - Autofocus set to OFF
+2025-07-24 12:21:10 - INFO - Autofocus set to ON
+2025-07-24 12:21:10 - INFO - Autofocus set to OFF
+2025-07-24 12:21:10 - INFO - Taking image stack for sample 30 at well (3, 11), site 2
+2025-07-24 12:21:18 - INFO - Processing image stack /home/sd2030/data/4_3_11_2.movie at site number 2 for sample 30
+2025-07-24 12:21:18 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_11_2.movie
+2025-07-24 12:21:22 - INFO - Autofocus set to ON
+2025-07-24 12:21:22 - INFO - Autofocus set to OFF
+2025-07-24 12:21:27 - INFO - Processing sample 31 at well (3, 12)
+2025-07-24 12:21:37 - INFO - Autofocus set to ON
+2025-07-24 12:21:37 - INFO - Autofocus set to OFF
+2025-07-24 12:21:37 - INFO - Taking image stack for sample 31 at well (3, 12), site 0
+2025-07-24 12:21:45 - INFO - Processing image stack /home/sd2030/data/4_3_12_0.movie at site number 0 for sample 31
+2025-07-24 12:21:45 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_12_0.movie
+2025-07-24 12:21:49 - INFO - Autofocus set to ON
+2025-07-24 12:21:49 - INFO - Autofocus set to OFF
+2025-07-24 12:21:51 - INFO - Autofocus set to ON
+2025-07-24 12:21:51 - INFO - Autofocus set to OFF
+2025-07-24 12:21:51 - INFO - Taking image stack for sample 31 at well (3, 12), site 1
+2025-07-24 12:21:58 - INFO - Processing image stack /home/sd2030/data/4_3_12_1.movie at site number 1 for sample 31
+2025-07-24 12:21:59 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_12_1.movie
+2025-07-24 12:22:02 - INFO - Autofocus set to ON
+2025-07-24 12:22:02 - INFO - Autofocus set to OFF
+2025-07-24 12:22:05 - INFO - Autofocus set to ON
+2025-07-24 12:22:05 - INFO - Autofocus set to OFF
+2025-07-24 12:22:05 - INFO - Taking image stack for sample 31 at well (3, 12), site 2
+2025-07-24 12:22:13 - INFO - Processing image stack /home/sd2030/data/4_3_12_2.movie at site number 2 for sample 31
+2025-07-24 12:22:13 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_12_2.movie
+2025-07-24 12:22:17 - INFO - Autofocus set to ON
+2025-07-24 12:22:17 - INFO - Autofocus set to OFF
+2025-07-24 12:22:23 - INFO - Processing sample 32 at well (3, 13)
+2025-07-24 12:22:32 - INFO - Autofocus set to ON
+2025-07-24 12:22:32 - INFO - Autofocus set to OFF
+2025-07-24 12:22:32 - INFO - Taking image stack for sample 32 at well (3, 13), site 0
+2025-07-24 12:22:41 - INFO - Processing image stack /home/sd2030/data/4_3_13_0.movie at site number 0 for sample 32
+2025-07-24 12:22:41 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_13_0.movie
+2025-07-24 12:22:45 - INFO - Autofocus set to ON
+2025-07-24 12:22:45 - INFO - Autofocus set to OFF
+2025-07-24 12:22:47 - INFO - Autofocus set to ON
+2025-07-24 12:22:47 - INFO - Autofocus set to OFF
+2025-07-24 12:22:47 - INFO - Taking image stack for sample 32 at well (3, 13), site 1
+2025-07-24 12:22:56 - INFO - Processing image stack /home/sd2030/data/4_3_13_1.movie at site number 1 for sample 32
+2025-07-24 12:22:57 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_13_1.movie
+2025-07-24 12:23:01 - INFO - Autofocus set to ON
+2025-07-24 12:23:01 - INFO - Autofocus set to OFF
+2025-07-24 12:23:03 - INFO - Autofocus set to ON
+2025-07-24 12:23:03 - INFO - Autofocus set to OFF
+2025-07-24 12:23:03 - INFO - Taking image stack for sample 32 at well (3, 13), site 2
+2025-07-24 12:23:12 - INFO - Processing image stack /home/sd2030/data/4_3_13_2.movie at site number 2 for sample 32
+2025-07-24 12:23:12 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_13_2.movie
+2025-07-24 12:23:16 - INFO - Autofocus set to ON
+2025-07-24 12:23:16 - INFO - Autofocus set to OFF
+2025-07-24 12:23:21 - INFO - Processing sample 33 at well (3, 14)
+2025-07-24 12:23:30 - INFO - Autofocus set to ON
+2025-07-24 12:23:30 - INFO - Autofocus set to OFF
+2025-07-24 12:23:30 - INFO - Taking image stack for sample 33 at well (3, 14), site 0
+2025-07-24 12:23:38 - INFO - Processing image stack /home/sd2030/data/4_3_14_0.movie at site number 0 for sample 33
+2025-07-24 12:23:39 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_14_0.movie
+2025-07-24 12:23:42 - INFO - Autofocus set to ON
+2025-07-24 12:23:42 - INFO - Autofocus set to OFF
+2025-07-24 12:23:44 - INFO - Autofocus set to ON
+2025-07-24 12:23:44 - INFO - Autofocus set to OFF
+2025-07-24 12:23:44 - INFO - Taking image stack for sample 33 at well (3, 14), site 1
+2025-07-24 12:23:52 - INFO - Processing image stack /home/sd2030/data/4_3_14_1.movie at site number 1 for sample 33
+2025-07-24 12:23:52 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_14_1.movie
+2025-07-24 12:23:55 - INFO - Autofocus set to ON
+2025-07-24 12:23:55 - INFO - Autofocus set to OFF
+2025-07-24 12:23:57 - INFO - Autofocus set to ON
+2025-07-24 12:23:57 - INFO - Autofocus set to OFF
+2025-07-24 12:23:57 - INFO - Taking image stack for sample 33 at well (3, 14), site 2
+2025-07-24 12:24:06 - INFO - Processing image stack /home/sd2030/data/4_3_14_2.movie at site number 2 for sample 33
+2025-07-24 12:24:07 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_14_2.movie
+2025-07-24 12:24:10 - INFO - Autofocus set to ON
+2025-07-24 12:24:10 - INFO - Autofocus set to OFF
+2025-07-24 12:24:15 - INFO - Processing sample 34 at well (3, 15)
+2025-07-24 12:24:23 - INFO - Autofocus set to ON
+2025-07-24 12:24:23 - INFO - Autofocus set to OFF
+2025-07-24 12:24:23 - INFO - Taking image stack for sample 34 at well (3, 15), site 0
+2025-07-24 12:24:32 - INFO - Processing image stack /home/sd2030/data/4_3_15_0.movie at site number 0 for sample 34
+2025-07-24 12:24:32 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_15_0.movie
+2025-07-24 12:24:35 - INFO - Autofocus set to ON
+2025-07-24 12:24:35 - INFO - Autofocus set to OFF
+2025-07-24 12:24:38 - INFO - Autofocus set to ON
+2025-07-24 12:24:38 - INFO - Autofocus set to OFF
+2025-07-24 12:24:38 - INFO - Taking image stack for sample 34 at well (3, 15), site 1
+2025-07-24 12:24:45 - INFO - Processing image stack /home/sd2030/data/4_3_15_1.movie at site number 1 for sample 34
+2025-07-24 12:24:46 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_15_1.movie
+2025-07-24 12:24:49 - INFO - Autofocus set to ON
+2025-07-24 12:24:49 - INFO - Autofocus set to OFF
+2025-07-24 12:24:51 - INFO - Autofocus set to ON
+2025-07-24 12:24:51 - INFO - Autofocus set to OFF
+2025-07-24 12:24:51 - INFO - Taking image stack for sample 34 at well (3, 15), site 2
+2025-07-24 12:24:59 - INFO - Processing image stack /home/sd2030/data/4_3_15_2.movie at site number 2 for sample 34
+2025-07-24 12:25:00 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_15_2.movie
+2025-07-24 12:25:03 - INFO - Autofocus set to ON
+2025-07-24 12:25:03 - INFO - Autofocus set to OFF
+2025-07-24 12:25:07 - INFO - Processing sample 35 at well (3, 16)
+2025-07-24 12:25:15 - INFO - Autofocus set to ON
+2025-07-24 12:25:15 - INFO - Autofocus set to OFF
+2025-07-24 12:25:15 - INFO - Taking image stack for sample 35 at well (3, 16), site 0
+2025-07-24 12:25:24 - INFO - Processing image stack /home/sd2030/data/4_3_16_0.movie at site number 0 for sample 35
+2025-07-24 12:25:24 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_16_0.movie
+2025-07-24 12:25:28 - INFO - Autofocus set to ON
+2025-07-24 12:25:28 - INFO - Autofocus set to OFF
+2025-07-24 12:25:31 - INFO - Autofocus set to ON
+2025-07-24 12:25:31 - INFO - Autofocus set to OFF
+2025-07-24 12:25:31 - INFO - Taking image stack for sample 35 at well (3, 16), site 1
+2025-07-24 12:25:38 - INFO - Processing image stack /home/sd2030/data/4_3_16_1.movie at site number 1 for sample 35
+2025-07-24 12:25:38 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_16_1.movie
+2025-07-24 12:25:42 - INFO - Autofocus set to ON
+2025-07-24 12:25:42 - INFO - Autofocus set to OFF
+2025-07-24 12:25:44 - INFO - Autofocus set to ON
+2025-07-24 12:25:44 - INFO - Autofocus set to OFF
+2025-07-24 12:25:44 - INFO - Taking image stack for sample 35 at well (3, 16), site 2
+2025-07-24 12:25:52 - INFO - Processing image stack /home/sd2030/data/4_3_16_2.movie at site number 2 for sample 35
+2025-07-24 12:25:52 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_16_2.movie
+2025-07-24 12:25:56 - INFO - Autofocus set to ON
+2025-07-24 12:25:56 - INFO - Autofocus set to OFF
+2025-07-24 12:25:59 - INFO - Processing sample 36 at well (3, 17)
+2025-07-24 12:26:07 - INFO - Autofocus set to ON
+2025-07-24 12:26:07 - INFO - Autofocus set to OFF
+2025-07-24 12:26:07 - INFO - Taking image stack for sample 36 at well (3, 17), site 0
+2025-07-24 12:26:14 - INFO - Processing image stack /home/sd2030/data/4_3_17_0.movie at site number 0 for sample 36
+2025-07-24 12:26:15 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_17_0.movie
+2025-07-24 12:26:18 - INFO - Autofocus set to ON
+2025-07-24 12:26:18 - INFO - Autofocus set to OFF
+2025-07-24 12:26:21 - INFO - Autofocus set to ON
+2025-07-24 12:26:21 - INFO - Autofocus set to OFF
+2025-07-24 12:26:21 - INFO - Taking image stack for sample 36 at well (3, 17), site 1
+2025-07-24 12:26:29 - INFO - Processing image stack /home/sd2030/data/4_3_17_1.movie at site number 1 for sample 36
+2025-07-24 12:26:29 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_17_1.movie
+2025-07-24 12:26:32 - INFO - Autofocus set to ON
+2025-07-24 12:26:32 - INFO - Autofocus set to OFF
+2025-07-24 12:26:35 - INFO - Autofocus set to ON
+2025-07-24 12:26:35 - INFO - Autofocus set to OFF
+2025-07-24 12:26:35 - INFO - Taking image stack for sample 36 at well (3, 17), site 2
+2025-07-24 12:26:45 - INFO - Processing image stack /home/sd2030/data/4_3_17_2.movie at site number 2 for sample 36
+2025-07-24 12:26:46 - INFO - Image stack extracted for movie /home/sd2030/data/4_3_17_2.movie
+2025-07-24 12:26:49 - INFO - Autofocus set to ON
+2025-07-24 12:26:49 - INFO - Autofocus set to OFF
+2025-07-24 12:26:52 - INFO - Imaging complete
+2025-07-24 14:38:25 - INFO - TemikaCameraAdapter initialized.
+2025-07-24 14:38:25 - INFO - Selected illumination 1 with intensity 0.3
+2025-07-24 14:42:14 - INFO - Started imaging run for experiment 1 with image set 1
+2025-07-24 14:42:14 - INFO - Autofocus set to OFF
+2025-07-24 14:42:17 - INFO - Processing sample 1 at well (2, 2)
+2025-07-24 14:42:20 - INFO - Autofocus set to ON
+2025-07-24 14:42:20 - INFO - Autofocus set to OFF
+2025-07-24 14:42:20 - INFO - Taking image stack for sample 1 at well (2, 2), site 0
+2025-07-24 14:42:28 - INFO - Processing image stack /home/sd2030/data/5_2_2_0.movie at site number 0 for sample 1
+2025-07-24 14:42:28 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_2_0.movie
+2025-07-24 14:42:32 - INFO - Autofocus set to ON
+2025-07-24 14:42:32 - INFO - Autofocus set to OFF
+2025-07-24 14:42:34 - INFO - Autofocus set to ON
+2025-07-24 14:42:34 - INFO - Autofocus set to OFF
+2025-07-24 14:42:34 - INFO - Taking image stack for sample 1 at well (2, 2), site 1
+2025-07-24 14:42:42 - INFO - Processing image stack /home/sd2030/data/5_2_2_1.movie at site number 1 for sample 1
+2025-07-24 14:42:42 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_2_1.movie
+2025-07-24 14:42:46 - INFO - Autofocus set to ON
+2025-07-24 14:42:46 - INFO - Autofocus set to OFF
+2025-07-24 14:42:48 - INFO - Autofocus set to ON
+2025-07-24 14:42:48 - INFO - Autofocus set to OFF
+2025-07-24 14:42:48 - INFO - Taking image stack for sample 1 at well (2, 2), site 2
+2025-07-24 14:42:55 - INFO - Processing image stack /home/sd2030/data/5_2_2_2.movie at site number 2 for sample 1
+2025-07-24 14:42:56 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_2_2.movie
+2025-07-24 14:42:59 - INFO - Autofocus set to ON
+2025-07-24 14:42:59 - INFO - Autofocus set to OFF
+2025-07-24 14:43:01 - INFO - Processing sample 2 at well (2, 3)
+2025-07-24 14:43:07 - INFO - Autofocus set to ON
+2025-07-24 14:43:07 - INFO - Autofocus set to OFF
+2025-07-24 14:43:07 - INFO - Taking image stack for sample 2 at well (2, 3), site 0
+2025-07-24 14:43:16 - INFO - Processing image stack /home/sd2030/data/5_2_3_0.movie at site number 0 for sample 2
+2025-07-24 14:43:17 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_3_0.movie
+2025-07-24 14:43:20 - INFO - Autofocus set to ON
+2025-07-24 14:43:20 - INFO - Autofocus set to OFF
+2025-07-24 14:43:23 - INFO - Autofocus set to ON
+2025-07-24 14:43:23 - INFO - Autofocus set to OFF
+2025-07-24 14:43:23 - INFO - Taking image stack for sample 2 at well (2, 3), site 1
+2025-07-24 14:43:31 - INFO - Processing image stack /home/sd2030/data/5_2_3_1.movie at site number 1 for sample 2
+2025-07-24 14:43:32 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_3_1.movie
+2025-07-24 14:43:35 - INFO - Autofocus set to ON
+2025-07-24 14:43:35 - INFO - Autofocus set to OFF
+2025-07-24 14:43:37 - INFO - Autofocus set to ON
+2025-07-24 14:43:37 - INFO - Autofocus set to OFF
+2025-07-24 14:43:37 - INFO - Taking image stack for sample 2 at well (2, 3), site 2
+2025-07-24 14:43:45 - INFO - Processing image stack /home/sd2030/data/5_2_3_2.movie at site number 2 for sample 2
+2025-07-24 14:43:46 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_3_2.movie
+2025-07-24 14:43:49 - INFO - Autofocus set to ON
+2025-07-24 14:43:49 - INFO - Autofocus set to OFF
+2025-07-24 14:43:52 - INFO - Processing sample 3 at well (2, 4)
+2025-07-24 14:43:59 - INFO - Autofocus set to ON
+2025-07-24 14:43:59 - INFO - Autofocus set to OFF
+2025-07-24 14:43:59 - INFO - Taking image stack for sample 3 at well (2, 4), site 0
+2025-07-24 14:44:08 - INFO - Processing image stack /home/sd2030/data/5_2_4_0.movie at site number 0 for sample 3
+2025-07-24 14:44:08 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_4_0.movie
+2025-07-24 14:44:12 - INFO - Autofocus set to ON
+2025-07-24 14:44:12 - INFO - Autofocus set to OFF
+2025-07-24 14:44:14 - INFO - Autofocus set to ON
+2025-07-24 14:44:14 - INFO - Autofocus set to OFF
+2025-07-24 14:44:14 - INFO - Taking image stack for sample 3 at well (2, 4), site 1
+2025-07-24 14:44:22 - INFO - Processing image stack /home/sd2030/data/5_2_4_1.movie at site number 1 for sample 3
+2025-07-24 14:44:22 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_4_1.movie
+2025-07-24 14:44:26 - INFO - Autofocus set to ON
+2025-07-24 14:44:26 - INFO - Autofocus set to OFF
+2025-07-24 14:44:28 - INFO - Autofocus set to ON
+2025-07-24 14:44:28 - INFO - Autofocus set to OFF
+2025-07-24 14:44:28 - INFO - Taking image stack for sample 3 at well (2, 4), site 2
+2025-07-24 14:44:36 - INFO - Processing image stack /home/sd2030/data/5_2_4_2.movie at site number 2 for sample 3
+2025-07-24 14:44:37 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_4_2.movie
+2025-07-24 14:44:40 - INFO - Autofocus set to ON
+2025-07-24 14:44:40 - INFO - Autofocus set to OFF
+2025-07-24 14:44:44 - INFO - Processing sample 4 at well (2, 5)
+2025-07-24 14:44:52 - INFO - Autofocus set to ON
+2025-07-24 14:44:52 - INFO - Autofocus set to OFF
+2025-07-24 14:44:52 - INFO - Taking image stack for sample 4 at well (2, 5), site 0
+2025-07-24 14:44:59 - INFO - Processing image stack /home/sd2030/data/5_2_5_0.movie at site number 0 for sample 4
+2025-07-24 14:45:00 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_5_0.movie
+2025-07-24 14:45:03 - INFO - Autofocus set to ON
+2025-07-24 14:45:03 - INFO - Autofocus set to OFF
+2025-07-24 14:45:06 - INFO - Autofocus set to ON
+2025-07-24 14:45:06 - INFO - Autofocus set to OFF
+2025-07-24 14:45:06 - INFO - Taking image stack for sample 4 at well (2, 5), site 1
+2025-07-24 14:45:14 - INFO - Processing image stack /home/sd2030/data/5_2_5_1.movie at site number 1 for sample 4
+2025-07-24 14:45:15 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_5_1.movie
+2025-07-24 14:45:18 - INFO - Autofocus set to ON
+2025-07-24 14:45:18 - INFO - Autofocus set to OFF
+2025-07-24 14:45:20 - INFO - Autofocus set to ON
+2025-07-24 14:45:20 - INFO - Autofocus set to OFF
+2025-07-24 14:45:20 - INFO - Taking image stack for sample 4 at well (2, 5), site 2
+2025-07-24 14:45:27 - INFO - Processing image stack /home/sd2030/data/5_2_5_2.movie at site number 2 for sample 4
+2025-07-24 14:45:28 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_5_2.movie
+2025-07-24 14:45:31 - INFO - Autofocus set to ON
+2025-07-24 14:45:31 - INFO - Autofocus set to OFF
+2025-07-24 14:45:36 - INFO - Processing sample 5 at well (2, 6)
+2025-07-24 14:45:44 - INFO - Autofocus set to ON
+2025-07-24 14:45:44 - INFO - Autofocus set to OFF
+2025-07-24 14:45:44 - INFO - Taking image stack for sample 5 at well (2, 6), site 0
+2025-07-24 14:45:52 - INFO - Processing image stack /home/sd2030/data/5_2_6_0.movie at site number 0 for sample 5
+2025-07-24 14:45:52 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_6_0.movie
+2025-07-24 14:45:56 - INFO - Autofocus set to ON
+2025-07-24 14:45:56 - INFO - Autofocus set to OFF
+2025-07-24 14:45:58 - INFO - Autofocus set to ON
+2025-07-24 14:45:58 - INFO - Autofocus set to OFF
+2025-07-24 14:45:58 - INFO - Taking image stack for sample 5 at well (2, 6), site 1
+2025-07-24 14:46:06 - INFO - Processing image stack /home/sd2030/data/5_2_6_1.movie at site number 1 for sample 5
+2025-07-24 14:46:07 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_6_1.movie
+2025-07-24 14:46:10 - INFO - Autofocus set to ON
+2025-07-24 14:46:10 - INFO - Autofocus set to OFF
+2025-07-24 14:46:12 - INFO - Autofocus set to ON
+2025-07-24 14:46:12 - INFO - Autofocus set to OFF
+2025-07-24 14:46:12 - INFO - Taking image stack for sample 5 at well (2, 6), site 2
+2025-07-24 14:46:21 - INFO - Processing image stack /home/sd2030/data/5_2_6_2.movie at site number 2 for sample 5
+2025-07-24 14:46:21 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_6_2.movie
+2025-07-24 14:46:25 - INFO - Autofocus set to ON
+2025-07-24 14:46:25 - INFO - Autofocus set to OFF
+2025-07-24 14:46:30 - INFO - Processing sample 6 at well (2, 7)
+2025-07-24 14:46:39 - INFO - Autofocus set to ON
+2025-07-24 14:46:39 - INFO - Autofocus set to OFF
+2025-07-24 14:46:39 - INFO - Taking image stack for sample 6 at well (2, 7), site 0
+2025-07-24 14:46:47 - INFO - Processing image stack /home/sd2030/data/5_2_7_0.movie at site number 0 for sample 6
+2025-07-24 14:46:47 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_7_0.movie
+2025-07-24 14:46:51 - INFO - Autofocus set to ON
+2025-07-24 14:46:51 - INFO - Autofocus set to OFF
+2025-07-24 14:46:53 - INFO - Autofocus set to ON
+2025-07-24 14:46:53 - INFO - Autofocus set to OFF
+2025-07-24 14:46:53 - INFO - Taking image stack for sample 6 at well (2, 7), site 1
+2025-07-24 14:47:01 - INFO - Processing image stack /home/sd2030/data/5_2_7_1.movie at site number 1 for sample 6
+2025-07-24 14:47:02 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_7_1.movie
+2025-07-24 14:47:05 - INFO - Autofocus set to ON
+2025-07-24 14:47:05 - INFO - Autofocus set to OFF
+2025-07-24 14:47:08 - INFO - Autofocus set to ON
+2025-07-24 14:47:08 - INFO - Autofocus set to OFF
+2025-07-24 14:47:08 - INFO - Taking image stack for sample 6 at well (2, 7), site 2
+2025-07-24 14:47:15 - INFO - Processing image stack /home/sd2030/data/5_2_7_2.movie at site number 2 for sample 6
+2025-07-24 14:47:16 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_7_2.movie
+2025-07-24 14:47:19 - INFO - Autofocus set to ON
+2025-07-24 14:47:19 - INFO - Autofocus set to OFF
+2025-07-24 14:47:25 - INFO - Processing sample 7 at well (2, 8)
+2025-07-24 14:47:34 - INFO - Autofocus set to ON
+2025-07-24 14:47:34 - INFO - Autofocus set to OFF
+2025-07-24 14:47:34 - INFO - Taking image stack for sample 7 at well (2, 8), site 0
+2025-07-24 14:47:43 - INFO - Processing image stack /home/sd2030/data/5_2_8_0.movie at site number 0 for sample 7
+2025-07-24 14:47:43 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_8_0.movie
+2025-07-24 14:47:47 - INFO - Autofocus set to ON
+2025-07-24 14:47:47 - INFO - Autofocus set to OFF
+2025-07-24 14:47:49 - INFO - Autofocus set to ON
+2025-07-24 14:47:49 - INFO - Autofocus set to OFF
+2025-07-24 14:47:49 - INFO - Taking image stack for sample 7 at well (2, 8), site 1
+2025-07-24 14:47:57 - INFO - Processing image stack /home/sd2030/data/5_2_8_1.movie at site number 1 for sample 7
+2025-07-24 14:47:58 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_8_1.movie
+2025-07-24 14:48:01 - INFO - Autofocus set to ON
+2025-07-24 14:48:01 - INFO - Autofocus set to OFF
+2025-07-24 14:48:04 - INFO - Autofocus set to ON
+2025-07-24 14:48:04 - INFO - Autofocus set to OFF
+2025-07-24 14:48:04 - INFO - Taking image stack for sample 7 at well (2, 8), site 2
+2025-07-24 14:48:12 - INFO - Processing image stack /home/sd2030/data/5_2_8_2.movie at site number 2 for sample 7
+2025-07-24 14:48:13 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_8_2.movie
+2025-07-24 14:48:16 - INFO - Autofocus set to ON
+2025-07-24 14:48:16 - INFO - Autofocus set to OFF
+2025-07-24 14:48:22 - INFO - Processing sample 8 at well (2, 9)
+2025-07-24 14:48:33 - INFO - Autofocus set to ON
+2025-07-24 14:48:33 - INFO - Autofocus set to OFF
+2025-07-24 14:48:33 - INFO - Taking image stack for sample 8 at well (2, 9), site 0
+2025-07-24 14:48:40 - INFO - Processing image stack /home/sd2030/data/5_2_9_0.movie at site number 0 for sample 8
+2025-07-24 14:48:41 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_9_0.movie
+2025-07-24 14:48:44 - INFO - Autofocus set to ON
+2025-07-24 14:48:44 - INFO - Autofocus set to OFF
+2025-07-24 14:48:46 - INFO - Autofocus set to ON
+2025-07-24 14:48:46 - INFO - Autofocus set to OFF
+2025-07-24 14:48:46 - INFO - Taking image stack for sample 8 at well (2, 9), site 1
+2025-07-24 14:48:55 - INFO - Processing image stack /home/sd2030/data/5_2_9_1.movie at site number 1 for sample 8
+2025-07-24 14:48:56 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_9_1.movie
+2025-07-24 14:48:59 - INFO - Autofocus set to ON
+2025-07-24 14:48:59 - INFO - Autofocus set to OFF
+2025-07-24 14:49:01 - INFO - Autofocus set to ON
+2025-07-24 14:49:01 - INFO - Autofocus set to OFF
+2025-07-24 14:49:01 - INFO - Taking image stack for sample 8 at well (2, 9), site 2
+2025-07-24 14:49:09 - INFO - Processing image stack /home/sd2030/data/5_2_9_2.movie at site number 2 for sample 8
+2025-07-24 14:49:10 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_9_2.movie
+2025-07-24 14:49:13 - INFO - Autofocus set to ON
+2025-07-24 14:49:13 - INFO - Autofocus set to OFF
+2025-07-24 14:49:20 - INFO - Processing sample 9 at well (2, 10)
+2025-07-24 14:49:30 - INFO - Autofocus set to ON
+2025-07-24 14:49:30 - INFO - Autofocus set to OFF
+2025-07-24 14:49:30 - INFO - Taking image stack for sample 9 at well (2, 10), site 0
+2025-07-24 14:49:38 - INFO - Processing image stack /home/sd2030/data/5_2_10_0.movie at site number 0 for sample 9
+2025-07-24 14:49:38 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_10_0.movie
+2025-07-24 14:49:42 - INFO - Autofocus set to ON
+2025-07-24 14:49:42 - INFO - Autofocus set to OFF
+2025-07-24 14:49:44 - INFO - Autofocus set to ON
+2025-07-24 14:49:44 - INFO - Autofocus set to OFF
+2025-07-24 14:49:44 - INFO - Taking image stack for sample 9 at well (2, 10), site 1
+2025-07-24 14:49:53 - INFO - Processing image stack /home/sd2030/data/5_2_10_1.movie at site number 1 for sample 9
+2025-07-24 14:49:53 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_10_1.movie
+2025-07-24 14:49:56 - INFO - Autofocus set to ON
+2025-07-24 14:49:56 - INFO - Autofocus set to OFF
+2025-07-24 14:49:59 - INFO - Autofocus set to ON
+2025-07-24 14:49:59 - INFO - Autofocus set to OFF
+2025-07-24 14:49:59 - INFO - Taking image stack for sample 9 at well (2, 10), site 2
+2025-07-24 14:50:07 - INFO - Processing image stack /home/sd2030/data/5_2_10_2.movie at site number 2 for sample 9
+2025-07-24 14:50:08 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_10_2.movie
+2025-07-24 14:50:11 - INFO - Autofocus set to ON
+2025-07-24 14:50:11 - INFO - Autofocus set to OFF
+2025-07-24 14:50:18 - INFO - Processing sample 10 at well (2, 11)
+2025-07-24 14:50:28 - INFO - Autofocus set to ON
+2025-07-24 14:50:28 - INFO - Autofocus set to OFF
+2025-07-24 14:50:28 - INFO - Taking image stack for sample 10 at well (2, 11), site 0
+2025-07-24 14:50:37 - INFO - Processing image stack /home/sd2030/data/5_2_11_0.movie at site number 0 for sample 10
+2025-07-24 14:50:37 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_11_0.movie
+2025-07-24 14:50:41 - INFO - Autofocus set to ON
+2025-07-24 14:50:41 - INFO - Autofocus set to OFF
+2025-07-24 14:50:43 - INFO - Autofocus set to ON
+2025-07-24 14:50:43 - INFO - Autofocus set to OFF
+2025-07-24 14:50:43 - INFO - Taking image stack for sample 10 at well (2, 11), site 1
+2025-07-24 14:50:51 - INFO - Processing image stack /home/sd2030/data/5_2_11_1.movie at site number 1 for sample 10
+2025-07-24 14:50:52 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_11_1.movie
+2025-07-24 14:50:55 - INFO - Autofocus set to ON
+2025-07-24 14:50:55 - INFO - Autofocus set to OFF
+2025-07-24 14:50:57 - INFO - Autofocus set to ON
+2025-07-24 14:50:57 - INFO - Autofocus set to OFF
+2025-07-24 14:50:57 - INFO - Taking image stack for sample 10 at well (2, 11), site 2
+2025-07-24 14:51:05 - INFO - Processing image stack /home/sd2030/data/5_2_11_2.movie at site number 2 for sample 10
+2025-07-24 14:51:06 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_11_2.movie
+2025-07-24 14:51:09 - INFO - Autofocus set to ON
+2025-07-24 14:51:09 - INFO - Autofocus set to OFF
+2025-07-24 14:51:16 - INFO - Processing sample 11 at well (2, 12)
+2025-07-24 14:51:27 - INFO - Autofocus set to ON
+2025-07-24 14:51:27 - INFO - Autofocus set to OFF
+2025-07-24 14:51:27 - INFO - Taking image stack for sample 11 at well (2, 12), site 0
+2025-07-24 14:51:35 - INFO - Processing image stack /home/sd2030/data/5_2_12_0.movie at site number 0 for sample 11
+2025-07-24 14:51:36 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_12_0.movie
+2025-07-24 14:51:39 - INFO - Autofocus set to ON
+2025-07-24 14:51:39 - INFO - Autofocus set to OFF
+2025-07-24 14:51:42 - INFO - Autofocus set to ON
+2025-07-24 14:51:42 - INFO - Autofocus set to OFF
+2025-07-24 14:51:42 - INFO - Taking image stack for sample 11 at well (2, 12), site 1
+2025-07-24 14:51:50 - INFO - Processing image stack /home/sd2030/data/5_2_12_1.movie at site number 1 for sample 11
+2025-07-24 14:51:50 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_12_1.movie
+2025-07-24 14:51:54 - INFO - Autofocus set to ON
+2025-07-24 14:51:54 - INFO - Autofocus set to OFF
+2025-07-24 14:51:56 - INFO - Autofocus set to ON
+2025-07-24 14:51:56 - INFO - Autofocus set to OFF
+2025-07-24 14:51:56 - INFO - Taking image stack for sample 11 at well (2, 12), site 2
+2025-07-24 14:52:05 - INFO - Processing image stack /home/sd2030/data/5_2_12_2.movie at site number 2 for sample 11
+2025-07-24 14:52:05 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_12_2.movie
+2025-07-24 14:52:09 - INFO - Autofocus set to ON
+2025-07-24 14:52:09 - INFO - Autofocus set to OFF
+2025-07-24 14:52:16 - INFO - Processing sample 12 at well (2, 13)
+2025-07-24 14:52:27 - INFO - Autofocus set to ON
+2025-07-24 14:52:27 - INFO - Autofocus set to OFF
+2025-07-24 14:52:27 - INFO - Taking image stack for sample 12 at well (2, 13), site 0
+2025-07-24 14:52:35 - INFO - Processing image stack /home/sd2030/data/5_2_13_0.movie at site number 0 for sample 12
+2025-07-24 14:52:36 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_13_0.movie
+2025-07-24 14:52:39 - INFO - Autofocus set to ON
+2025-07-24 14:52:39 - INFO - Autofocus set to OFF
+2025-07-24 14:52:41 - INFO - Autofocus set to ON
+2025-07-24 14:52:41 - INFO - Autofocus set to OFF
+2025-07-24 14:52:41 - INFO - Taking image stack for sample 12 at well (2, 13), site 1
+2025-07-24 14:52:49 - INFO - Processing image stack /home/sd2030/data/5_2_13_1.movie at site number 1 for sample 12
+2025-07-24 14:52:49 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_13_1.movie
+2025-07-24 14:52:52 - INFO - Autofocus set to ON
+2025-07-24 14:52:52 - INFO - Autofocus set to OFF
+2025-07-24 14:52:54 - INFO - Autofocus set to ON
+2025-07-24 14:52:54 - INFO - Autofocus set to OFF
+2025-07-24 14:52:54 - INFO - Taking image stack for sample 12 at well (2, 13), site 2
+2025-07-24 14:53:02 - INFO - Processing image stack /home/sd2030/data/5_2_13_2.movie at site number 2 for sample 12
+2025-07-24 14:53:03 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_13_2.movie
+2025-07-24 14:53:06 - INFO - Autofocus set to ON
+2025-07-24 14:53:06 - INFO - Autofocus set to OFF
+2025-07-24 14:53:13 - INFO - Processing sample 13 at well (2, 14)
+2025-07-24 14:53:23 - INFO - Autofocus set to ON
+2025-07-24 14:53:23 - INFO - Autofocus set to OFF
+2025-07-24 14:53:23 - INFO - Taking image stack for sample 13 at well (2, 14), site 0
+2025-07-24 14:53:32 - INFO - Processing image stack /home/sd2030/data/5_2_14_0.movie at site number 0 for sample 13
+2025-07-24 14:53:32 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_14_0.movie
+2025-07-24 14:53:35 - INFO - Autofocus set to ON
+2025-07-24 14:53:35 - INFO - Autofocus set to OFF
+2025-07-24 14:53:38 - INFO - Autofocus set to ON
+2025-07-24 14:53:38 - INFO - Autofocus set to OFF
+2025-07-24 14:53:38 - INFO - Taking image stack for sample 13 at well (2, 14), site 1
+2025-07-24 14:53:46 - INFO - Processing image stack /home/sd2030/data/5_2_14_1.movie at site number 1 for sample 13
+2025-07-24 14:53:46 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_14_1.movie
+2025-07-24 14:53:50 - INFO - Autofocus set to ON
+2025-07-24 14:53:50 - INFO - Autofocus set to OFF
+2025-07-24 14:53:52 - INFO - Autofocus set to ON
+2025-07-24 14:53:52 - INFO - Autofocus set to OFF
+2025-07-24 14:53:52 - INFO - Taking image stack for sample 13 at well (2, 14), site 2
+2025-07-24 14:54:00 - INFO - Processing image stack /home/sd2030/data/5_2_14_2.movie at site number 2 for sample 13
+2025-07-24 14:54:01 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_14_2.movie
+2025-07-24 14:54:04 - INFO - Autofocus set to ON
+2025-07-24 14:54:04 - INFO - Autofocus set to OFF
+2025-07-24 14:54:11 - INFO - Processing sample 14 at well (2, 15)
+2025-07-24 14:54:21 - INFO - Autofocus set to ON
+2025-07-24 14:54:21 - INFO - Autofocus set to OFF
+2025-07-24 14:54:21 - INFO - Taking image stack for sample 14 at well (2, 15), site 0
+2025-07-24 14:54:29 - INFO - Processing image stack /home/sd2030/data/5_2_15_0.movie at site number 0 for sample 14
+2025-07-24 14:54:29 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_15_0.movie
+2025-07-24 14:54:33 - INFO - Autofocus set to ON
+2025-07-24 14:54:33 - INFO - Autofocus set to OFF
+2025-07-24 14:54:35 - INFO - Autofocus set to ON
+2025-07-24 14:54:35 - INFO - Autofocus set to OFF
+2025-07-24 14:54:35 - INFO - Taking image stack for sample 14 at well (2, 15), site 1
+2025-07-24 14:54:42 - INFO - Processing image stack /home/sd2030/data/5_2_15_1.movie at site number 1 for sample 14
+2025-07-24 14:54:43 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_15_1.movie
+2025-07-24 14:54:46 - INFO - Autofocus set to ON
+2025-07-24 14:54:46 - INFO - Autofocus set to OFF
+2025-07-24 14:54:48 - INFO - Autofocus set to ON
+2025-07-24 14:54:48 - INFO - Autofocus set to OFF
+2025-07-24 14:54:48 - INFO - Taking image stack for sample 14 at well (2, 15), site 2
+2025-07-24 14:54:56 - INFO - Processing image stack /home/sd2030/data/5_2_15_2.movie at site number 2 for sample 14
+2025-07-24 14:54:57 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_15_2.movie
+2025-07-24 14:55:00 - INFO - Autofocus set to ON
+2025-07-24 14:55:00 - INFO - Autofocus set to OFF
+2025-07-24 14:55:07 - INFO - Processing sample 15 at well (2, 16)
+2025-07-24 14:55:18 - INFO - Autofocus set to ON
+2025-07-24 14:55:18 - INFO - Autofocus set to OFF
+2025-07-24 14:55:18 - INFO - Taking image stack for sample 15 at well (2, 16), site 0
+2025-07-24 14:55:27 - INFO - Processing image stack /home/sd2030/data/5_2_16_0.movie at site number 0 for sample 15
+2025-07-24 14:55:27 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_16_0.movie
+2025-07-24 14:55:31 - INFO - Autofocus set to ON
+2025-07-24 14:55:31 - INFO - Autofocus set to OFF
+2025-07-24 14:55:32 - INFO - Autofocus set to ON
+2025-07-24 14:55:32 - INFO - Autofocus set to OFF
+2025-07-24 14:55:33 - INFO - Taking image stack for sample 15 at well (2, 16), site 1
+2025-07-24 14:55:40 - INFO - Processing image stack /home/sd2030/data/5_2_16_1.movie at site number 1 for sample 15
+2025-07-24 14:55:40 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_16_1.movie
+2025-07-24 14:55:44 - INFO - Autofocus set to ON
+2025-07-24 14:55:44 - INFO - Autofocus set to OFF
+2025-07-24 14:55:46 - INFO - Autofocus set to ON
+2025-07-24 14:55:46 - INFO - Autofocus set to OFF
+2025-07-24 14:55:46 - INFO - Taking image stack for sample 15 at well (2, 16), site 2
+2025-07-24 14:55:53 - INFO - Processing image stack /home/sd2030/data/5_2_16_2.movie at site number 2 for sample 15
+2025-07-24 14:55:54 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_16_2.movie
+2025-07-24 14:55:57 - INFO - Autofocus set to ON
+2025-07-24 14:55:57 - INFO - Autofocus set to OFF
+2025-07-24 14:56:04 - INFO - Processing sample 16 at well (2, 17)
+2025-07-24 14:56:15 - INFO - Autofocus set to ON
+2025-07-24 14:56:15 - INFO - Autofocus set to OFF
+2025-07-24 14:56:15 - INFO - Taking image stack for sample 16 at well (2, 17), site 0
+2025-07-24 14:56:23 - INFO - Processing image stack /home/sd2030/data/5_2_17_0.movie at site number 0 for sample 16
+2025-07-24 14:56:24 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_17_0.movie
+2025-07-24 14:56:27 - INFO - Autofocus set to ON
+2025-07-24 14:56:27 - INFO - Autofocus set to OFF
+2025-07-24 14:56:29 - INFO - Autofocus set to ON
+2025-07-24 14:56:29 - INFO - Autofocus set to OFF
+2025-07-24 14:56:29 - INFO - Taking image stack for sample 16 at well (2, 17), site 1
+2025-07-24 14:56:38 - INFO - Processing image stack /home/sd2030/data/5_2_17_1.movie at site number 1 for sample 16
+2025-07-24 14:56:38 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_17_1.movie
+2025-07-24 14:56:42 - INFO - Autofocus set to ON
+2025-07-24 14:56:42 - INFO - Autofocus set to OFF
+2025-07-24 14:56:44 - INFO - Autofocus set to ON
+2025-07-24 14:56:44 - INFO - Autofocus set to OFF
+2025-07-24 14:56:44 - INFO - Taking image stack for sample 16 at well (2, 17), site 2
+2025-07-24 14:56:52 - INFO - Processing image stack /home/sd2030/data/5_2_17_2.movie at site number 2 for sample 16
+2025-07-24 14:56:52 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_17_2.movie
+2025-07-24 14:56:55 - INFO - Autofocus set to ON
+2025-07-24 14:56:55 - INFO - Autofocus set to OFF
+2025-07-24 14:57:02 - INFO - Processing sample 17 at well (2, 18)
+2025-07-24 14:57:13 - INFO - Autofocus set to ON
+2025-07-24 14:57:13 - INFO - Autofocus set to OFF
+2025-07-24 14:57:13 - INFO - Taking image stack for sample 17 at well (2, 18), site 0
+2025-07-24 14:57:21 - INFO - Processing image stack /home/sd2030/data/5_2_18_0.movie at site number 0 for sample 17
+2025-07-24 14:57:21 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_18_0.movie
+2025-07-24 14:57:25 - INFO - Autofocus set to ON
+2025-07-24 14:57:25 - INFO - Autofocus set to OFF
+2025-07-24 14:57:27 - INFO - Autofocus set to ON
+2025-07-24 14:57:27 - INFO - Autofocus set to OFF
+2025-07-24 14:57:27 - INFO - Taking image stack for sample 17 at well (2, 18), site 1
+2025-07-24 14:57:35 - INFO - Processing image stack /home/sd2030/data/5_2_18_1.movie at site number 1 for sample 17
+2025-07-24 14:57:36 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_18_1.movie
+2025-07-24 14:57:39 - INFO - Autofocus set to ON
+2025-07-24 14:57:39 - INFO - Autofocus set to OFF
+2025-07-24 14:57:41 - INFO - Autofocus set to ON
+2025-07-24 14:57:41 - INFO - Autofocus set to OFF
+2025-07-24 14:57:41 - INFO - Taking image stack for sample 17 at well (2, 18), site 2
+2025-07-24 14:57:49 - INFO - Processing image stack /home/sd2030/data/5_2_18_2.movie at site number 2 for sample 17
+2025-07-24 14:57:49 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_18_2.movie
+2025-07-24 14:57:53 - INFO - Autofocus set to ON
+2025-07-24 14:57:53 - INFO - Autofocus set to OFF
+2025-07-24 14:57:59 - INFO - Processing sample 18 at well (2, 19)
+2025-07-24 14:58:10 - INFO - Autofocus set to ON
+2025-07-24 14:58:10 - INFO - Autofocus set to OFF
+2025-07-24 14:58:10 - INFO - Taking image stack for sample 18 at well (2, 19), site 0
+2025-07-24 14:58:17 - INFO - Processing image stack /home/sd2030/data/5_2_19_0.movie at site number 0 for sample 18
+2025-07-24 14:58:18 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_19_0.movie
+2025-07-24 14:58:21 - INFO - Autofocus set to ON
+2025-07-24 14:58:21 - INFO - Autofocus set to OFF
+2025-07-24 14:58:23 - INFO - Autofocus set to ON
+2025-07-24 14:58:23 - INFO - Autofocus set to OFF
+2025-07-24 14:58:23 - INFO - Taking image stack for sample 18 at well (2, 19), site 1
+2025-07-24 14:58:32 - INFO - Processing image stack /home/sd2030/data/5_2_19_1.movie at site number 1 for sample 18
+2025-07-24 14:58:33 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_19_1.movie
+2025-07-24 14:58:36 - INFO - Autofocus set to ON
+2025-07-24 14:58:36 - INFO - Autofocus set to OFF
+2025-07-24 14:58:38 - INFO - Autofocus set to ON
+2025-07-24 14:58:38 - INFO - Autofocus set to OFF
+2025-07-24 14:58:38 - INFO - Taking image stack for sample 18 at well (2, 19), site 2
+2025-07-24 14:58:46 - INFO - Processing image stack /home/sd2030/data/5_2_19_2.movie at site number 2 for sample 18
+2025-07-24 14:58:46 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_19_2.movie
+2025-07-24 14:58:49 - INFO - Autofocus set to ON
+2025-07-24 14:58:49 - INFO - Autofocus set to OFF
+2025-07-24 14:58:56 - INFO - Processing sample 19 at well (2, 20)
+2025-07-24 14:59:06 - INFO - Autofocus set to ON
+2025-07-24 14:59:06 - INFO - Autofocus set to OFF
+2025-07-24 14:59:06 - INFO - Taking image stack for sample 19 at well (2, 20), site 0
+2025-07-24 14:59:13 - INFO - Processing image stack /home/sd2030/data/5_2_20_0.movie at site number 0 for sample 19
+2025-07-24 14:59:14 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_20_0.movie
+2025-07-24 14:59:17 - INFO - Autofocus set to ON
+2025-07-24 14:59:17 - INFO - Autofocus set to OFF
+2025-07-24 14:59:20 - INFO - Autofocus set to ON
+2025-07-24 14:59:20 - INFO - Autofocus set to OFF
+2025-07-24 14:59:20 - INFO - Taking image stack for sample 19 at well (2, 20), site 1
+2025-07-24 14:59:28 - INFO - Processing image stack /home/sd2030/data/5_2_20_1.movie at site number 1 for sample 19
+2025-07-24 14:59:28 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_20_1.movie
+2025-07-24 14:59:32 - INFO - Autofocus set to ON
+2025-07-24 14:59:32 - INFO - Autofocus set to OFF
+2025-07-24 14:59:34 - INFO - Autofocus set to ON
+2025-07-24 14:59:34 - INFO - Autofocus set to OFF
+2025-07-24 14:59:34 - INFO - Taking image stack for sample 19 at well (2, 20), site 2
+2025-07-24 14:59:43 - INFO - Processing image stack /home/sd2030/data/5_2_20_2.movie at site number 2 for sample 19
+2025-07-24 14:59:44 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_20_2.movie
+2025-07-24 14:59:47 - INFO - Autofocus set to ON
+2025-07-24 14:59:47 - INFO - Autofocus set to OFF
+2025-07-24 14:59:53 - INFO - Processing sample 20 at well (2, 21)
+2025-07-24 15:00:03 - INFO - Autofocus set to ON
+2025-07-24 15:00:03 - INFO - Autofocus set to OFF
+2025-07-24 15:00:03 - INFO - Taking image stack for sample 20 at well (2, 21), site 0
+2025-07-24 15:00:11 - INFO - Processing image stack /home/sd2030/data/5_2_21_0.movie at site number 0 for sample 20
+2025-07-24 15:00:12 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_21_0.movie
+2025-07-24 15:00:15 - INFO - Autofocus set to ON
+2025-07-24 15:00:15 - INFO - Autofocus set to OFF
+2025-07-24 15:00:17 - INFO - Autofocus set to ON
+2025-07-24 15:00:17 - INFO - Autofocus set to OFF
+2025-07-24 15:00:17 - INFO - Taking image stack for sample 20 at well (2, 21), site 1
+2025-07-24 15:00:26 - INFO - Processing image stack /home/sd2030/data/5_2_21_1.movie at site number 1 for sample 20
+2025-07-24 15:00:26 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_21_1.movie
+2025-07-24 15:00:30 - INFO - Autofocus set to ON
+2025-07-24 15:00:30 - INFO - Autofocus set to OFF
+2025-07-24 15:00:31 - INFO - Autofocus set to ON
+2025-07-24 15:00:31 - INFO - Autofocus set to OFF
+2025-07-24 15:00:31 - INFO - Taking image stack for sample 20 at well (2, 21), site 2
+2025-07-24 15:00:39 - INFO - Processing image stack /home/sd2030/data/5_2_21_2.movie at site number 2 for sample 20
+2025-07-24 15:00:40 - INFO - Image stack extracted for movie /home/sd2030/data/5_2_21_2.movie
+2025-07-24 15:00:43 - INFO - Autofocus set to ON
+2025-07-24 15:00:43 - INFO - Autofocus set to OFF
+2025-07-24 15:00:48 - INFO - Processing sample 21 at well (3, 2)
+2025-07-24 15:01:26 - INFO - Autofocus set to ON
+2025-07-24 15:01:26 - INFO - Autofocus set to OFF
+2025-07-24 15:01:26 - INFO - Taking image stack for sample 21 at well (3, 2), site 0
+2025-07-24 15:01:34 - INFO - Processing image stack /home/sd2030/data/5_3_2_0.movie at site number 0 for sample 21
+2025-07-24 15:01:34 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_2_0.movie
+2025-07-24 15:01:37 - INFO - Autofocus set to ON
+2025-07-24 15:01:37 - INFO - Autofocus set to OFF
+2025-07-24 15:01:39 - INFO - Autofocus set to ON
+2025-07-24 15:01:39 - INFO - Autofocus set to OFF
+2025-07-24 15:01:39 - INFO - Taking image stack for sample 21 at well (3, 2), site 1
+2025-07-24 15:01:48 - INFO - Processing image stack /home/sd2030/data/5_3_2_1.movie at site number 1 for sample 21
+2025-07-24 15:01:48 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_2_1.movie
+2025-07-24 15:01:51 - INFO - Autofocus set to ON
+2025-07-24 15:01:51 - INFO - Autofocus set to OFF
+2025-07-24 15:01:54 - INFO - Autofocus set to ON
+2025-07-24 15:01:54 - INFO - Autofocus set to OFF
+2025-07-24 15:01:54 - INFO - Taking image stack for sample 21 at well (3, 2), site 2
+2025-07-24 15:02:02 - INFO - Processing image stack /home/sd2030/data/5_3_2_2.movie at site number 2 for sample 21
+2025-07-24 15:02:03 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_2_2.movie
+2025-07-24 15:02:06 - INFO - Autofocus set to ON
+2025-07-24 15:02:06 - INFO - Autofocus set to OFF
+2025-07-24 15:02:10 - INFO - Processing sample 22 at well (3, 3)
+2025-07-24 15:02:19 - INFO - Autofocus set to ON
+2025-07-24 15:02:19 - INFO - Autofocus set to OFF
+2025-07-24 15:02:19 - INFO - Taking image stack for sample 22 at well (3, 3), site 0
+2025-07-24 15:02:26 - INFO - Processing image stack /home/sd2030/data/5_3_3_0.movie at site number 0 for sample 22
+2025-07-24 15:02:27 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_3_0.movie
+2025-07-24 15:02:30 - INFO - Autofocus set to ON
+2025-07-24 15:02:30 - INFO - Autofocus set to OFF
+2025-07-24 15:02:32 - INFO - Autofocus set to ON
+2025-07-24 15:02:32 - INFO - Autofocus set to OFF
+2025-07-24 15:02:32 - INFO - Taking image stack for sample 22 at well (3, 3), site 1
+2025-07-24 15:02:41 - INFO - Processing image stack /home/sd2030/data/5_3_3_1.movie at site number 1 for sample 22
+2025-07-24 15:02:42 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_3_1.movie
+2025-07-24 15:02:45 - INFO - Autofocus set to ON
+2025-07-24 15:02:45 - INFO - Autofocus set to OFF
+2025-07-24 15:02:47 - INFO - Autofocus set to ON
+2025-07-24 15:02:47 - INFO - Autofocus set to OFF
+2025-07-24 15:02:47 - INFO - Taking image stack for sample 22 at well (3, 3), site 2
+2025-07-24 15:02:56 - INFO - Processing image stack /home/sd2030/data/5_3_3_2.movie at site number 2 for sample 22
+2025-07-24 15:02:57 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_3_2.movie
+2025-07-24 15:03:00 - INFO - Autofocus set to ON
+2025-07-24 15:03:00 - INFO - Autofocus set to OFF
+2025-07-24 15:03:05 - INFO - Processing sample 23 at well (3, 4)
+2025-07-24 15:03:14 - INFO - Autofocus set to ON
+2025-07-24 15:03:14 - INFO - Autofocus set to OFF
+2025-07-24 15:03:14 - INFO - Taking image stack for sample 23 at well (3, 4), site 0
+2025-07-24 15:03:21 - INFO - Processing image stack /home/sd2030/data/5_3_4_0.movie at site number 0 for sample 23
+2025-07-24 15:03:22 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_4_0.movie
+2025-07-24 15:03:25 - INFO - Autofocus set to ON
+2025-07-24 15:03:25 - INFO - Autofocus set to OFF
+2025-07-24 15:03:27 - INFO - Autofocus set to ON
+2025-07-24 15:03:27 - INFO - Autofocus set to OFF
+2025-07-24 15:03:27 - INFO - Taking image stack for sample 23 at well (3, 4), site 1
+2025-07-24 15:03:36 - INFO - Processing image stack /home/sd2030/data/5_3_4_1.movie at site number 1 for sample 23
+2025-07-24 15:03:36 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_4_1.movie
+2025-07-24 15:03:39 - INFO - Autofocus set to ON
+2025-07-24 15:03:39 - INFO - Autofocus set to OFF
+2025-07-24 15:03:42 - INFO - Autofocus set to ON
+2025-07-24 15:03:42 - INFO - Autofocus set to OFF
+2025-07-24 15:03:42 - INFO - Taking image stack for sample 23 at well (3, 4), site 2
+2025-07-24 15:03:50 - INFO - Processing image stack /home/sd2030/data/5_3_4_2.movie at site number 2 for sample 23
+2025-07-24 15:03:51 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_4_2.movie
+2025-07-24 15:03:54 - INFO - Autofocus set to ON
+2025-07-24 15:03:54 - INFO - Autofocus set to OFF
+2025-07-24 15:04:00 - INFO - Processing sample 24 at well (3, 5)
+2025-07-24 15:04:10 - INFO - Autofocus set to ON
+2025-07-24 15:04:10 - INFO - Autofocus set to OFF
+2025-07-24 15:04:10 - INFO - Taking image stack for sample 24 at well (3, 5), site 0
+2025-07-24 15:04:19 - INFO - Processing image stack /home/sd2030/data/5_3_5_0.movie at site number 0 for sample 24
+2025-07-24 15:04:20 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_5_0.movie
+2025-07-24 15:04:23 - INFO - Autofocus set to ON
+2025-07-24 15:04:23 - INFO - Autofocus set to OFF
+2025-07-24 15:04:25 - INFO - Autofocus set to ON
+2025-07-24 15:04:25 - INFO - Autofocus set to OFF
+2025-07-24 15:04:25 - INFO - Taking image stack for sample 24 at well (3, 5), site 1
+2025-07-24 15:04:33 - INFO - Processing image stack /home/sd2030/data/5_3_5_1.movie at site number 1 for sample 24
+2025-07-24 15:04:34 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_5_1.movie
+2025-07-24 15:04:37 - INFO - Autofocus set to ON
+2025-07-24 15:04:37 - INFO - Autofocus set to OFF
+2025-07-24 15:04:39 - INFO - Autofocus set to ON
+2025-07-24 15:04:39 - INFO - Autofocus set to OFF
+2025-07-24 15:04:39 - INFO - Taking image stack for sample 24 at well (3, 5), site 2
+2025-07-24 15:04:47 - INFO - Processing image stack /home/sd2030/data/5_3_5_2.movie at site number 2 for sample 24
+2025-07-24 15:04:47 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_5_2.movie
+2025-07-24 15:04:51 - INFO - Autofocus set to ON
+2025-07-24 15:04:51 - INFO - Autofocus set to OFF
+2025-07-24 15:04:57 - INFO - Processing sample 25 at well (3, 6)
+2025-07-24 15:05:07 - INFO - Autofocus set to ON
+2025-07-24 15:05:07 - INFO - Autofocus set to OFF
+2025-07-24 15:05:07 - INFO - Taking image stack for sample 25 at well (3, 6), site 0
+2025-07-24 15:05:15 - INFO - Processing image stack /home/sd2030/data/5_3_6_0.movie at site number 0 for sample 25
+2025-07-24 15:05:15 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_6_0.movie
+2025-07-24 15:05:19 - INFO - Autofocus set to ON
+2025-07-24 15:05:19 - INFO - Autofocus set to OFF
+2025-07-24 15:05:21 - INFO - Autofocus set to ON
+2025-07-24 15:05:21 - INFO - Autofocus set to OFF
+2025-07-24 15:05:21 - INFO - Taking image stack for sample 25 at well (3, 6), site 1
+2025-07-24 15:05:29 - INFO - Processing image stack /home/sd2030/data/5_3_6_1.movie at site number 1 for sample 25
+2025-07-24 15:05:29 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_6_1.movie
+2025-07-24 15:05:33 - INFO - Autofocus set to ON
+2025-07-24 15:05:33 - INFO - Autofocus set to OFF
+2025-07-24 15:05:35 - INFO - Autofocus set to ON
+2025-07-24 15:05:35 - INFO - Autofocus set to OFF
+2025-07-24 15:05:35 - INFO - Taking image stack for sample 25 at well (3, 6), site 2
+2025-07-24 15:05:44 - INFO - Processing image stack /home/sd2030/data/5_3_6_2.movie at site number 2 for sample 25
+2025-07-24 15:05:44 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_6_2.movie
+2025-07-24 15:05:47 - INFO - Autofocus set to ON
+2025-07-24 15:05:47 - INFO - Autofocus set to OFF
+2025-07-24 15:05:54 - INFO - Processing sample 26 at well (3, 7)
+2025-07-24 15:06:06 - INFO - Autofocus set to ON
+2025-07-24 15:06:06 - INFO - Autofocus set to OFF
+2025-07-24 15:06:06 - INFO - Taking image stack for sample 26 at well (3, 7), site 0
+2025-07-24 15:06:15 - INFO - Processing image stack /home/sd2030/data/5_3_7_0.movie at site number 0 for sample 26
+2025-07-24 15:06:15 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_7_0.movie
+2025-07-24 15:06:18 - INFO - Autofocus set to ON
+2025-07-24 15:06:18 - INFO - Autofocus set to OFF
+2025-07-24 15:06:21 - INFO - Autofocus set to ON
+2025-07-24 15:06:21 - INFO - Autofocus set to OFF
+2025-07-24 15:06:21 - INFO - Taking image stack for sample 26 at well (3, 7), site 1
+2025-07-24 15:06:30 - INFO - Processing image stack /home/sd2030/data/5_3_7_1.movie at site number 1 for sample 26
+2025-07-24 15:06:30 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_7_1.movie
+2025-07-24 15:06:33 - INFO - Autofocus set to ON
+2025-07-24 15:06:33 - INFO - Autofocus set to OFF
+2025-07-24 15:06:35 - INFO - Autofocus set to ON
+2025-07-24 15:06:35 - INFO - Autofocus set to OFF
+2025-07-24 15:06:35 - INFO - Taking image stack for sample 26 at well (3, 7), site 2
+2025-07-24 15:06:43 - INFO - Processing image stack /home/sd2030/data/5_3_7_2.movie at site number 2 for sample 26
+2025-07-24 15:06:43 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_7_2.movie
+2025-07-24 15:06:47 - INFO - Autofocus set to ON
+2025-07-24 15:06:47 - INFO - Autofocus set to OFF
+2025-07-24 15:06:54 - INFO - Processing sample 27 at well (3, 8)
+2025-07-24 15:07:05 - INFO - Autofocus set to ON
+2025-07-24 15:07:05 - INFO - Autofocus set to OFF
+2025-07-24 15:07:05 - INFO - Taking image stack for sample 27 at well (3, 8), site 0
+2025-07-24 15:07:13 - INFO - Processing image stack /home/sd2030/data/5_3_8_0.movie at site number 0 for sample 27
+2025-07-24 15:07:14 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_8_0.movie
+2025-07-24 15:07:17 - INFO - Autofocus set to ON
+2025-07-24 15:07:17 - INFO - Autofocus set to OFF
+2025-07-24 15:07:20 - INFO - Autofocus set to ON
+2025-07-24 15:07:20 - INFO - Autofocus set to OFF
+2025-07-24 15:07:20 - INFO - Taking image stack for sample 27 at well (3, 8), site 1
+2025-07-24 15:07:28 - INFO - Processing image stack /home/sd2030/data/5_3_8_1.movie at site number 1 for sample 27
+2025-07-24 15:07:29 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_8_1.movie
+2025-07-24 15:07:32 - INFO - Autofocus set to ON
+2025-07-24 15:07:32 - INFO - Autofocus set to OFF
+2025-07-24 15:07:34 - INFO - Autofocus set to ON
+2025-07-24 15:07:34 - INFO - Autofocus set to OFF
+2025-07-24 15:07:34 - INFO - Taking image stack for sample 27 at well (3, 8), site 2
+2025-07-24 15:07:42 - INFO - Processing image stack /home/sd2030/data/5_3_8_2.movie at site number 2 for sample 27
+2025-07-24 15:07:42 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_8_2.movie
+2025-07-24 15:07:46 - INFO - Autofocus set to ON
+2025-07-24 15:07:46 - INFO - Autofocus set to OFF
+2025-07-24 15:07:54 - INFO - Processing sample 28 at well (3, 9)
+2025-07-24 15:08:05 - INFO - Autofocus set to ON
+2025-07-24 15:08:05 - INFO - Autofocus set to OFF
+2025-07-24 15:08:05 - INFO - Taking image stack for sample 28 at well (3, 9), site 0
+2025-07-24 15:08:13 - INFO - Processing image stack /home/sd2030/data/5_3_9_0.movie at site number 0 for sample 28
+2025-07-24 15:08:14 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_9_0.movie
+2025-07-24 15:08:17 - INFO - Autofocus set to ON
+2025-07-24 15:08:17 - INFO - Autofocus set to OFF
+2025-07-24 15:08:20 - INFO - Autofocus set to ON
+2025-07-24 15:08:20 - INFO - Autofocus set to OFF
+2025-07-24 15:08:20 - INFO - Taking image stack for sample 28 at well (3, 9), site 1
+2025-07-24 15:08:28 - INFO - Processing image stack /home/sd2030/data/5_3_9_1.movie at site number 1 for sample 28
+2025-07-24 15:08:28 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_9_1.movie
+2025-07-24 15:08:32 - INFO - Autofocus set to ON
+2025-07-24 15:08:32 - INFO - Autofocus set to OFF
+2025-07-24 15:08:34 - INFO - Autofocus set to ON
+2025-07-24 15:08:34 - INFO - Autofocus set to OFF
+2025-07-24 15:08:34 - INFO - Taking image stack for sample 28 at well (3, 9), site 2
+2025-07-24 15:08:42 - INFO - Processing image stack /home/sd2030/data/5_3_9_2.movie at site number 2 for sample 28
+2025-07-24 15:08:43 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_9_2.movie
+2025-07-24 15:08:46 - INFO - Autofocus set to ON
+2025-07-24 15:08:46 - INFO - Autofocus set to OFF
+2025-07-24 15:08:54 - INFO - Processing sample 29 at well (3, 10)
+2025-07-24 15:09:06 - INFO - Autofocus set to ON
+2025-07-24 15:09:06 - INFO - Autofocus set to OFF
+2025-07-24 15:09:06 - INFO - Taking image stack for sample 29 at well (3, 10), site 0
+2025-07-24 15:09:14 - INFO - Processing image stack /home/sd2030/data/5_3_10_0.movie at site number 0 for sample 29
+2025-07-24 15:09:15 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_10_0.movie
+2025-07-24 15:09:18 - INFO - Autofocus set to ON
+2025-07-24 15:09:18 - INFO - Autofocus set to OFF
+2025-07-24 15:09:20 - INFO - Autofocus set to ON
+2025-07-24 15:09:20 - INFO - Autofocus set to OFF
+2025-07-24 15:09:20 - INFO - Taking image stack for sample 29 at well (3, 10), site 1
+2025-07-24 15:09:29 - INFO - Processing image stack /home/sd2030/data/5_3_10_1.movie at site number 1 for sample 29
+2025-07-24 15:09:30 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_10_1.movie
+2025-07-24 15:09:33 - INFO - Autofocus set to ON
+2025-07-24 15:09:33 - INFO - Autofocus set to OFF
+2025-07-24 15:09:35 - INFO - Autofocus set to ON
+2025-07-24 15:09:35 - INFO - Autofocus set to OFF
+2025-07-24 15:09:35 - INFO - Taking image stack for sample 29 at well (3, 10), site 2
+2025-07-24 15:09:44 - INFO - Processing image stack /home/sd2030/data/5_3_10_2.movie at site number 2 for sample 29
+2025-07-24 15:09:45 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_10_2.movie
+2025-07-24 15:09:48 - INFO - Autofocus set to ON
+2025-07-24 15:09:48 - INFO - Autofocus set to OFF
+2025-07-24 15:09:56 - INFO - Processing sample 30 at well (3, 11)
+2025-07-24 15:10:08 - INFO - Autofocus set to ON
+2025-07-24 15:10:08 - INFO - Autofocus set to OFF
+2025-07-24 15:10:08 - INFO - Taking image stack for sample 30 at well (3, 11), site 0
+2025-07-24 15:10:17 - INFO - Processing image stack /home/sd2030/data/5_3_11_0.movie at site number 0 for sample 30
+2025-07-24 15:10:18 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_11_0.movie
+2025-07-24 15:10:21 - INFO - Autofocus set to ON
+2025-07-24 15:10:21 - INFO - Autofocus set to OFF
+2025-07-24 15:10:24 - INFO - Autofocus set to ON
+2025-07-24 15:10:24 - INFO - Autofocus set to OFF
+2025-07-24 15:10:24 - INFO - Taking image stack for sample 30 at well (3, 11), site 1
+2025-07-24 15:10:32 - INFO - Processing image stack /home/sd2030/data/5_3_11_1.movie at site number 1 for sample 30
+2025-07-24 15:10:33 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_11_1.movie
+2025-07-24 15:10:36 - INFO - Autofocus set to ON
+2025-07-24 15:10:36 - INFO - Autofocus set to OFF
+2025-07-24 15:10:39 - INFO - Autofocus set to ON
+2025-07-24 15:10:39 - INFO - Autofocus set to OFF
+2025-07-24 15:10:39 - INFO - Taking image stack for sample 30 at well (3, 11), site 2
+2025-07-24 15:10:47 - INFO - Processing image stack /home/sd2030/data/5_3_11_2.movie at site number 2 for sample 30
+2025-07-24 15:10:47 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_11_2.movie
+2025-07-24 15:10:50 - INFO - Autofocus set to ON
+2025-07-24 15:10:50 - INFO - Autofocus set to OFF
+2025-07-24 15:10:59 - INFO - Processing sample 31 at well (3, 12)
+2025-07-24 15:11:11 - INFO - Autofocus set to ON
+2025-07-24 15:11:11 - INFO - Autofocus set to OFF
+2025-07-24 15:11:11 - INFO - Taking image stack for sample 31 at well (3, 12), site 0
+2025-07-24 15:11:20 - INFO - Processing image stack /home/sd2030/data/5_3_12_0.movie at site number 0 for sample 31
+2025-07-24 15:11:20 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_12_0.movie
+2025-07-24 15:11:23 - INFO - Autofocus set to ON
+2025-07-24 15:11:23 - INFO - Autofocus set to OFF
+2025-07-24 15:11:25 - INFO - Autofocus set to ON
+2025-07-24 15:11:25 - INFO - Autofocus set to OFF
+2025-07-24 15:11:25 - INFO - Taking image stack for sample 31 at well (3, 12), site 1
+2025-07-24 15:11:35 - INFO - Processing image stack /home/sd2030/data/5_3_12_1.movie at site number 1 for sample 31
+2025-07-24 15:11:36 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_12_1.movie
+2025-07-24 15:11:39 - INFO - Autofocus set to ON
+2025-07-24 15:11:39 - INFO - Autofocus set to OFF
+2025-07-24 15:11:41 - INFO - Autofocus set to ON
+2025-07-24 15:11:41 - INFO - Autofocus set to OFF
+2025-07-24 15:11:41 - INFO - Taking image stack for sample 31 at well (3, 12), site 2
+2025-07-24 15:11:49 - INFO - Processing image stack /home/sd2030/data/5_3_12_2.movie at site number 2 for sample 31
+2025-07-24 15:11:49 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_12_2.movie
+2025-07-24 15:11:53 - INFO - Autofocus set to ON
+2025-07-24 15:11:53 - INFO - Autofocus set to OFF
+2025-07-24 15:12:01 - INFO - Processing sample 32 at well (3, 13)
+2025-07-24 15:12:14 - INFO - Autofocus set to ON
+2025-07-24 15:12:14 - INFO - Autofocus set to OFF
+2025-07-24 15:12:14 - INFO - Taking image stack for sample 32 at well (3, 13), site 0
+2025-07-24 15:12:22 - INFO - Processing image stack /home/sd2030/data/5_3_13_0.movie at site number 0 for sample 32
+2025-07-24 15:12:22 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_13_0.movie
+2025-07-24 15:12:26 - INFO - Autofocus set to ON
+2025-07-24 15:12:26 - INFO - Autofocus set to OFF
+2025-07-24 15:12:28 - INFO - Autofocus set to ON
+2025-07-24 15:12:28 - INFO - Autofocus set to OFF
+2025-07-24 15:12:28 - INFO - Taking image stack for sample 32 at well (3, 13), site 1
+2025-07-24 15:12:36 - INFO - Processing image stack /home/sd2030/data/5_3_13_1.movie at site number 1 for sample 32
+2025-07-24 15:12:37 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_13_1.movie
+2025-07-24 15:12:40 - INFO - Autofocus set to ON
+2025-07-24 15:12:40 - INFO - Autofocus set to OFF
+2025-07-24 15:12:42 - INFO - Autofocus set to ON
+2025-07-24 15:12:42 - INFO - Autofocus set to OFF
+2025-07-24 15:12:42 - INFO - Taking image stack for sample 32 at well (3, 13), site 2
+2025-07-24 15:12:50 - INFO - Processing image stack /home/sd2030/data/5_3_13_2.movie at site number 2 for sample 32
+2025-07-24 15:12:50 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_13_2.movie
+2025-07-24 15:12:54 - INFO - Autofocus set to ON
+2025-07-24 15:12:54 - INFO - Autofocus set to OFF
+2025-07-24 15:13:02 - INFO - Processing sample 33 at well (3, 14)
+2025-07-24 15:13:14 - INFO - Autofocus set to ON
+2025-07-24 15:13:14 - INFO - Autofocus set to OFF
+2025-07-24 15:13:14 - INFO - Taking image stack for sample 33 at well (3, 14), site 0
+2025-07-24 15:13:22 - INFO - Processing image stack /home/sd2030/data/5_3_14_0.movie at site number 0 for sample 33
+2025-07-24 15:13:23 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_14_0.movie
+2025-07-24 15:13:26 - INFO - Autofocus set to ON
+2025-07-24 15:13:26 - INFO - Autofocus set to OFF
+2025-07-24 15:13:28 - INFO - Autofocus set to ON
+2025-07-24 15:13:28 - INFO - Autofocus set to OFF
+2025-07-24 15:13:28 - INFO - Taking image stack for sample 33 at well (3, 14), site 1
+2025-07-24 15:13:37 - INFO - Processing image stack /home/sd2030/data/5_3_14_1.movie at site number 1 for sample 33
+2025-07-24 15:13:38 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_14_1.movie
+2025-07-24 15:13:41 - INFO - Autofocus set to ON
+2025-07-24 15:13:41 - INFO - Autofocus set to OFF
+2025-07-24 15:13:43 - INFO - Autofocus set to ON
+2025-07-24 15:13:43 - INFO - Autofocus set to OFF
+2025-07-24 15:13:43 - INFO - Taking image stack for sample 33 at well (3, 14), site 2
+2025-07-24 15:13:52 - INFO - Processing image stack /home/sd2030/data/5_3_14_2.movie at site number 2 for sample 33
+2025-07-24 15:13:53 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_14_2.movie
+2025-07-24 15:13:56 - INFO - Autofocus set to ON
+2025-07-24 15:13:56 - INFO - Autofocus set to OFF
+2025-07-24 15:14:05 - INFO - Processing sample 34 at well (3, 15)
+2025-07-24 15:14:17 - INFO - Autofocus set to ON
+2025-07-24 15:14:17 - INFO - Autofocus set to OFF
+2025-07-24 15:14:17 - INFO - Taking image stack for sample 34 at well (3, 15), site 0
+2025-07-24 15:14:25 - INFO - Processing image stack /home/sd2030/data/5_3_15_0.movie at site number 0 for sample 34
+2025-07-24 15:14:25 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_15_0.movie
+2025-07-24 15:14:29 - INFO - Autofocus set to ON
+2025-07-24 15:14:29 - INFO - Autofocus set to OFF
+2025-07-24 15:14:30 - INFO - Autofocus set to ON
+2025-07-24 15:14:30 - INFO - Autofocus set to OFF
+2025-07-24 15:14:31 - INFO - Taking image stack for sample 34 at well (3, 15), site 1
+2025-07-24 15:14:38 - INFO - Processing image stack /home/sd2030/data/5_3_15_1.movie at site number 1 for sample 34
+2025-07-24 15:14:38 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_15_1.movie
+2025-07-24 15:14:42 - INFO - Autofocus set to ON
+2025-07-24 15:14:42 - INFO - Autofocus set to OFF
+2025-07-24 15:14:44 - INFO - Autofocus set to ON
+2025-07-24 15:14:44 - INFO - Autofocus set to OFF
+2025-07-24 15:14:44 - INFO - Taking image stack for sample 34 at well (3, 15), site 2
+2025-07-24 15:14:53 - INFO - Processing image stack /home/sd2030/data/5_3_15_2.movie at site number 2 for sample 34
+2025-07-24 15:14:53 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_15_2.movie
+2025-07-24 15:14:56 - INFO - Autofocus set to ON
+2025-07-24 15:14:56 - INFO - Autofocus set to OFF
+2025-07-24 15:15:05 - INFO - Processing sample 35 at well (3, 16)
+2025-07-24 15:15:17 - INFO - Autofocus set to ON
+2025-07-24 15:15:17 - INFO - Autofocus set to OFF
+2025-07-24 15:15:17 - INFO - Taking image stack for sample 35 at well (3, 16), site 0
+2025-07-24 15:15:25 - INFO - Processing image stack /home/sd2030/data/5_3_16_0.movie at site number 0 for sample 35
+2025-07-24 15:15:26 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_16_0.movie
+2025-07-24 15:15:29 - INFO - Autofocus set to ON
+2025-07-24 15:15:29 - INFO - Autofocus set to OFF
+2025-07-24 15:15:31 - INFO - Autofocus set to ON
+2025-07-24 15:15:31 - INFO - Autofocus set to OFF
+2025-07-24 15:15:31 - INFO - Taking image stack for sample 35 at well (3, 16), site 1
+2025-07-24 15:15:39 - INFO - Processing image stack /home/sd2030/data/5_3_16_1.movie at site number 1 for sample 35
+2025-07-24 15:15:39 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_16_1.movie
+2025-07-24 15:15:43 - INFO - Autofocus set to ON
+2025-07-24 15:15:43 - INFO - Autofocus set to OFF
+2025-07-24 15:15:45 - INFO - Autofocus set to ON
+2025-07-24 15:15:45 - INFO - Autofocus set to OFF
+2025-07-24 15:15:45 - INFO - Taking image stack for sample 35 at well (3, 16), site 2
+2025-07-24 15:15:54 - INFO - Processing image stack /home/sd2030/data/5_3_16_2.movie at site number 2 for sample 35
+2025-07-24 15:15:54 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_16_2.movie
+2025-07-24 15:15:58 - INFO - Autofocus set to ON
+2025-07-24 15:15:58 - INFO - Autofocus set to OFF
+2025-07-24 15:16:06 - INFO - Processing sample 36 at well (3, 17)
+2025-07-24 15:16:18 - INFO - Autofocus set to ON
+2025-07-24 15:16:18 - INFO - Autofocus set to OFF
+2025-07-24 15:16:18 - INFO - Taking image stack for sample 36 at well (3, 17), site 0
+2025-07-24 15:16:26 - INFO - Processing image stack /home/sd2030/data/5_3_17_0.movie at site number 0 for sample 36
+2025-07-24 15:16:26 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_17_0.movie
+2025-07-24 15:16:30 - INFO - Autofocus set to ON
+2025-07-24 15:16:30 - INFO - Autofocus set to OFF
+2025-07-24 15:16:32 - INFO - Autofocus set to ON
+2025-07-24 15:16:32 - INFO - Autofocus set to OFF
+2025-07-24 15:16:32 - INFO - Taking image stack for sample 36 at well (3, 17), site 1
+2025-07-24 15:16:41 - INFO - Processing image stack /home/sd2030/data/5_3_17_1.movie at site number 1 for sample 36
+2025-07-24 15:16:41 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_17_1.movie
+2025-07-24 15:16:45 - INFO - Autofocus set to ON
+2025-07-24 15:16:45 - INFO - Autofocus set to OFF
+2025-07-24 15:16:47 - INFO - Autofocus set to ON
+2025-07-24 15:16:47 - INFO - Autofocus set to OFF
+2025-07-24 15:16:47 - INFO - Taking image stack for sample 36 at well (3, 17), site 2
+2025-07-24 15:16:55 - INFO - Processing image stack /home/sd2030/data/5_3_17_2.movie at site number 2 for sample 36
+2025-07-24 15:16:56 - INFO - Image stack extracted for movie /home/sd2030/data/5_3_17_2.movie
+2025-07-24 15:16:59 - INFO - Autofocus set to ON
+2025-07-24 15:16:59 - INFO - Autofocus set to OFF
+2025-07-24 15:17:07 - INFO - Imaging complete
