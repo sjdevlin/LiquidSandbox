@@ -38,17 +38,21 @@ class ImageRunDetailPresenter():
                    img.image_stack_number == self.stack_number
             )
 
-        meta_data += f"\nFocus Score: {focus_score}"
-
+        meta_data += f"\nFocus Score: {focus_score:.2f}"
 
         try:
-            image_file_name = next(
+            # Get the image file path - no need to prepend /Users/dev
+            image_file_path = next(
                 img.image_file_path for img in self.images
                 if img.sample_id == self.sample_id and
                    img.image_site_number == self.site_number and
                    img.image_stack_number == self.stack_number
             )
-            self.view.show_image(image_file_name, meta_data)
+            
+            # Check if path is already absolute, if not make it relative to current directory
+            image_file_path = f"/Users/dev{image_file_path}"
+            
+            self.view.show_image(image_file_path, meta_data)
         except StopIteration:
             print(f"No image found for sample {self.sample_id}, site {self.site_number}, and stack {self.stack_number}.")
         except Exception as e:

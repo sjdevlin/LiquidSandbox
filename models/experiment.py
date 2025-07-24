@@ -9,7 +9,7 @@ class Experiment(Base):
 
     #following variables are sqlalchemy objects related to the Experiment table in the database
 
-    __tablename__ = "Experiment"
+    __tablename__ = "Experiment" #TODO: add an experiment detail table to store more information about the experiment
     id = Column(Integer, primary_key=True)
     plate_id = Column(Integer, ForeignKey("Plate.id"))
     description = Column(String)
@@ -31,21 +31,14 @@ class Sample(Base):
     experiment_id = Column(Integer, ForeignKey("Experiment.id"))
     well_row = Column(Integer)
     well_column = Column(Integer)
-    sample_detail = relationship("SampleDetail", backref="sample", cascade="all, delete-orphan", single_parent=True)
+    mix_cycles = Column(Integer)
+    mix_aspirate = Column(Float)  # Speed in µL/s
+    mix_dispense = Column(Float)  # Speed in µL/s
+    mix_volume = Column(Float)  # Volume in µL
+    mix_height = Column(Float)  # Height in mm
+    pipette = Column(String)  # e.g., "p20", "p300
+    surfactant_percent = Column(Float)  # Percentage of surfactant in the solution
     image = relationship("Image", backref="sample", cascade="all, delete-orphan", single_parent=True)
-
-class SampleDetail(Base):
-    __tablename__ = "SampleDetail"
-    id = Column(Integer, primary_key=True)
-    sample_id = Column(Integer, ForeignKey("Sample.id"))
-    parameter_id = Column(Integer, ForeignKey("Parameter.id"))
-    value = Column(String)
-
-class Parameter(Base):
-    __tablename__ = "Parameter"
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    type = Column(String)
 
 
 

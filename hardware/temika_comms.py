@@ -103,6 +103,9 @@ class TemikaComms(metaclass=Singleton):
                         if not part:
                             break
                         data += part
+                        if b'ERROR' in data: #TODO: Improve this
+                            self.logger.error("Encountered 'ERROR' in data. Halting process for manual intervention.")
+                            input("Manual intervention required: press Enter to continue...")
                         if wait_for.encode() in data:
                             break
 

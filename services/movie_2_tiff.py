@@ -116,12 +116,14 @@ class FrameHeader:
 class Movie2Tiff:
     """Extract every frame from a TemI movie to TIFF and return focus scores."""
 
-    def __init__(self, compression: str = "tiff_lzw") -> None:
+    def __init__(self, compression: str = "tiff_lzw", downsample: bool = True, convert_8bit: bool = True) -> None:
         compression = compression.lower()
         if compression not in _LOSSLESS_TIFF:
             raise ValueError(
                 f"Unsupported compression '{compression}'. Choose from {', '.join(sorted(_LOSSLESS_TIFF))}")
         self.compression = compression
+        self.downsample = downsample
+        self.convert_8bit = convert_8bit
 
     # ------------------------------------------------------------------
     # Public API
@@ -130,7 +132,7 @@ class Movie2Tiff:
         self,
         movie_name: str | Path,
         file_stub: str | Path | None = None,
-    ) -> Tuple[List[Path], List[float]]:
+    ) -> Tuple[List[Path], List[float], List[float]]:
         """Process **all** frames and return filenames + focus scores.
 
         Parameters
@@ -144,9 +146,9 @@ class Movie2Tiff:
 
         Returns
         -------
-        (list[Path], list[float])
-            *Absolute* paths of written TIFFs and their corresponding focus
-            scores (same order).
+        (list[Path], list[float], list[float])
+            *Absolute* paths of written TIFFs, their corresponding focus
+            scores, and highest pixel values (same order).
         """
         movie_p = Path(movie_name)
         if not movie_p.exists():
@@ -220,9 +222,84 @@ class Movie2Tiff:
         )
         return float(np.var(lap))
 
-    # -------------- Frame decoding -------------
     @staticmethod
-    def _decode_frame(hdr: FrameHeader, buf: memoryview) -> np.ndarray:
+    def _calculate_highest_pixel_value(arr: np.ndarray) -> float:
+        """Highest pixel value – higher ⇒ brighter."""
+        if arr.dtype != np.float64:
+            img = arr.astype(np.float64)
+        else:
+            img = arr  # zero-copy
+        return float(np.max(img))
+
+    # -------------- Image processing helpers ---------------
+    @staticmethod
+    def _downsample_array(arr: np.ndarray, method: str = "bilinear") -> np.ndarray:
+        """Downsample array to 25% area (50% linear) using various methods."""
+        h, w = arr.shape
+        new_h, new_w = h // 2, w // 2
+        
+        if method == "decimation":
+            # Simple decimation - fastest but can cause aliasing
+            return arr[::2, ::2]
+        
+        elif method == "averaging":
+            # Average 2x2 blocks - good anti-aliasing, preserves intensity
+            # Ensure even dimensions
+            arr_crop = arr[:new_h*2, :new_w*2]
+            return (arr_crop[0::2, 0::2] + arr_crop[1::2, 0::2] + 
+                   arr_crop[0::2, 1::2] + arr_crop[1::2, 1::2]) // 4
+        
+        elif method == "bilinear":
+            # Bilinear interpolation - good quality, smooth
+            try:
+                from scipy import ndimage
+                return ndimage.zoom(arr, 0.5, order=1, prefilter=False)
+            except ImportError:
+                print("Warning: scipy not available, falling back to averaging.")
+                # Fallback to averaging if scipy not available
+                return Movie2Tiff._downsample_array(arr, method="averaging")
+        
+        elif method == "lanczos":
+            # Lanczos - highest quality but slowest
+            from PIL import Image
+            pil_img = Image.fromarray(arr)
+            resized = pil_img.resize((new_w, new_h), Image.Resampling.LANCZOS)
+            return np.array(resized)
+        
+        else:
+            raise ValueError(f"Unknown downsampling method: {method}")
+    
+    @staticmethod
+    def _convert_to_8bit(arr: np.ndarray, method: str = "percentile") -> np.ndarray:
+        """Convert 16-bit array to 8-bit using various normalization methods."""
+        if arr.dtype == np.uint8:
+            return arr  # Already 8-bit
+        
+        if method == "linear":
+            # Simple linear scaling from full range
+            arr_float = arr.astype(np.float64)
+            return ((arr_float / arr_float.max()) * 255).astype(np.uint8)
+        
+        elif method == "percentile":
+            # Percentile-based normalization (like your image viewer)
+            p2, p98 = np.percentile(arr, (2, 98))
+            arr_clipped = np.clip(arr, p2, p98)
+            arr_float = arr_clipped.astype(np.float64)
+            return ((arr_float - p2) * 255 / (p98 - p2)).astype(np.uint8)
+        
+        elif method == "histogram_equalization":
+            # Histogram equalization for better contrast
+            # Simple implementation without OpenCV
+            hist, bins = np.histogram(arr.flatten(), 256, [arr.min(), arr.max()])
+            cdf = hist.cumsum()
+            cdf_normalized = cdf * 255 / cdf[-1]
+            return np.interp(arr.flatten(), bins[:-1], cdf_normalized).reshape(arr.shape).astype(np.uint8)
+        
+        else:
+            raise ValueError(f"Unknown 8-bit conversion method: {method}")
+
+    # -------------- Frame decoding -------------
+    def _decode_frame(self, hdr: FrameHeader, buf: memoryview) -> np.ndarray:
         h, w = hdr.shape
         stride = hdr.stride
 
@@ -231,6 +308,11 @@ class Movie2Tiff:
             for r in range(h):
                 off = r * stride
                 out[r] = np.frombuffer(buf[off : off + w], dtype=np.uint8, count=w)
+            
+            # Apply downsampling if requested
+            if self.downsample:
+                out = self._downsample_array(out, method="averaging")
+            
             return out
 
         if hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_16:
@@ -241,6 +323,11 @@ class Movie2Tiff:
                 if hdr.endianness == G_BIG_ENDIAN:
                     row = row.byteswap()
                 out[r] = row
+            
+            # Apply downsampling if requested
+            if self.downsample:
+                out = self._downsample_array(out, method="averaging")
+            
             return out
 
         if hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_12_PACKED:
@@ -255,6 +342,11 @@ class Movie2Tiff:
                     if c + 1 < w:
                         out[r, c + 1] = (b1 >> 4) | (b2 << 4)
                     j += 3
+            
+            # Apply downsampling if requested
+            if self.downsample:
+                out = self._downsample_array(out, method="averaging")
+            
             return out
 
         if hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_32:
@@ -265,6 +357,11 @@ class Movie2Tiff:
                 if hdr.endianness == G_BIG_ENDIAN:
                     row = row.byteswap()
                 out[r] = row
+            
+            # Apply downsampling if requested
+            if self.downsample:
+                out = self._downsample_array(out, method="averaging")
+            
             return out
 
         raise NotImplementedError(f"Unsupported pixel format 0x{hdr.pixelformat:08X}")
@@ -278,6 +375,10 @@ class Movie2Tiff:
         extra: bytes,
         focus_score: float,
     ) -> None:
+        # Apply 8-bit conversion if requested
+        if self.convert_8bit and arr.dtype != np.uint8:
+            arr = self._convert_to_8bit(arr, method="percentile")
+        
         img = Image.fromarray(arr)
         try:
             ifd = TiffImagePlugin.ImageFileDirectory_v2()
@@ -286,6 +387,14 @@ class Movie2Tiff:
 
         meta_json = json.loads(hdr.to_json(extra))
         meta_json["focus_var_lap"] = focus_score
+        
+        # Add processing metadata
+        if self.downsample:
+            meta_json["processed_downsampled"] = True
+            meta_json["downsampling_factor"] = 0.5
+        if self.convert_8bit:
+            meta_json["processed_8bit_conversion"] = True
+            
         ifd[TAG_IMAGE_DESCRIPTION] = json.dumps(meta_json, indent=2)
         ifd[TAG_DATETIME] = hdr.timestamp.strftime("%Y:%m:%d %H:%M:%S")
 

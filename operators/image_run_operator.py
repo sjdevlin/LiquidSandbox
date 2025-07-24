@@ -24,7 +24,7 @@ class ImageRunOperator:
         self.illumination_controller.illumination_setup(self.app_config.get("illumination_led_number", 1),
                                                          self.app_config.get("illumination_intensity", 0.3))
         self.camera_controller.set_shutter_speed(self.app_config.get("shutter_speed", 10000))
-        self.movie_path = self.app_config.get("movie_file_directory", "~/data")
+        self.movie_path = self.app_config.get("movie_file_directory", "./")
 
 
 
@@ -38,7 +38,7 @@ class ImageRunOperator:
         messagebox.showinfo("Important", "Have you reset the X and Y co-ords to the origin?")  
         messagebox.showinfo("Focus Check", "Please go to first well and ensure that the image is in focus and enable autofocus before starting the run.")  
         self.focus_position = self.focus_controller.get_z()  # Get the current Z position as a reference for focus
-        self.move_position = self.focus_position - 50  # Move Z position for the next major move
+        self.move_position = self.focus_position - 20  # Move Z position for the next major move
 
 
        # First create the image run in the database, then retrieve it.  
@@ -134,28 +134,26 @@ class ImageRunOperator:
 
     def _process_stack(self, movie_filename, sample, site_number):
 
-        for stack_number in range(self.image_set.stack_size):
+        self.logger.info(f"Processing image stack {movie_filename} at stack number {stack_number}")
+        filenames, focus_scores, highest_pixel_values = self.converter.convert(movie_name = movie_filename)
 
-            self.logger.info(f"Processing image stack {movie_filename} at stack number {stack_number}")
-            filenames, focus_scores = self.converter.convert(movie_name = movie_filename)
+        for file, score in zip(filenames, focus_scores):
 
-            for file, score in zip(filenames, focus_scores):
+            new_image = Image(
+                    sample_id=sample.id,
+                    image_run_id=self.image_run.id,
+                    image_site_number=site_number,
+                    image_stack_number=focus_scores.index(score),  # Use the index of the score as the stack ID
+                    image_dimension_x=self.camera_controller.image_dimension_x,
+                    image_dimension_y=self.camera_controller.image_dimension_y,
+                    image_file_path=str(file),
+                    image_timestamp=datetime.now(),
+                    image_focus_score=score,  # Focus score calculated from the Movie2Tiff conversion
+                    average_droplet_size=0.0,  # Placeholder, to be calculated later
+                    standard_deviation_droplet_size=0.0  # Placeholder, to be calculated later
+                    )
 
-                new_image = Image(
-                        sample_id=sample.id,
-                        image_run_id=self.image_run.id,
-                        image_site_number=site_number,
-                        image_stack_number=focus_scores.index(score),  # Use the index of the score as the stack ID
-                        image_dimension_x=self.camera_controller.image_dimension_x,
-                        image_dimension_y=self.camera_controller.image_dimension_y,
-                        image_file_path=str(file),
-                        image_timestamp=datetime.now(),
-                        image_focus_score=score,  # Focus score calculated from the Movie2Tiff conversion
-                        average_droplet_size=0.0,  # Placeholder, to be calculated later
-                        standard_deviation_droplet_size=0.0  # Placeholder, to be calculated later
-                        )
+                # Save the image to the database
+            self.db.add_image(new_image)
 
-                    # Save the image to the database
-                self.db.add_image(new_image)
-
-            self.logger.info(f"Image stack extracted for movie {movie_filename}")
+        self.logger.info(f"Image stack extracted for movie {movie_filename}")

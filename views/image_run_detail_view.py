@@ -123,22 +123,25 @@ class ImageRunDetailView():
         try:
             print(f"Attempting to load image: {path_to_tiff}")
             
+            # Update metadata display if provided
+            if meta_data:
+                self.description_label.configure(text=meta_data)
+            
             # 1) Open the image
             img = Image.open(path_to_tiff)
             print(f"Original image mode: {img.mode}, size: {img.size}")
             
-            # Handle 16-bit images properly
+            # Handle different image formats
             if img.mode == 'I;16':
-                # Convert 16-bit to 8-bit by normalizing
+                # Convert 16-bit to 8-bit by normalizing (for backward compatibility)
                 import numpy as np
                 img_array = np.array(img)
-                print(f"Image array shape: {img_array.shape}, dtype: {img_array.dtype}")
+                print(f"Processing 16-bit image: shape {img_array.shape}, dtype: {img_array.dtype}")
                 print(f"Min value: {img_array.min()}, Max value: {img_array.max()}")
                 
                 # Check if the image has any meaningful data
                 if img_array.max() == img_array.min():
                     print("Warning: Image appears to have uniform values")
-                    # Create a test pattern or use a simple conversion
                     img_array = np.full_like(img_array, 128, dtype=np.uint8)
                 else:
                     # Use percentile-based normalization for better contrast
@@ -154,12 +157,22 @@ class ImageRunDetailView():
                 img = Image.fromarray(img_array, mode='L')  # Convert to 8-bit grayscale
                 print(f"Converted 16-bit to 8-bit grayscale, new min/max: {img_array.min()}/{img_array.max()}")
             
-            # Convert to RGB if it's not already
+            elif img.mode == 'L':
+                # 8-bit grayscale - no conversion needed
+                print("Processing 8-bit grayscale image")
+                
+            elif img.mode == 'P':
+                # Palette mode - convert to grayscale
+                print("Converting palette image to grayscale")
+                img = img.convert('L')
+                
+            # Convert to RGB for display
             if img.mode != 'RGB':
                 img = img.convert('RGB')
+                print(f"Converted to RGB mode")
             
             # 2) Calculate new size while maintaining aspect ratio
-            target_width, target_height = 600, 410
+            target_width, target_height = 600, 400
             img_width, img_height = img.size
             
             # Calculate scaling factor

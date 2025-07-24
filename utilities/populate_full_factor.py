@@ -15,28 +15,18 @@ from services import AppConfig, DatabaseService
 
 
 # ── local model classes ─────────────────────────────────────────
-from models import Plate, Experiment, Sample, SampleDetail, Parameter
+from models import Plate, Experiment, Sample
 
 config = AppConfig("./config.yaml")
 db = DatabaseService(config.get("sqlite_db"))
 
-# 3. ── create experiment record ─────────────────────────────────
-
-# 4. ── define Parameters (only created once) ───────────────────
-PARAM_DEFS = ["dispense_flowRate","dispense_mix_times","dispense_mmFromBottom","surfactant_fraction"]
-
-param_objs = {}
-for name in PARAM_DEFS:
-    # Look-up or create so we do not duplicate on re-runs
-    param = db.get_parameter_by_name(name)
-    param_objs[name] = param
-
-# 5. ── factor levels & Cartesian product (16 combinations) ─────
 LEVELS = {
-    "dispense_flowRate": [12.5, 25.0],
-    "dispense_mix_times": [5, 15],
-    "dispense_mmFromBottom": [0.5, 0.1],
-    "surfactant_fraction":  [1.25, 2.50],
+    "pipette": ["P300"],
+    "mix_volume": [30],
+    "dispense_flowRate": [50.0, 100.0, 150.0],
+    "times": [10, 20],
+    "mix_mmFromBottom": [0.2, 0.8],
+    "surfactant_fraction":  [2.00]
 }
 factor_order = list(LEVELS.keys())   # keep key order stable
 factor_grid  = list(product(*(LEVELS[f] for f in factor_order)))   # 16 tuples
@@ -45,7 +35,7 @@ factor_grid  = list(product(*(LEVELS[f] for f in factor_order)))   # 16 tuples
 # 6. ── simple well-assignment helper ────────────────────────────
 def next_well_coordinates(idx: int):
     """
-    Returns (row, column) for a 96-well plate (8 rows × 12 cols),
+    Returns (row, column) for a 384-well plate (using only 12 rows × 20 cols),
     filling rows A..H left-to-right, top-to-bottom.
 
     idx : 0-based linear index
@@ -62,22 +52,21 @@ for rep in range(3):                     # replicate blocks
         well_idx += 1
 
         sample = Sample(
-            experiment_id=1,
+            experiment_id=0,
             well_row=row,
             well_column=col,
+            mix_cycles=combo[factor_order.index("times")],
+            mix_aspirate=combo[factor_order.index("dispense_flowRate")],
+            mix_dispense=combo[factor_order.index("dispense_flowRate")],
+            mix_volume=combo[factor_order.index("mix_volume")],
+            mix_height=combo[factor_order.index("mix_mmFromBottom")],
+            pipette=combo[factor_order.index("pipette")],
+            surfactant_percent=combo[factor_order.index("surfactant_fraction")]
         )
+
         sample.id = db.add_sample(sample)
         print(f"Adding sample {sample.id} at ({row}, {col}) with factors {combo}")
 
-        # add parameter values
-        for key, value in zip(factor_order, combo):
-            sd = SampleDetail(
-                sample_id=sample.id,
-                parameter_id=param_objs[key].id,
-                value=str(value),
-            )
-            db.add_sample_detail(sd)
-
 
 # 8. ── commit all objects ───────────────────────────────────────
-print(f"✓ 48 samples written")
+print(f"✓  samples written")

@@ -45,11 +45,12 @@ origin_offset_x: 4200
 origin_offset_y: 4200
 
 # Opentrons settings
-script_template_path: ./full_factor_template.json
-script_output_path: ./open_trons_protocols
+script_template: ./opentrons_protocols/template.json
+script_output_path: ./opentrons_protocols/script
 
 #Image file settings
 image_file_type: tiff
 image_file_compression: lzw
 movie_file_directory: /home/sd2030/data
 movie_extension: .movie
+local_file_path: /Users/dev

@@ -143,7 +143,7 @@ class ExperimentListPresenter():
         if self.selected_exp_row:
             exp = self.db.get_experiment_by_id(self.selected_exp_row)
             if exp:
-                script_generator = ScriptfileGenerator(experiment=exp, db=self.db)
+                script_generator = ScriptfileGenerator(exp)
                 script_path = script_generator.generate()
                 messagebox.showinfo("Success",f"Script generated at: {script_path}")
                 exp.status = "Script Generated"
