@@ -30,11 +30,11 @@ class CircleDetector:
         canny_threshold1: int = 50,
         canny_threshold2: int = 150,
         hough_dp: float = 1.2,
-        hough_min_dist: int = 50,
-        hough_param1: int = 50,
-        hough_param2: int = 30,
-        min_radius: int = 10,
-        max_radius: int = 0,
+        hough_min_dist: int = 60,  # Increased from 50 - prevents nearby circles
+        hough_param1: int = 85,    # Increased from 50 - higher edge threshold
+        hough_param2: int = 45,     # Increased from 30 - higher accumulator threshold
+        min_radius: int = 30,       # Increased from 10 - ignore very small circles
+        max_radius: int = 300,      # Set a reasonable max instead of 0 (unlimited)
     ) -> None:
         self.contrast_method = contrast_method.lower()
         self.gamma = gamma
@@ -186,4 +186,5 @@ if __name__ == "__main__":
         diams = detector.process(args.image, augment=args.augment)
         print("Diameters (px):", diams if diams else "No complete circles found")
     except Exception as e:
+        print (f"Error: {e}", file=sys.stderr)
         sys.exit(str(e))

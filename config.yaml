@@ -54,4 +54,5 @@ image_file_compression: lzw
 movie_file_directory: /home/sd2030/data
 movie_extension: .movie
 #local_file_path: /Users/dev
-local_file_path: /home/sd2030
+#local_file_path: /home/sd2030
+local_file_path: /Volumes/TOSHIBA EXT/Temika_Data

@@ -1,8 +1,23 @@
 """
-movie2tiff.py – TemI movie → per-frame TIFF extractor with focus scoring
-========================================================================
+movie2tiff.py  TemI movie → per-frame TIFF extractor with focus scoring
+=================================================================        
+Process **all** frames and return filenames + focus scores.
 
-This version extracts **every frame** from a proprietary *TemI* movie, saves
+        Parameters
+        ----------
+        movie_name : path-like
+            TemI movie file.
+        file_stub : str or path-like or ``None``
+            Base name for output files  if ``None`` or empty, the movie's
+            *stem* is used.  For example, movie `clip.temi` → `clip_0001.tiff`,
+            `clip_0002.tiff`, … or `clip_0001.png`, `clip_0002.png`, …
+
+        Returns
+        -------
+        (list[Path], list[float], list[float])
+            *Absolute* paths of written image files, their corresponding focus
+            scores, and highest pixel values (same order).
+        sion extracts **every frame** from a proprietary *TemI* movie, saves
 each frame to an individual TIFF, and returns the filename list **plus a per-
 frame focus score**.  Filenames are based on a *stub* that you supply (or the
 movies own name if you leave it blank).
@@ -12,11 +27,11 @@ Focus score algorithm
 A simple, fast, no-dependency metric:
 * **Variance of the Laplacian** high-frequency content indicates sharp focus.
   For an NxM grayscale image *I* the discrete Laplacian is approximated by
-  
+
   $$ \nabla^2 I = -4I_{i,j} + I_{i-1,j}+I_{i+1,j}+I_{i,j-1}+I_{i,j+1} $$
   and the focus score is the population variance of that response.
 
-No OpenCV/SciPy needed – implemented with NumPy slicing.
+No OpenCV/SciPy needed  implemented with NumPy slicing.
 """
 
 from __future__ import annotations
@@ -30,6 +45,7 @@ from typing import Iterator, List, Tuple
 
 import numpy as np
 from PIL import Image, TiffImagePlugin
+from PIL.PngImagePlugin import PngInfo
 
 # ---------------------------------------------------------------------------
 # TemI constants (from movie2tiff_v2.c)
@@ -114,16 +130,23 @@ class FrameHeader:
 # Main extractor class
 # ---------------------------------------------------------------------------
 class Movie2Tiff:
-    """Extract every frame from a TemI movie to TIFF and return focus scores."""
+    """Extract every frame from a TemI movie to TIFF or PNG and return focus scores."""
 
-    def __init__(self, compression: str = "tiff_lzw", downsample: bool = True, convert_8bit: bool = True) -> None:
+    def __init__(self, compression: str = "tiff_lzw", downsample: bool = True, convert_8bit: bool = True, output_format: str = "tiff") -> None:
         compression = compression.lower()
-        if compression not in _LOSSLESS_TIFF:
+        output_format = output_format.lower()
+        
+        if output_format not in ["tiff", "png"]:
+            raise ValueError(f"Unsupported output format '{output_format}'. Choose from 'tiff', 'png'")
+        
+        if output_format == "tiff" and compression not in _LOSSLESS_TIFF:
             raise ValueError(
                 f"Unsupported compression '{compression}'. Choose from {', '.join(sorted(_LOSSLESS_TIFF))}")
+        
         self.compression = compression
         self.downsample = downsample
         self.convert_8bit = convert_8bit
+        self.output_format = output_format
 
     # ------------------------------------------------------------------
     # Public API
@@ -178,9 +201,11 @@ class Movie2Tiff:
             score = self._calculate_focus_score(arr)
             scores.append(score)
 
-            out_name = f"{stub_p.stem}_{idx:0{width_pad}d}.tiff"
+            # Determine file extension based on output format
+            ext = "png" if self.output_format == "png" else "tiff"
+            out_name = f"{stub_p.stem}_{idx:0{width_pad}d}.{ext}"
             out_path = out_dir / out_name
-            self._save_tiff(arr, out_path, hdr, extra, score)
+            self._save_image(arr, out_path, hdr, extra, score)
             filenames.append(out_path.resolve())
 
         return filenames, scores
@@ -270,7 +295,7 @@ class Movie2Tiff:
             raise ValueError(f"Unknown downsampling method: {method}")
     
     @staticmethod
-    def _convert_to_8bit(arr: np.ndarray, method: str = "percentile") -> np.ndarray:
+    def _convert_to_8bit(arr: np.ndarray, method: str = "linear") -> np.ndarray:
         """Convert 16-bit array to 8-bit using various normalization methods."""
         if arr.dtype == np.uint8:
             return arr  # Already 8-bit
@@ -366,7 +391,21 @@ class Movie2Tiff:
 
         raise NotImplementedError(f"Unsupported pixel format 0x{hdr.pixelformat:08X}")
 
-    # -------------- TIFF writing ---------------
+    # -------------- Image writing ---------------
+    def _save_image(
+        self,
+        arr: np.ndarray,
+        path: Path,
+        hdr: FrameHeader,
+        extra: bytes,
+        focus_score: float,
+    ) -> None:
+        """Save image as TIFF or PNG based on output_format setting."""
+        if self.output_format == "png":
+            self._save_png(arr, path, hdr, extra, focus_score)
+        else:
+            self._save_tiff(arr, path, hdr, extra, focus_score)
+
     def _save_tiff(
         self,
         arr: np.ndarray,
@@ -405,20 +444,154 @@ class Movie2Tiff:
             tiffinfo=ifd,
         )
 
+    def _save_png(
+        self,
+        arr: np.ndarray,
+        path: Path,
+        hdr: FrameHeader,
+        extra: bytes,
+        focus_score: float,
+    ) -> None:
+        # PNG only supports 8-bit, so always convert if needed
+        if arr.dtype != np.uint8:
+            arr = self._convert_to_8bit(arr, method="percentile")
+        
+        # Explicitly create grayscale image from 8-bit array
+        img = Image.fromarray(arr, mode='L')  # 'L' mode ensures grayscale
+        
+        # Create metadata for PNG (stored as text chunks)
+        meta_json = json.loads(hdr.to_json(extra))
+        meta_json["focus_var_lap"] = focus_score
+        
+        # Add processing metadata
+        if self.downsample:
+            meta_json["processed_downsampled"] = True
+            meta_json["downsampling_factor"] = 0.5
+        if self.convert_8bit:
+            meta_json["processed_8bit_conversion"] = True
+        
+        # PNG metadata - handle different Pillow versions
+        try:
+            pnginfo = PngInfo()
+            pnginfo.add_text("Description", json.dumps(meta_json, indent=2))
+            pnginfo.add_text("DateTime", hdr.timestamp.strftime("%Y:%m:%d %H:%M:%S"))
+            pnginfo.add_text("FocusScore", str(focus_score))
+            
+            img.save(
+                str(path),
+                format="PNG",
+                pnginfo=pnginfo,
+                optimize=True  # Optimize PNG file size
+            )
+        except (AttributeError, NameError):
+            # Fallback for older Pillow versions without proper PNG metadata support
+            print("Warning: PNG metadata not supported in this Pillow version, saving without metadata")
+            img.save(
+                str(path),
+                format="PNG",
+                optimize=True
+            )
+
 
 # ---------------------------------------------------------------------------
 # CLI entry (optional)
 # ---------------------------------------------------------------------------
 if __name__ == "__main__":
     import argparse
+    import glob
 
-    p = argparse.ArgumentParser(description="Extract every frame of a TemI movie to TIFFs with focus scores")
-    p.add_argument("movie", help="TemI movie file")
-    p.add_argument("stub", nargs="?", default="", help="Filename stub (default = movie stem)")
-    p.add_argument("-c", "--compression", default="tiff_lzw", help="TIFF compression")
+    p = argparse.ArgumentParser(description="Extract every frame of TemI movies to TIFFs or PNGs with focus scores")
+    
+    # Movie input - can be single file or pattern for batch processing
+    p.add_argument("movie", help="TemI movie file or glob pattern (e.g., '*.temi', 'movies/*.temi')")
+    p.add_argument("stub", nargs="?", default="", help="Filename stub for single file (ignored in batch mode)")
+    
+    # Processing options
+    p.add_argument("-c", "--compression", default="tiff_lzw", help="TIFF compression (ignored for PNG)")
+    p.add_argument("-f", "--format", default="tiff", choices=["tiff", "png"], help="Output format")
+    p.add_argument("--no-downsample", action="store_true", help="Disable downsampling to 25% area")
+    p.add_argument("--no-8bit", action="store_true", help="Disable 8-bit conversion")
+    
+    # Batch processing options
+    p.add_argument("-b", "--batch", action="store_true", 
+                   help="Enable batch mode - treat 'movie' argument as glob pattern")
+    p.add_argument("--output-dir", help="Output directory for batch processing (default: same as input)")
+    p.add_argument("--dry-run", action="store_true", help="Show what files would be processed without actually processing")
+    p.add_argument("-v", "--verbose", action="store_true", help="Verbose output during batch processing")
+    
     args = p.parse_args()
 
-    conv = Movie2Tiff(compression=args.compression)
-    files, scores = conv.convert(args.movie, args.stub)
-    for fp, sc in zip(files, scores):
-        print(f"{fp.name}\tfocus={sc:.1f}")
+    # Determine if we're in batch mode
+    batch_mode = args.batch or ('*' in args.movie or '?' in args.movie)
+    
+    if batch_mode:
+        # Batch processing
+        movie_files = glob.glob(args.movie)
+        if not movie_files:
+            print(f"No files found matching pattern: {args.movie}")
+            exit(1)
+        
+        movie_files.sort()  # Process in alphabetical order
+        
+        if args.dry_run:
+            print(f"Would process {len(movie_files)} files:")
+            for movie_file in movie_files:
+                print(f"  {movie_file}")
+            exit(0)
+        
+        print(f"Processing {len(movie_files)} movie files...")
+        
+        conv = Movie2Tiff(
+            compression=args.compression,
+            output_format=args.format,
+            downsample=not args.no_downsample,
+            convert_8bit=not args.no_8bit
+        )
+        
+        total_files = 0
+        total_scores = []
+        
+        for i, movie_file in enumerate(movie_files, 1):
+            if args.verbose:
+                print(f"\n[{i}/{len(movie_files)}] Processing: {Path(movie_file).name}")
+            
+            try:
+                # For batch mode, use output directory if specified
+                if args.output_dir:
+                    output_dir = Path(args.output_dir)
+                    output_dir.mkdir(parents=True, exist_ok=True)
+                    # Use movie filename as stub in the output directory
+                    stub = output_dir / Path(movie_file).stem
+                else:
+                    # Use default behavior (same directory as movie, movie stem as stub)
+                    stub = ""
+                
+                files, scores = conv.convert(movie_file, stub)
+                total_files += len(files)
+                total_scores.extend(scores)
+                
+                if args.verbose:
+                    print(f"  Generated {len(files)} frames, avg focus: {np.mean(scores):.1f}")
+                else:
+                    print(f"{Path(movie_file).name}: {len(files)} frames")
+                    
+            except Exception as e:
+                print(f"Error processing {movie_file}: {e}")
+                continue
+        
+        print(f"\nBatch complete: {total_files} total frames from {len(movie_files)} movies")
+        if total_scores:
+            print(f"Overall focus stats - Mean: {np.mean(total_scores):.1f}, "
+                  f"Min: {min(total_scores):.1f}, Max: {max(total_scores):.1f}")
+    
+    else:
+        # Single file processing (original behavior)
+        conv = Movie2Tiff(
+            compression=args.compression,
+            output_format=args.format,
+            downsample=not args.no_downsample,
+            convert_8bit=not args.no_8bit
+        )
+        files, scores, _ = conv.convert(args.movie, args.stub)
+        for fp, sc in zip(files, scores):
+            print(f"{fp.name}\tfocus={sc:.1f}")
