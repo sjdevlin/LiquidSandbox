@@ -6,8 +6,7 @@ matplotlib
 pyueye
 pySerial
 numpy
-opencv-python
-pillow
 scikit-image
 scipy
 opencv-python
+requests

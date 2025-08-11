@@ -1,4 +1,5 @@
 from models import Experiment, Sample
+from services import AppConfig, ImageProcessor
 
 class ImageRunListPresenter():
     def __init__(self, view, db):
@@ -47,6 +48,9 @@ class ImageRunListPresenter():
         
         # Create a new window to display the log file in real time.
         log_window = LogView(self.view.root_window, log_file_path)
+
+        self.image_processor = ImageProcessor(db_service=self.db, match_tolerance = 10)  
+        self.image_processor.analyze(self.selected_res_row)
 
         pass
         

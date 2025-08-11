@@ -49,10 +49,11 @@ script_template: ./opentrons_protocols/template.json
 script_output_path: ./opentrons_protocols/script
 
 #Image file settings
-image_file_type: tiff
-image_file_compression: lzw
-movie_file_directory: /home/sd2030/data
+movie_file_directory: /Volumes/T7/Temika/Movies/
 movie_extension: .movie
-#local_file_path: /Users/dev
-#local_file_path: /home/sd2030
-local_file_path: /Volumes/TOSHIBA EXT/Temika_Data
+local_file_path: /Volumes/T7/Temika/Images/png/
+
+
+# Roboflow settings
+image_processing_workflow_name: test-validation-set/detect-count-and-visualize-3
+roboflow_api_key: TMlSASZ8SV6bioL6KYD3

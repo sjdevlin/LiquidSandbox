@@ -120,6 +120,17 @@ class DatabaseService:
             session.commit()
             return True
 
+    def update_image(self, image):
+        with self.Session() as session:
+            session.merge(image)  # Merges the detached object into the session
+            session.commit()
+            return True
+
+    def delete_image_run(self, image_run_id):
+        with self.Session() as session:
+            image_run = session.query(ImageRun).filter_by(id=image_run_id).first()
+            session.delete(image_run)
+            session.commit()
 
 
 """
