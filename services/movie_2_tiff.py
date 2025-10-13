@@ -16,25 +16,15 @@ Process **all** frames and return filenames + focus scores.
         -------
         (list[Path], list[float], list[float])
             *Absolute* paths of written image files, their corresponding focus
-            scores, and highest pixel values (same order).
-        sion extracts **every frame** from a proprietary *TemI* movie, saves
-each frame to an individual TIFF, and returns the filename list **plus a per-
-frame focus score**.  Filenames are based on a *stub* that you supply (or the
-movies own name if you leave it blank).
+            scores, and highest pixel values (same order). 
+            Extracts **every frame** from a proprietary *TemI* movie, saves
+            each frame to an individual TIFF or PNG , and returns the filename list **plus a per-frame focus score**.  
+            Filenames are based on a *stub* supplied (or themovies own name if you leave it blank).
 
 Focus score algorithm
 ---------------------
-A simple, fast, no-dependency metric:
 * **Variance of the Laplacian** high-frequency content indicates sharp focus.
-  For an NxM grayscale image *I* the discrete Laplacian is approximated by
-
-  $$ \nabla^2 I = -4I_{i,j} + I_{i-1,j}+I_{i+1,j}+I_{i,j-1}+I_{i,j+1} $$
-  and the focus score is the population variance of that response.
-
-No OpenCV/SciPy needed  implemented with NumPy slicing.
 """
-
-from __future__ import annotations
 
 import json
 import struct
@@ -48,7 +38,7 @@ from PIL import Image, TiffImagePlugin
 from PIL.PngImagePlugin import PngInfo
 
 # ---------------------------------------------------------------------------
-# TemI constants (from movie2tiff_v2.c)
+# TemI constants (these are taken from Jurij's code: movie2tiff_v2.c)
 # ---------------------------------------------------------------------------
 CAMERA_MOVIE_MAGIC = 0x496D6554  # 'TemI' little-endian
 CAMERA_HEADER_LEN = 56

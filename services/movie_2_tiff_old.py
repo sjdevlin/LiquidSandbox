@@ -2,8 +2,8 @@
 movie2tiff.py – Proprietary “TemI” movie → TIFF converter
 =========================================================
 
-A faithful Python rewrite of *movie2tiff_v2.c* that understands the bespoke
-“TemI” movie container produced by the original camera software.  It extracts
+A Python rewrite of *movie2tiff_v2.c* that decodes the 
+“TemI” movie container produced by the Jurijscope.  It extracts
 **the first frame only**, writes it as a single‑page TIFF with **loss‑less
 compression** (LZW by default) **and embeds all original header fields as JSON
 metadata** so nothing is lost.
@@ -29,7 +29,6 @@ conv = Movie2Tiff(compression='tiff_zip')
 ```
 """
 
-from __future__ import annotations
 
 import json
 import struct
