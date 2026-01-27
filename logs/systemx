@@ -1622,3 +1622,223 @@
 2025-07-24 15:16:59 - INFO - Autofocus set to ON
 2025-07-24 15:16:59 - INFO - Autofocus set to OFF
 2025-07-24 15:17:07 - INFO - Imaging complete
+2026-01-27 15:49:59 - INFO - TemikaCameraAdapter initialized.
+2026-01-27 16:20:32 - INFO - TemikaCameraAdapter initialized.
+2026-01-27 16:20:32 - INFO - Selected illumination 1 with intensity 0.3
+2026-01-27 16:20:52 - INFO - Started imaging run for experiment 2 with image set 1
+2026-01-27 16:20:52 - INFO - Autofocus set to OFF
+2026-01-27 16:20:54 - INFO - Processing sample 37 at well (2, 2)
+2026-01-27 16:21:06 - INFO - Taking image stack for sample 37 at well (2, 2), site 0
+2026-01-27 16:21:06 - ERROR - Encountered 'ERROR' in data. Halting process for manual intervention.
+2026-01-27 16:27:24 - INFO - TemikaCameraAdapter initialized.
+2026-01-27 16:27:24 - INFO - Selected illumination 1 with intensity 0.3
+2026-01-27 16:28:19 - INFO - Started imaging run for experiment 2 with image set 2
+2026-01-27 16:28:19 - INFO - Autofocus set to OFF
+2026-01-27 16:28:21 - INFO - Processing sample 37 at well (2, 2)
+2026-01-27 16:28:25 - INFO - Taking image stack for sample 37 at well (2, 2), site 0
+2026-01-27 16:28:25 - ERROR - Encountered 'ERROR' in data. Halting process for manual intervention.
+2026-01-27 16:30:09 - INFO - TemikaCameraAdapter initialized.
+2026-01-27 16:30:09 - INFO - Selected illumination 1 with intensity 0.3
+2026-01-27 16:30:12 - INFO - Started imaging run for experiment 2 with image set 2
+2026-01-27 16:30:12 - INFO - Autofocus set to OFF
+2026-01-27 16:30:14 - INFO - Processing sample 37 at well (2, 2)
+2026-01-27 16:30:18 - INFO - Taking image stack for sample 37 at well (2, 2), site 0
+2026-01-27 16:30:18 - ERROR - Encountered 'ERROR' in data. Halting process for manual intervention.
+2026-01-27 16:41:00 - INFO - TemikaCameraAdapter initialized.
+2026-01-27 16:41:59 - INFO - Selected illumination 1 with intensity 0.3
+2026-01-27 16:42:41 - INFO - Started imaging run for experiment 2 with image set 2
+2026-01-27 16:42:41 - INFO - Autofocus set to OFF
+2026-01-27 16:42:44 - INFO - Processing sample 37 at well (2, 2)
+2026-01-27 16:42:48 - INFO - Taking image stack for sample 37 at well (2, 2), site 0
+2026-01-27 16:42:48 - ERROR - Encountered 'ERROR' in data. Halting process for manual intervention.
+2026-01-27 16:48:21 - INFO - TemikaCameraAdapter initialized.
+2026-01-27 16:48:21 - INFO - Selected illumination 1 with intensity 0.3
+2026-01-27 16:48:23 - INFO - Started imaging run for experiment 2 with image set 2
+2026-01-27 16:48:23 - INFO - Autofocus set to OFF
+2026-01-27 16:48:25 - INFO - Processing sample 37 at well (2, 2)
+2026-01-27 16:48:29 - INFO - Taking image stack for sample 37 at well (2, 2), site 0
+2026-01-27 16:48:29 - ERROR - Encountered 'ERROR' in data. Halting process for manual intervention.
+2026-01-27 16:50:42 - INFO - TemikaCameraAdapter initialized.
+2026-01-27 16:50:42 - INFO - Selected illumination 1 with intensity 0.3
+2026-01-27 16:50:44 - INFO - Started imaging run for experiment 2 with image set 2
+2026-01-27 16:50:44 - INFO - Autofocus set to OFF
+2026-01-27 16:50:46 - INFO - Processing sample 37 at well (2, 2)
+2026-01-27 16:50:50 - INFO - Taking image stack for sample 37 at well (2, 2), site 0
+2026-01-27 16:51:11 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/11_2_2_0.movie at site number 0 for sample 37
+2026-01-27 16:51:16 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/11_2_2_0.movie
+2026-01-27 16:51:28 - INFO - Taking image stack for sample 37 at well (2, 2), site 1
+2026-01-27 16:51:47 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/11_2_2_1.movie at site number 1 for sample 37
+2026-01-27 16:51:49 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/11_2_2_1.movie
+2026-01-27 16:52:01 - INFO - Taking image stack for sample 37 at well (2, 2), site 2
+2026-01-27 16:52:20 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/11_2_2_2.movie at site number 2 for sample 37
+2026-01-27 16:52:22 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/11_2_2_2.movie
+2026-01-27 16:52:34 - INFO - Processing sample 38 at well (2, 3)
+2026-01-27 16:52:42 - INFO - Taking image stack for sample 38 at well (2, 3), site 0
+2026-01-27 16:53:01 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/11_2_3_0.movie at site number 0 for sample 38
+2026-01-27 16:53:03 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/11_2_3_0.movie
+2026-01-27 16:53:15 - INFO - Taking image stack for sample 38 at well (2, 3), site 1
+2026-01-27 16:53:35 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/11_2_3_1.movie at site number 1 for sample 38
+2026-01-27 16:53:40 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/11_2_3_1.movie
+2026-01-27 16:53:52 - INFO - Taking image stack for sample 38 at well (2, 3), site 2
+2026-01-27 16:54:12 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/11_2_3_2.movie at site number 2 for sample 38
+2026-01-27 16:54:16 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/11_2_3_2.movie
+2026-01-27 18:19:23 - INFO - TemikaCameraAdapter initialized.
+2026-01-27 18:19:23 - INFO - Selected illumination 1 with intensity 0.3
+2026-01-27 18:19:26 - INFO - Started imaging run for experiment 2 with image set 2
+2026-01-27 18:19:26 - INFO - Autofocus set to OFF
+2026-01-27 18:19:28 - INFO - Processing sample 37 at well (2, 2)
+2026-01-27 18:19:33 - INFO - Taking image stack for sample 37 at well (2, 2), site 0
+2026-01-27 18:19:54 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/12_2_2_0.movie at site number 0 for sample 37
+2026-01-27 18:19:57 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/12_2_2_0.movie
+2026-01-27 18:20:09 - INFO - Taking image stack for sample 37 at well (2, 2), site 1
+2026-01-27 18:26:39 - INFO - TemikaCameraAdapter initialized.
+2026-01-27 18:26:39 - INFO - Selected illumination 1 with intensity 0.3
+2026-01-27 18:26:42 - INFO - Started imaging run for experiment 2 with image set 2
+2026-01-27 18:26:42 - INFO - Autofocus set to OFF
+2026-01-27 18:26:44 - INFO - Processing sample 37 at well (2, 2)
+2026-01-27 18:27:06 - INFO - Taking image stack for sample 37 at well (2, 2), site 0
+2026-01-27 18:27:45 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_2_0.movie at site number 0 for sample 37
+2026-01-27 18:27:48 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_2_0.movie
+2026-01-27 18:28:21 - INFO - Taking image stack for sample 37 at well (2, 2), site 1
+2026-01-27 18:29:00 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_2_1.movie at site number 1 for sample 37
+2026-01-27 18:29:03 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_2_1.movie
+2026-01-27 18:29:35 - INFO - Taking image stack for sample 37 at well (2, 2), site 2
+2026-01-27 18:30:15 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_2_2.movie at site number 2 for sample 37
+2026-01-27 18:30:19 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_2_2.movie
+2026-01-27 18:30:51 - INFO - Processing sample 38 at well (2, 3)
+2026-01-27 18:30:58 - INFO - Taking image stack for sample 38 at well (2, 3), site 0
+2026-01-27 18:31:37 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_3_0.movie at site number 0 for sample 38
+2026-01-27 18:31:41 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_3_0.movie
+2026-01-27 18:32:14 - INFO - Taking image stack for sample 38 at well (2, 3), site 1
+2026-01-27 18:32:54 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_3_1.movie at site number 1 for sample 38
+2026-01-27 18:32:57 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_3_1.movie
+2026-01-27 18:33:29 - INFO - Taking image stack for sample 38 at well (2, 3), site 2
+2026-01-27 18:34:08 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_3_2.movie at site number 2 for sample 38
+2026-01-27 18:34:12 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_3_2.movie
+2026-01-27 18:34:44 - INFO - Processing sample 39 at well (2, 4)
+2026-01-27 18:34:51 - INFO - Taking image stack for sample 39 at well (2, 4), site 0
+2026-01-27 18:35:30 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_4_0.movie at site number 0 for sample 39
+2026-01-27 18:35:33 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_4_0.movie
+2026-01-27 18:36:06 - INFO - Taking image stack for sample 39 at well (2, 4), site 1
+2026-01-27 18:36:45 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_4_1.movie at site number 1 for sample 39
+2026-01-27 18:36:48 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_4_1.movie
+2026-01-27 18:37:20 - INFO - Taking image stack for sample 39 at well (2, 4), site 2
+2026-01-27 18:38:01 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_4_2.movie at site number 2 for sample 39
+2026-01-27 18:38:04 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_4_2.movie
+2026-01-27 18:38:37 - INFO - Processing sample 40 at well (2, 5)
+2026-01-27 18:38:44 - INFO - Taking image stack for sample 40 at well (2, 5), site 0
+2026-01-27 18:39:24 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_5_0.movie at site number 0 for sample 40
+2026-01-27 18:39:28 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_5_0.movie
+2026-01-27 18:40:00 - INFO - Taking image stack for sample 40 at well (2, 5), site 1
+2026-01-27 18:40:41 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_5_1.movie at site number 1 for sample 40
+2026-01-27 18:40:45 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_5_1.movie
+2026-01-27 18:41:17 - INFO - Taking image stack for sample 40 at well (2, 5), site 2
+2026-01-27 18:41:59 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_5_2.movie at site number 2 for sample 40
+2026-01-27 18:42:03 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_5_2.movie
+2026-01-27 18:42:35 - INFO - Processing sample 41 at well (2, 6)
+2026-01-27 18:42:42 - INFO - Taking image stack for sample 41 at well (2, 6), site 0
+2026-01-27 18:43:21 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_6_0.movie at site number 0 for sample 41
+2026-01-27 18:43:25 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_6_0.movie
+2026-01-27 18:43:57 - INFO - Taking image stack for sample 41 at well (2, 6), site 1
+2026-01-27 18:44:37 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_6_1.movie at site number 1 for sample 41
+2026-01-27 18:44:40 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_6_1.movie
+2026-01-27 18:45:12 - INFO - Taking image stack for sample 41 at well (2, 6), site 2
+2026-01-27 18:45:53 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_6_2.movie at site number 2 for sample 41
+2026-01-27 18:45:56 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_6_2.movie
+2026-01-27 18:46:28 - INFO - Processing sample 42 at well (2, 7)
+2026-01-27 18:46:35 - INFO - Taking image stack for sample 42 at well (2, 7), site 0
+2026-01-27 18:47:15 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_7_0.movie at site number 0 for sample 42
+2026-01-27 18:47:18 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_7_0.movie
+2026-01-27 18:47:50 - INFO - Taking image stack for sample 42 at well (2, 7), site 1
+2026-01-27 18:48:30 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_7_1.movie at site number 1 for sample 42
+2026-01-27 18:48:33 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_7_1.movie
+2026-01-27 18:49:06 - INFO - Taking image stack for sample 42 at well (2, 7), site 2
+2026-01-27 18:49:47 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_7_2.movie at site number 2 for sample 42
+2026-01-27 18:49:50 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_7_2.movie
+2026-01-27 18:50:22 - INFO - Processing sample 43 at well (2, 8)
+2026-01-27 18:50:29 - INFO - Taking image stack for sample 43 at well (2, 8), site 0
+2026-01-27 18:51:09 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_8_0.movie at site number 0 for sample 43
+2026-01-27 18:51:12 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_8_0.movie
+2026-01-27 18:51:45 - INFO - Taking image stack for sample 43 at well (2, 8), site 1
+2026-01-27 18:52:24 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_8_1.movie at site number 1 for sample 43
+2026-01-27 18:52:28 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_8_1.movie
+2026-01-27 18:53:00 - INFO - Taking image stack for sample 43 at well (2, 8), site 2
+2026-01-27 18:53:40 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/13_2_8_2.movie at site number 2 for sample 43
+2026-01-27 18:53:43 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/13_2_8_2.movie
+2026-01-27 18:54:16 - INFO - Processing sample 44 at well (2, 9)
+2026-01-27 18:54:23 - INFO - Taking image stack for sample 44 at well (2, 9), site 0
+2026-01-27 19:01:36 - INFO - TemikaCameraAdapter initialized.
+2026-01-27 19:01:36 - INFO - Selected illumination 1 with intensity 0.3
+2026-01-27 19:01:40 - INFO - Started imaging run for experiment 2 with image set 2
+2026-01-27 19:01:40 - INFO - Autofocus set to OFF
+2026-01-27 19:01:42 - INFO - Processing sample 37 at well (2, 2)
+2026-01-27 19:01:48 - INFO - Taking image stack for sample 37 at well (2, 2), site 0
+2026-01-27 19:02:04 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/14_2_2_0.movie at site number 0 for sample 37
+2026-01-27 19:06:24 - INFO - TemikaCameraAdapter initialized.
+2026-01-27 19:06:24 - INFO - Selected illumination 1 with intensity 0.3
+2026-01-27 19:06:26 - INFO - Started imaging run for experiment 2 with image set 2
+2026-01-27 19:06:26 - INFO - Autofocus set to OFF
+2026-01-27 19:06:28 - INFO - Processing sample 37 at well (2, 2)
+2026-01-27 19:06:33 - INFO - Taking image stack for sample 37 at well (2, 2), site 0
+2026-01-27 19:06:44 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_2_0.movie at site number 0 for sample 37
+2026-01-27 19:06:46 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_2_0.movie
+2026-01-27 19:06:53 - INFO - Taking image stack for sample 37 at well (2, 2), site 1
+2026-01-27 19:07:02 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_2_1.movie at site number 1 for sample 37
+2026-01-27 19:07:05 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_2_1.movie
+2026-01-27 19:07:07 - INFO - Processing sample 38 at well (2, 3)
+2026-01-27 19:07:18 - INFO - Taking image stack for sample 38 at well (2, 3), site 0
+2026-01-27 19:07:28 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_3_0.movie at site number 0 for sample 38
+2026-01-27 19:07:30 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_3_0.movie
+2026-01-27 19:07:36 - INFO - Taking image stack for sample 38 at well (2, 3), site 1
+2026-01-27 19:07:46 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_3_1.movie at site number 1 for sample 38
+2026-01-27 19:07:48 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_3_1.movie
+2026-01-27 19:07:50 - INFO - Processing sample 39 at well (2, 4)
+2026-01-27 19:08:08 - INFO - Taking image stack for sample 39 at well (2, 4), site 0
+2026-01-27 19:08:18 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_4_0.movie at site number 0 for sample 39
+2026-01-27 19:08:20 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_4_0.movie
+2026-01-27 19:08:28 - INFO - Taking image stack for sample 39 at well (2, 4), site 1
+2026-01-27 19:08:37 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_4_1.movie at site number 1 for sample 39
+2026-01-27 19:08:39 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_4_1.movie
+2026-01-27 19:08:48 - INFO - Processing sample 40 at well (2, 5)
+2026-01-27 19:09:09 - INFO - Taking image stack for sample 40 at well (2, 5), site 0
+2026-01-27 19:09:19 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_5_0.movie at site number 0 for sample 40
+2026-01-27 19:09:21 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_5_0.movie
+2026-01-27 19:09:28 - INFO - Taking image stack for sample 40 at well (2, 5), site 1
+2026-01-27 19:09:38 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_5_1.movie at site number 1 for sample 40
+2026-01-27 19:09:40 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_5_1.movie
+2026-01-27 19:09:52 - INFO - Processing sample 41 at well (2, 6)
+2026-01-27 19:10:20 - INFO - Taking image stack for sample 41 at well (2, 6), site 0
+2026-01-27 19:10:30 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_6_0.movie at site number 0 for sample 41
+2026-01-27 19:10:32 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_6_0.movie
+2026-01-27 19:10:39 - INFO - Taking image stack for sample 41 at well (2, 6), site 1
+2026-01-27 19:10:48 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_6_1.movie at site number 1 for sample 41
+2026-01-27 19:10:50 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_6_1.movie
+2026-01-27 19:11:08 - INFO - Processing sample 42 at well (2, 7)
+2026-01-27 19:11:40 - INFO - Taking image stack for sample 42 at well (2, 7), site 0
+2026-01-27 19:11:50 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_7_0.movie at site number 0 for sample 42
+2026-01-27 19:11:52 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_7_0.movie
+2026-01-27 19:11:59 - INFO - Taking image stack for sample 42 at well (2, 7), site 1
+2026-01-27 19:12:09 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_7_1.movie at site number 1 for sample 42
+2026-01-27 19:12:11 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_7_1.movie
+2026-01-27 19:12:33 - INFO - Processing sample 43 at well (2, 8)
+2026-01-27 19:13:11 - INFO - Taking image stack for sample 43 at well (2, 8), site 0
+2026-01-27 19:13:21 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_8_0.movie at site number 0 for sample 43
+2026-01-27 19:13:22 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_8_0.movie
+2026-01-27 19:13:30 - INFO - Taking image stack for sample 43 at well (2, 8), site 1
+2026-01-27 19:13:40 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_8_1.movie at site number 1 for sample 43
+2026-01-27 19:13:41 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_8_1.movie
+2026-01-27 19:14:09 - INFO - Processing sample 44 at well (2, 9)
+2026-01-27 19:14:52 - INFO - Taking image stack for sample 44 at well (2, 9), site 0
+2026-01-27 19:15:02 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_9_0.movie at site number 0 for sample 44
+2026-01-27 19:15:04 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_9_0.movie
+2026-01-27 19:15:11 - INFO - Taking image stack for sample 44 at well (2, 9), site 1
+2026-01-27 19:15:20 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_9_1.movie at site number 1 for sample 44
+2026-01-27 19:15:22 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_9_1.movie
+2026-01-27 19:15:54 - INFO - Processing sample 45 at well (2, 10)
+2026-01-27 19:16:42 - INFO - Taking image stack for sample 45 at well (2, 10), site 0
+2026-01-27 19:16:51 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_10_0.movie at site number 0 for sample 45
+2026-01-27 19:16:57 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_10_0.movie
+2026-01-27 19:17:04 - INFO - Taking image stack for sample 45 at well (2, 10), site 1
+2026-01-27 19:17:13 - INFO - Processing image stack /run/media/sd2030/T7/Temika/Movies/15_2_10_1.movie at site number 1 for sample 45
+2026-01-27 19:17:19 - INFO - Image stack extracted for movie /run/media/sd2030/T7/Temika/Movies/15_2_10_1.movie
+2026-01-27 19:17:57 - INFO - Imaging complete

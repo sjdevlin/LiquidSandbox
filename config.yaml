@@ -9,8 +9,8 @@ robot_ip:
 
 #Camera settings
 camera_type: FLIR
-#camera_name: "Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"
-camera_name: "Genicam FLIR Blackfly S BFS-U3-70S7M 0159F410"
+camera_name: "Genicam FLIR Blackfly S BFS-U3-70S7M 0159F411"
+#camera_name: "Genicam FLIR Blackfly S BFS-U3-70S7M 0159F410"
 exposure_time: 50000 # in microseconds
 image_dimension_x: 1920 # in pixels
 image_dimension_y: 1080 # in pixels
@@ -49,9 +49,10 @@ script_template: ./opentrons_protocols/template.json
 script_output_path: ./opentrons_protocols/script
 
 #Image file settings
-movie_file_directory: /Volumes/T7/Temika/Movies/
+#movie_file_directory: /Volumes/T7/Temika/Movies/
+movie_file_directory: /run/media/sd2030/T7/Temika/Movies
 movie_extension: .movie
-local_file_path: /Volumes/T7/Temika/Images/png/
+local_file_path: /run/media/sd2030/T7/Temika/Images/png/
 
 
 # Roboflow settings

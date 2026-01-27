@@ -38,6 +38,7 @@ class Sample(Base):
     mix_height = Column(Float)  # Height in mm
     pipette = Column(String)  # e.g., "p20", "p300
     surfactant_percent = Column(Float)  # Percentage of surfactant in the solution
+    focus_offset = Column(Float)  # Focus offset for imaging
     image = relationship("Image", backref="sample", cascade="all, delete-orphan", single_parent=True)
 
 

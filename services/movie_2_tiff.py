@@ -122,7 +122,7 @@ class FrameHeader:
 class Movie2Tiff:
     """Extract every frame from a TemI movie to TIFF or PNG and return focus scores."""
 
-    def __init__(self, compression: str = "tiff_lzw", downsample: bool = True, convert_8bit: bool = True, output_format: str = "tiff") -> None:
+    def __init__(self, compression: str = "tiff_lzw", downsample: bool = True, convert_8bit: bool = True, output_format: str = "png") -> None:
         compression = compression.lower()
         output_format = output_format.lower()
         
@@ -165,7 +165,11 @@ class Movie2Tiff:
         """
         movie_p = Path(movie_name)
         if not movie_p.exists():
-            raise FileNotFoundError(movie_p)
+            raise FileNotFoundError(f"Movie file not found: {movie_p}")
+
+        # Check if file is empty
+        if movie_p.stat().st_size == 0:
+            raise ValueError(f"Movie file is empty: {movie_p}")
 
         # Determine stub path
         if not file_stub:
@@ -176,27 +180,42 @@ class Movie2Tiff:
         out_dir = stub_p.parent if stub_p.parent != Path("") else movie_p.parent
         out_dir.mkdir(parents=True, exist_ok=True)
 
-        data = movie_p.read_bytes()
+        try:
+            data = movie_p.read_bytes()
+        except Exception as e:
+            raise ValueError(f"Failed to read movie file {movie_p}: {e}")
+            
         frames = list(self._iterate_frames(data))
         n_frames = len(frames)
         if n_frames == 0:
-            raise ValueError("No TemI frames found")
+            raise ValueError(f"No valid TemI frames found in {movie_p}")
+
+        print(f"Found {n_frames} valid frames in {movie_p}")
 
         width_pad = len(str(n_frames))
         filenames: List[Path] = []
         scores: List[float] = []
 
         for idx, (hdr, extra, mv) in enumerate(frames, start=1):
-            arr = self._decode_frame(hdr, mv)
-            score = self._calculate_focus_score(arr)
-            scores.append(score)
+            try:
+                arr = self._decode_frame(hdr, mv)
+                score = self._calculate_focus_score(arr)
+                scores.append(score)
 
-            # Determine file extension based on output format
-            ext = "png" if self.output_format == "png" else "tiff"
-            out_name = f"{stub_p.stem}_{idx:0{width_pad}d}.{ext}"
-            out_path = out_dir / out_name
-            self._save_image(arr, out_path, hdr, extra, score)
-            filenames.append(out_path.resolve())
+                # Determine file extension based on output format
+                ext = "png" if self.output_format == "png" else "tiff"
+                out_name = f"{stub_p.stem}_{idx:0{width_pad}d}.{ext}"
+                out_path = out_dir / out_name
+                self._save_image(arr, out_path, hdr, extra, score)
+                filenames.append(out_path.resolve())
+            except Exception as e:
+                print(f"Warning: Failed to process frame {idx}: {e}")
+                continue
+
+        if len(filenames) == 0:
+            raise ValueError(f"No frames could be successfully processed from {movie_p}")
+
+        return filenames, scores
 
         return filenames, scores
 
@@ -208,17 +227,54 @@ class Movie2Tiff:
         magic = CAMERA_MOVIE_MAGIC.to_bytes(4, "little")
         off = 0
         total = len(data)
+        frame_count = 0
+        
         while off < total:
             idx = data.find(magic, off)
             if idx == -1:
                 break
-            hdr = FrameHeader.from_bytes(data[idx : idx + CAMERA_HEADER_LEN])
+            
+            # Check if we have enough data for a complete header
+            if idx + CAMERA_HEADER_LEN > total:
+                print(f"Warning: Incomplete header at offset {idx}, skipping remaining data")
+                break
+                
+            try:
+                hdr = FrameHeader.from_bytes(data[idx : idx + CAMERA_HEADER_LEN])
+            except ValueError as e:
+                print(f"Warning: Invalid header at offset {idx}: {e}")
+                off = idx + 4  # Move past this magic number and try again
+                continue
+            
             extra_start = idx + CAMERA_HEADER_LEN
             extra_end = idx + hdr.length_header
-            extra = data[extra_start:extra_end]
             frame_start = extra_end
             frame_end = frame_start + hdr.length_data
-            yield hdr, extra, memoryview(data)[frame_start:frame_end]
+            
+            # Check if we have enough data for the complete frame
+            if frame_end > total:
+                print(f"Warning: Frame {frame_count} extends beyond file end (need {frame_end}, have {total}), skipping")
+                break
+            
+            extra = data[extra_start:extra_end]
+            frame_data = memoryview(data)[frame_start:frame_end]
+            
+            # Additional validation - check if frame data size matches expected size
+            expected_size = hdr.height * hdr.stride
+            if hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_16:
+                expected_size = hdr.height * hdr.width * 2
+            elif hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_32:
+                expected_size = hdr.height * hdr.width * 4
+            elif hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_12_PACKED:
+                expected_size = hdr.height * ((hdr.width + 1) // 2) * 3
+            
+            if len(frame_data) < expected_size:
+                print(f"Warning: Frame {frame_count} data size ({len(frame_data)}) is smaller than expected ({expected_size}), skipping")
+                off = frame_end
+                continue
+            
+            yield hdr, extra, frame_data
+            frame_count += 1
             off = frame_end
 
     # -------------- Focus metric ---------------
@@ -317,11 +373,18 @@ class Movie2Tiff:
     def _decode_frame(self, hdr: FrameHeader, buf: memoryview) -> np.ndarray:
         h, w = hdr.shape
         stride = hdr.stride
+        
+        # Validate buffer size against expected frame data
+        if len(buf) < hdr.length_data:
+            raise ValueError(f"Buffer size ({len(buf)}) is smaller than expected frame data size ({hdr.length_data})")
 
         if hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_8:
             out = np.empty((h, w), dtype=np.uint8)
             for r in range(h):
                 off = r * stride
+                # Check if we have enough data for this row
+                if off + w > len(buf):
+                    raise ValueError(f"Buffer too small for row {r}: need {off + w} bytes, have {len(buf)}")
                 out[r] = np.frombuffer(buf[off : off + w], dtype=np.uint8, count=w)
             
             # Apply downsampling if requested
@@ -334,6 +397,9 @@ class Movie2Tiff:
             out = np.empty((h, w), dtype=np.uint16)
             for r in range(h):
                 off = r * stride
+                # Check if we have enough data for this row (2 bytes per pixel)
+                if off + w * 2 > len(buf):
+                    raise ValueError(f"Buffer too small for row {r}: need {off + w * 2} bytes, have {len(buf)}")
                 row = np.frombuffer(buf[off : off + w * 2], dtype="<u2", count=w)
                 if hdr.endianness == G_BIG_ENDIAN:
                     row = row.byteswap()
@@ -349,9 +415,15 @@ class Movie2Tiff:
             out = np.empty((h, w), dtype=np.uint16)
             for r in range(h):
                 off = r * stride
-                packed = buf[off : off + ((w + 1) // 2) * 3]
+                packed_bytes_per_row = ((w + 1) // 2) * 3
+                # Check if we have enough data for this row
+                if off + packed_bytes_per_row > len(buf):
+                    raise ValueError(f"Buffer too small for row {r}: need {off + packed_bytes_per_row} bytes, have {len(buf)}")
+                packed = buf[off : off + packed_bytes_per_row]
                 j = 0
                 for c in range(0, w, 2):
+                    if j + 3 > len(packed):
+                        raise ValueError(f"Not enough packed data for pixel {c} in row {r}")
                     b0, b1, b2 = packed[j : j + 3]
                     out[r, c] = b0 | ((b1 & 0x0F) << 8)
                     if c + 1 < w:
@@ -368,6 +440,9 @@ class Movie2Tiff:
             out = np.empty((h, w), dtype=np.uint32)
             for r in range(h):
                 off = r * stride
+                # Check if we have enough data for this row (4 bytes per pixel)
+                if off + w * 4 > len(buf):
+                    raise ValueError(f"Buffer too small for row {r}: need {off + w * 4} bytes, have {len(buf)}")
                 row = np.frombuffer(buf[off : off + w * 4], dtype="<u4", count=w)
                 if hdr.endianness == G_BIG_ENDIAN:
                     row = row.byteswap()
