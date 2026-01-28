@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Plot droplet-size metrics for experiment_id = 1.
-
+plt.savefig(output_file, dpi=300, bbox_inches='tight', transparent=True)
 Graphs produced (all in microns):
   1. average_droplet_size   vs mix_cycles
   2. average_droplet_size   vs mix_height
@@ -129,9 +129,27 @@ for xcol, ycol, errcol, xlabel, ylabel, filename in plots:
     ss_res = np.sum((agg_df[ycol] - np.polyval(coeffs, agg_df[xcol]))**2)
     ss_tot = np.sum((agg_df[ycol] - agg_df[ycol].mean())**2)
     r2     = 1 - ss_res/ss_tot
-    ax.text(0.05, 0.95, f"$R^2$ = {r2:.3f}",
-            transform=ax.transAxes, ha="left", va="top",
-            fontsize=9, bbox=dict(boxstyle="round,pad=0.2", fc="white", ec="none"))
+    for xcol, ycol, errcol, xlabel, ylabel, filename in plots:
+        # Create individual figure for each plot
+        fig, ax = plt.subplots(figsize=(8, 6))
+        
+        # Simple scatter plot without error bars
+        ax.scatter(agg_df[xcol], agg_df[ycol], s=50)
+
+        # cosmetics
+        ax.set_xlabel(xlabel, fontsize=12)
+        ax.set_ylabel(ylabel, fontsize=12)
+        ax.set_title(f"Experiment {EXPERIMENT_ID}: {ylabel} vs {xlabel}", fontsize=14)
+        ax.set_xlim(*AX_LIM[xcol])
+        ax.set_ylim(*AX_LIM["avg_um"] if "avg" in ycol else AX_LIM["std_um"])
+        ax.grid(True, linestyle="--", alpha=0.5, axis='y')
+        
+        # Save as PNG file
+        output_file = f"experiment_{EXPERIMENT_ID}_{filename}.png"
+        plt.tight_layout()
+        plt.savefig(output_file, dpi=300, bbox_inches='tight', transparent=True)
+        print(f"Saved: {output_file}")
+        plt.close()  # Close the figure to free memory
 
     # cosmetics
     ax.set_xlabel(xlabel, fontsize=12)
@@ -139,13 +157,13 @@ for xcol, ycol, errcol, xlabel, ylabel, filename in plots:
     ax.set_title(f"Experiment {EXPERIMENT_ID}: {ylabel} vs {xlabel}", fontsize=14)
     ax.set_xlim(*AX_LIM[xcol])
     ax.set_ylim(*AX_LIM["avg_um"] if "avg" in ycol else AX_LIM["std_um"])
-    ax.grid(True, linestyle="--", alpha=0.5)
+    ax.grid(True, linestyle="--", alpha=0.5, axis='y')
     ax.legend(loc="lower right", fontsize=10)
     
     # Save as PNG file
     output_file = f"experiment_{EXPERIMENT_ID}_{filename}.png"
     plt.tight_layout()
-    plt.savefig(output_file, dpi=300, bbox_inches='tight')
+    plt.savefig(output_file, dpi=300, bbox_inches='tight', transparent=True)
     print(f"Saved: {output_file}")
     plt.close()  # Close the figure to free memory
 

@@ -23,7 +23,7 @@ df = pd.read_csv(
 # -----------------------------------------------------------
 well_a = df[df["Well"] == "A"]
 
-fig1, ax1 = plt.subplots(figsize=(10, 5))
+fig1, ax1 = plt.subplots(figsize=(8, 6))
 ax1.plot(well_a["Minute"], well_a["Target"], color="red", label="Target (A)")
 ax1.plot(well_a["Minute"], well_a["Actual"], color="blue", label="Actual (A)")
 
@@ -33,42 +33,11 @@ ax1.set_ylim(20, 70)
 ax1.set_title("Well A – Target vs Actual Temperature")
 ax1.legend()
 ax1.grid(True)
+
+
+    # Save as PNG file
+output_file = "poster.png"
 plt.tight_layout()
-plt.show()
-
-# -----------------------------------------------------------
-# 3. Plot 2 – Wells B, C, D, F: actual temps + target for B
-# -----------------------------------------------------------
-wells_to_plot = ["B", "C", "D", "E"]
-colors_actual = dict(zip(wells_to_plot, ["blue", "green", "orange", "purple"]))
-
-fig2, ax2 = plt.subplots(figsize=(10, 5))
-
-# Actual temperatures for each well
-for well in wells_to_plot:
-    subset = df[df["Well"] == well]
-    ax2.plot(
-        subset["Minute"],
-        subset["Actual"],
-        color=colors_actual[well],
-        label=f"Actual ({well})"
-    )
-
-# Target temperature for well B in red
-well_b = df[df["Well"] == "B"]
-ax2.plot(
-    well_b["Minute"],
-    well_b["Target"],
-    color="red",
-    linewidth=2,
-    label="Target (B)"
-)
-
-ax2.set_xlabel("Elapsed Minute")
-ax2.set_ylabel("Temperature (°C)")
-ax2.set_ylim(20, 70)     
-ax2.set_title("Actual Temperatures – Wells B, C, D, E and Target)")
-ax2.legend()
-ax2.grid(True)
-plt.tight_layout()
-plt.show()
+plt.savefig(output_file, dpi=300, bbox_inches='tight', transparent=True)
+print(f"Saved: {output_file}")
+plt.close()  # Close the figure to free memory
