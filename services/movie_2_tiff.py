@@ -375,32 +375,54 @@ class Movie2Tiff:
         h, w = hdr.shape
         stride = hdr.stride
         
-        # DEBUG: Print pixel format and data range
-        print(f"Frame format: 0x{hdr.pixelformat:08X}, shape: {h}x{w}, dtype will be:", end=" ")
-        
         # Validate buffer size against expected frame data
         if len(buf) < hdr.length_data:
             raise ValueError(f"Buffer size ({len(buf)}) is smaller than expected frame data size ({hdr.length_data})")
 
         if hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_8:
-            print("uint8")
             out = np.empty((h, w), dtype=np.uint8)
-            # ...existing code...
-            print(f"  Data range: [{out.min()}, {out.max()}]")
+            for row in range(h):
+                row_start = row * stride
+                row_end = row_start + w
+                out[row, :] = np.frombuffer(buf[row_start:row_end], dtype=np.uint8, count=w)
             
-            # Apply downsampling if requested
+            print(f"8-bit data range: [{out.min()}, {out.max()}]")
+            
             if self.downsample:
                 out = self._downsample_array(out, method="averaging")
             
             return out
 
         if hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_16:
-            print("uint16")
             out = np.empty((h, w), dtype=np.uint16)
-            # ...existing code...
-            print(f"  Data range: [{out.min()}, {out.max()}] (16-bit max: 65535)")
+            for row in range(h):
+                row_start = row * stride
+                row_end = row_start + w * 2  # 2 bytes per pixel
+                out[row, :] = np.frombuffer(buf[row_start:row_end], dtype=np.uint16, count=w)
             
-            # Apply downsampling if requested
+            print(f"16-bit data range: [{out.min()}, {out.max()}] (max possible: 65535)")
+            
+            if self.downsample:
+                out = self._downsample_array(out, method="averaging")
+            
+            return out
+
+        if hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_12_PACKED:
+            # 12-bit packed: 2 pixels in 3 bytes
+            out = np.empty((h, w), dtype=np.uint16)
+            for row in range(h):
+                row_start = row * stride
+                row_data = bytes(buf[row_start:row_start + stride])
+                for col in range(0, w, 2):
+                    byte_idx = (col // 2) * 3
+                    if byte_idx + 2 < len(row_data):
+                        b0, b1, b2 = row_data[byte_idx:byte_idx + 3]
+                        out[row, col] = (b0 << 4) | (b1 & 0x0F)
+                        if col + 1 < w:
+                            out[row, col + 1] = ((b1 & 0xF0) << 4) | b2
+            
+            print(f"12-bit packed data range: [{out.min()}, {out.max()}] (max possible: 4095)")
+            
             if self.downsample:
                 out = self._downsample_array(out, method="averaging")
             
@@ -433,7 +455,7 @@ class Movie2Tiff:
     ) -> None:
         # Apply 8-bit conversion if requested
         if self.convert_8bit and arr.dtype != np.uint8:
-            arr = self._convert_to_8bit(arr, method="percentile")
+            arr = self._convert_to_8bit(arr, method="histogram_equalization")
         
         img = Image.fromarray(arr)
         try:
