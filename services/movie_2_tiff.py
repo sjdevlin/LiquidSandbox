@@ -164,6 +164,7 @@ class Movie2Tiff:
             scores, and highest pixel values (same order).
         """
         movie_p = Path(movie_name)
+        print(f"Processing movie: {movie_p}")
         if not movie_p.exists():
             raise FileNotFoundError(f"Movie file not found: {movie_p}")
 
@@ -374,18 +375,18 @@ class Movie2Tiff:
         h, w = hdr.shape
         stride = hdr.stride
         
+        # DEBUG: Print pixel format and data range
+        print(f"Frame format: 0x{hdr.pixelformat:08X}, shape: {h}x{w}, dtype will be:", end=" ")
+        
         # Validate buffer size against expected frame data
         if len(buf) < hdr.length_data:
             raise ValueError(f"Buffer size ({len(buf)}) is smaller than expected frame data size ({hdr.length_data})")
 
         if hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_8:
+            print("uint8")
             out = np.empty((h, w), dtype=np.uint8)
-            for r in range(h):
-                off = r * stride
-                # Check if we have enough data for this row
-                if off + w > len(buf):
-                    raise ValueError(f"Buffer too small for row {r}: need {off + w} bytes, have {len(buf)}")
-                out[r] = np.frombuffer(buf[off : off + w], dtype=np.uint8, count=w)
+            # ...existing code...
+            print(f"  Data range: [{out.min()}, {out.max()}]")
             
             # Apply downsampling if requested
             if self.downsample:
@@ -394,59 +395,10 @@ class Movie2Tiff:
             return out
 
         if hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_16:
+            print("uint16")
             out = np.empty((h, w), dtype=np.uint16)
-            for r in range(h):
-                off = r * stride
-                # Check if we have enough data for this row (2 bytes per pixel)
-                if off + w * 2 > len(buf):
-                    raise ValueError(f"Buffer too small for row {r}: need {off + w * 2} bytes, have {len(buf)}")
-                row = np.frombuffer(buf[off : off + w * 2], dtype="<u2", count=w)
-                if hdr.endianness == G_BIG_ENDIAN:
-                    row = row.byteswap()
-                out[r] = row
-            
-            # Apply downsampling if requested
-            if self.downsample:
-                out = self._downsample_array(out, method="averaging")
-            
-            return out
-
-        if hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_12_PACKED:
-            out = np.empty((h, w), dtype=np.uint16)
-            for r in range(h):
-                off = r * stride
-                packed_bytes_per_row = ((w + 1) // 2) * 3
-                # Check if we have enough data for this row
-                if off + packed_bytes_per_row > len(buf):
-                    raise ValueError(f"Buffer too small for row {r}: need {off + packed_bytes_per_row} bytes, have {len(buf)}")
-                packed = buf[off : off + packed_bytes_per_row]
-                j = 0
-                for c in range(0, w, 2):
-                    if j + 3 > len(packed):
-                        raise ValueError(f"Not enough packed data for pixel {c} in row {r}")
-                    b0, b1, b2 = packed[j : j + 3]
-                    out[r, c] = b0 | ((b1 & 0x0F) << 8)
-                    if c + 1 < w:
-                        out[r, c + 1] = (b1 >> 4) | (b2 << 4)
-                    j += 3
-            
-            # Apply downsampling if requested
-            if self.downsample:
-                out = self._downsample_array(out, method="averaging")
-            
-            return out
-
-        if hdr.pixelformat == CAMERA_PIXELFORMAT_MONO_32:
-            out = np.empty((h, w), dtype=np.uint32)
-            for r in range(h):
-                off = r * stride
-                # Check if we have enough data for this row (4 bytes per pixel)
-                if off + w * 4 > len(buf):
-                    raise ValueError(f"Buffer too small for row {r}: need {off + w * 4} bytes, have {len(buf)}")
-                row = np.frombuffer(buf[off : off + w * 4], dtype="<u4", count=w)
-                if hdr.endianness == G_BIG_ENDIAN:
-                    row = row.byteswap()
-                out[r] = row
+            # ...existing code...
+            print(f"  Data range: [{out.min()}, {out.max()}] (16-bit max: 65535)")
             
             # Apply downsampling if requested
             if self.downsample:
@@ -657,6 +609,6 @@ if __name__ == "__main__":
             downsample=not args.no_downsample,
             convert_8bit=not args.no_8bit
         )
-        files, scores, _ = conv.convert(args.movie, args.stub)
+        files, scores = conv.convert(args.movie, args.stub)
         for fp, sc in zip(files, scores):
             print(f"{fp.name}\tfocus={sc:.1f}")
