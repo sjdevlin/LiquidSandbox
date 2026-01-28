@@ -126,11 +126,11 @@ class FlirCameraAdapter(BaseCamera):
     def start_recording(self):        
         command = f"<camera name=\"{self.camera_name}\">"
         command += "<record>ON</record>"
-        command += "</camera>\n"
+        command += "</camera>"
         self.temika_comms.send_command(command)
 
     def stop_recording(self):        
         command = f"<camera name=\"{self.camera_name}\">"
         command += "<record>OFF</record>"
-        command += "</camera>\n"
+        command += "</camera>"
         self.temika_comms.send_command(command)

@@ -23,7 +23,7 @@ class ImageRunOperator:
 
         self.illumination_controller.illumination_setup(self.app_config.get("illumination_led_number", 1),
                                                          self.app_config.get("illumination_intensity", 0.3))
-        self.camera_controller.set_shutter_speed(self.app_config.get("shutter_speed", 10000))
+        self.camera_controller.set_shutter_speed(self.app_config.get("shutter_speed", 30000))
         self.movie_path = self.app_config.get("movie_file_directory", "./")
 
 
@@ -76,12 +76,13 @@ class ImageRunOperator:
                 self.camera_controller.set_filename(filename)
 
                 self._move_stage_to_site(sample, site_number)
-                self._readjust_focus()
+                self.focus_position = sample.focus_offset
+                self.focus_controller.move_z(self.focus_position)  # Move to sample specific focus position
 
                 self._take_stack(sample, site_number)
                 movie_filename = f"{filename}{self.app_config.get('movie_extension', '.movie')}"
                 self._process_stack(movie_filename, sample, site_number)
-                self._readjust_focus()
+#                self._readjust_focus()
 
             self.focus_controller.move_z(self.move_position)  # Drop Z for next major move
 
@@ -128,14 +129,32 @@ class ImageRunOperator:
         This method can be extended to include more sophisticated focus adjustments if needed.
         """
         self.focus_controller.move_z(self.focus_position)  # Return to last focus
-        self.focus_controller.autofocus(True)  # Enable autofocus to get in position then disable it
-        self.focus_controller.autofocus(False)  # Disable autofocus after getting in position
+        #self.focus_controller.autofocus(True)  # Enable autofocus to get in position then disable it
+        #self.focus_controller.autofocus(False)  # Disable autofocus after getting in position
         self.focus_position = self.focus_controller.get_z()  # Get the current Z position as a reference for focus
 
     def _process_stack(self, movie_filename, sample, site_number):
 
         self.logger.info(f"Processing image stack {movie_filename} at site number {site_number} for sample {sample.id}")
-        filenames, focus_scores = self.converter.convert(movie_name = movie_filename)
+        
+        try:
+            filenames, focus_scores = self.converter.convert(movie_name = movie_filename)
+        except FileNotFoundError:
+            self.logger.error(f"Movie file not found: {movie_filename}")
+            return
+        except ValueError as e:
+            self.logger.error(f"Error processing movie {movie_filename}: {str(e)}")
+            # Check if the file exists and get its size for debugging
+            import os
+            if os.path.exists(movie_filename):
+                file_size = os.path.getsize(movie_filename)
+                self.logger.error(f"File exists but has size: {file_size} bytes")
+            else:
+                self.logger.error(f"Movie file does not exist: {movie_filename}")
+            return
+        except Exception as e:
+            self.logger.error(f"Unexpected error processing movie {movie_filename}: {str(e)}")
+            return
 
         for file, score in zip(filenames, focus_scores):
 
